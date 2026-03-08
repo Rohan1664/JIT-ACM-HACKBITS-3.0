@@ -276,7 +276,10 @@ const Hero = () => {
                 HACK
               </span>
               <span className="text-sky-300 drop-shadow-[0_0_15px_rgba(0,229,255,0.5)]">
-                BITZ 3.0
+                BLITZ 
+              </span>
+              <span className="text-blue-400 drop-shadow-[0_0_15px_rgba(0,229,255,0.5)]">
+                3.0 
               </span>
             </motion.h1>
 

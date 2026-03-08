@@ -12,7 +12,7 @@ const Footer = () => {
 
   const quickLinks = [
     { name: 'Home', href: '#home' },
-    { name: 'Why HackBitz', href: '#whyhackbits' },
+    { name: 'Why HackBlitz', href: '#whyhackbits' },
     { name: 'Event Flow', href: '#eventflow' },
     { name: 'Rules', href: '#rules' },
   ];
@@ -181,13 +181,13 @@ const Footer = () => {
                 transition={{ type: "spring", stiffness: 400 }}
               >
                 <span className="text-sky-300 drop-shadow-[0_0_10px_rgba(56,189,248,0.5)]">HACK</span>
-                <span className="text-sky-300 drop-shadow-[0_0_10px_rgba(56,189,248,0.5)]">BITS</span>
+                <span className="text-sky-300 drop-shadow-[0_0_10px_rgba(56,189,248,0.5)]">BLITZ</span>
                 <span className="text-blue-400 drop-shadow-[0_0_10px_rgba(14,165,233,0.5)]"> 3.0</span>
               </motion.h3>
               
               {/* Description - White text */}
               <p className="text-white/70 text-sm font-space relative">
-                JIT ACM PRESENT
+                JIT ACM STUDENT CHAPTER PRESENT
                 <motion.span 
                   className="absolute -bottom-1 left-0 w-12 h-0.5 bg-gradient-to-r from-sky-300 to-blue-400"
                   initial={{ width: 0 }}
@@ -373,7 +373,7 @@ const Footer = () => {
 
             {/* Copyright text - White */}
             <p className="text-white/50 text-sm font-space relative z-10">
-              © {currentYear} HACKBITS 3.0. All rights reserved. 
+              © {currentYear} HACKBLITZ 3.0. All rights reserved. 
               <motion.span 
                 className="block text-xs mt-1 text-sky-300/50"
                 animate={{ opacity: [0.3, 0.6, 0.3] }}

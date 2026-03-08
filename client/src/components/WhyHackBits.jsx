@@ -180,7 +180,7 @@ const WhyHackBits = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-neon-blue/20 via-neon-magenta/20 to-neon-cyan/20 rounded-full blur-xl"></div>
             <span className="relative px-6 py-2 bg-black/40 backdrop-blur-xl border border-neon-blue/30 rounded-full inline-block">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-blue-300 text-sm font-medium tracking-wider">
-                ✨ WHY HACKBITZ 3.0
+                ✨ WHY HACKBLITZ 3.0
               </span>
             </span>
           </motion.div>
@@ -188,7 +188,7 @@ const WhyHackBits = () => {
           {/* Main Title - Skyblue gradient */}
           <motion.h2 variants={itemVariants} className="font-orbitron text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
             <span className="bg-gradient-to-r from-sky-300 via-blue-300 to-sky-400 bg-clip-text text-transparent">
-              Why HackBitz 3.0?
+              Why HackBlitz 3.0?
             </span>
           </motion.h2>
           
@@ -283,7 +283,7 @@ const WhyHackBits = () => {
         >
           <motion.h3 variants={itemVariants} className="text-center text-2xl font-orbitron mb-12">
             <span className="bg-gradient-to-r from-sky-300 via-blue-300 to-sky-400 bg-clip-text text-transparent">
-              HackBitz by the Numbers
+              HackBlitz by the Numbers
             </span>
           </motion.h3>
 

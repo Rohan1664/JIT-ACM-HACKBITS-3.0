@@ -16,7 +16,7 @@ const EventFlow = () => {
         time: '08:00 AM', 
         endTime: '10:00 AM',
         event: 'Registration & Inauguration', 
-        description: 'Participant registration and ID verification. Inauguration ceremony with guests and faculty. Overview of HACKBITZ 3.0 objectives and theme.',
+        description: 'Participant registration and ID verification. Inauguration ceremony with guests and faculty. Overview of HACKBLITZ 3.0 objectives and theme.',
         location: 'Main Auditorium',
         type: 'ceremony',
         icon: '🎪'
