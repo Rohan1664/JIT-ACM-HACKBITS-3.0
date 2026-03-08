@@ -14,9 +14,10 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Home', href: '#home' },
-    { name: 'Why Hackblitz', href: '#whyhackbits' }, // Display name changed, href remains same
+    { name: 'Why Hackblitz', href: '#whyhackbits' },
     { name: 'Event Flow', href: '#eventflow' },
     { name: 'Rules', href: '#rules' },
+    { name: 'Contact', href: '#contact' } // Changed from '#footer' to '#contact'
   ];
 
   return (
@@ -33,7 +34,7 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex items-center space-x-2">
             <span className="font-orbitron text-xl sm:text-2xl font-bold">
-              <span className="text-white-300 drop-shadow-[0_0_8px_rgba(56,189,248,0.5)]">HACK</span>
+              <span className="text-sky-300 drop-shadow-[0_0_8px_rgba(56,189,248,0.5)]">HACK</span>
               <span className="text-sky-300 drop-shadow-[0_0_8px_rgba(56,189,248,0.5)]">BLITZ</span>
               <span className="text-blue-400 drop-shadow-[0_0_8px_rgba(14,165,233,0.5)]"> 3.0</span>
             </span>

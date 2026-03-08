@@ -85,7 +85,10 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative bg-gradient-to-b from-[#020617] via-[#030b1a] to-[#000000] border-t border-sky-300/20 py-16 overflow-hidden">
+    <footer 
+      id="contact" // Added id for navbar link
+      className="relative bg-gradient-to-b from-[#020617] via-[#030b1a] to-[#000000] border-t border-sky-300/20 py-16 overflow-hidden"
+    >
       {/* Deep Space Background - Updated to skyblue */}
       <div className="absolute inset-0">
         {/* Nebula Effects */}
