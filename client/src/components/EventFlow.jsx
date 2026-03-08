@@ -16,7 +16,7 @@ const EventFlow = () => {
         time: '08:00 AM', 
         endTime: '10:00 AM',
         event: 'Registration & Inauguration', 
-        description: 'Participant registration and ID verification. Inauguration ceremony with guests and faculty. Overview of HACKBITS 3.0 objectives and theme.',
+        description: 'Participant registration and ID verification. Inauguration ceremony with guests and faculty. Overview of HACKBITZ 3.0 objectives and theme.',
         location: 'Main Auditorium',
         type: 'ceremony',
         icon: '🎪'
@@ -219,15 +219,15 @@ const EventFlow = () => {
 
   const getEventTypeColor = (type) => {
     const colors = {
-      ceremony: 'from-neon-blue to-neon-purple',
-      workshop: 'from-neon-cyan to-neon-blue',
-      hacking: 'from-neon-magenta to-neon-purple',
-      break: 'from-neon-purple to-neon-magenta',
-      evaluation: 'from-neon-blue to-neon-magenta',
-      deadline: 'from-neon-magenta to-neon-cyan',
-      presentation: 'from-neon-cyan to-neon-purple'
+      ceremony: 'from-sky-300 to-blue-400',
+      workshop: 'from-sky-300 to-blue-400',
+      hacking: 'from-sky-400 to-blue-500',
+      break: 'from-sky-300 to-blue-400',
+      evaluation: 'from-sky-400 to-blue-500',
+      deadline: 'from-sky-300 to-blue-400',
+      presentation: 'from-sky-300 to-blue-400'
     };
-    return colors[type] || 'from-neon-blue to-neon-cyan';
+    return colors[type] || 'from-sky-300 to-blue-400';
   };
 
   const getEventTypeIcon = (type) => {
@@ -300,7 +300,7 @@ const EventFlow = () => {
         <motion.div 
           className="absolute inset-0"
           style={{
-            background: 'radial-gradient(circle at 20% 30%, rgba(147, 51, 234, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(0, 229, 255, 0.15) 0%, transparent 50%)',
+            background: 'radial-gradient(circle at 20% 30%, rgba(56, 189, 248, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(14, 165, 233, 0.15) 0%, transparent 50%)',
             filter: 'blur(80px)'
           }}
           animate={{
@@ -321,7 +321,7 @@ const EventFlow = () => {
                 height: Math.random() * 4 + 1,
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
-                background: i % 3 === 0 ? '#00E5FF' : i % 3 === 1 ? '#FF00FF' : '#FFFFFF',
+                background: i % 2 === 0 ? '#38BDF8' : '#0EA5E9',
                 filter: 'blur(1px)',
                 opacity: 0.2
               }}
@@ -344,7 +344,7 @@ const EventFlow = () => {
           {[...Array(5)].map((_, i) => (
             <motion.div
               key={`shooting-${i}`}
-              className="absolute h-0.5 w-32 bg-gradient-to-r from-transparent via-white to-transparent"
+              className="absolute h-0.5 w-32 bg-gradient-to-r from-transparent via-sky-300 to-transparent"
               style={{
                 top: `${Math.random() * 60}%`,
                 left: `${Math.random() * 100}%`,
@@ -368,7 +368,7 @@ const EventFlow = () => {
 
         {/* Grid Pattern */}
         <div className="absolute inset-0" style={{
-          backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(0, 229, 255, 0.02) 1px, transparent 0)',
+          backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(56, 189, 248, 0.02) 1px, transparent 0)',
           backgroundSize: '50px 50px'
         }} />
       </div>
@@ -377,9 +377,9 @@ const EventFlow = () => {
       <svg className="absolute top-0 left-1/2 transform -translate-x-1/2 w-full h-full opacity-10 pointer-events-none">
         <defs>
           <linearGradient id="timeline-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#00E5FF" stopOpacity="0.5" />
-            <stop offset="50%" stopColor="#FF00FF" stopOpacity="0.5" />
-            <stop offset="100%" stopColor="#00E5FF" stopOpacity="0.5" />
+            <stop offset="0%" stopColor="#38BDF8" stopOpacity="0.5" />
+            <stop offset="50%" stopColor="#0EA5E9" stopOpacity="0.5" />
+            <stop offset="100%" stopColor="#38BDF8" stopOpacity="0.5" />
           </linearGradient>
         </defs>
         <motion.path
@@ -404,21 +404,23 @@ const EventFlow = () => {
         >
           {/* Section Label with Cosmic Glow */}
           <motion.div variants={itemVariants} className="relative inline-block mb-4">
-            <div className="absolute inset-0 bg-gradient-to-r from-neon-blue/20 via-neon-magenta/20 to-neon-cyan/20 rounded-full blur-xl"></div>
-            <span className="relative px-6 py-2 bg-black/40 backdrop-blur-xl border border-neon-blue/30 rounded-full inline-block">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-neon-magenta text-sm font-medium tracking-wider">
+            <div className="absolute inset-0 bg-gradient-to-r from-sky-300/20 via-sky-400/20 to-blue-400/20 rounded-full blur-xl"></div>
+            <span className="relative px-6 py-2 bg-black/40 backdrop-blur-xl border border-sky-300/30 rounded-full inline-block">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-blue-400 text-sm font-medium tracking-wider">
                 🚀 3-DAY COSMIC JOURNEY
               </span>
             </span>
           </motion.div>
 
+          {/* Main Title - Skyblue gradient */}
           <motion.h2 variants={itemVariants} className="font-orbitron text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-neon-blue via-neon-magenta to-neon-cyan bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-sky-300 via-sky-400 to-blue-400 bg-clip-text text-transparent">
               Event Flow
             </span>
           </motion.h2>
           
-          <motion.p variants={itemVariants} className="text-gray-400 text-lg max-w-2xl mx-auto font-space leading-relaxed">
+          {/* Description - White */}
+          <motion.p variants={itemVariants} className="text-white/80 text-lg max-w-2xl mx-auto font-space leading-relaxed">
             Your 3-day expedition through innovation - every moment counts!
           </motion.p>
         </motion.div>
@@ -433,7 +435,7 @@ const EventFlow = () => {
           <div className="relative group">
             {/* Orbital Glow */}
             <motion.div 
-              className="absolute -inset-2 bg-gradient-to-r from-neon-blue to-neon-magenta rounded-2xl blur-2xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"
+              className="absolute -inset-2 bg-gradient-to-r from-sky-300 to-blue-400 rounded-2xl blur-2xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"
               animate={{
                 scale: [1, 1.05, 1],
                 opacity: [0.3, 0.5, 0.3]
@@ -442,11 +444,11 @@ const EventFlow = () => {
             />
             
             {/* Selector Container */}
-            <div className="relative bg-black/60 backdrop-blur-xl border border-neon-blue/30 rounded-2xl p-2 flex gap-2">
+            <div className="relative bg-black/60 backdrop-blur-xl border border-sky-300/30 rounded-2xl p-2 flex gap-2">
               {[
-                { id: 'day1', label: 'Day 1', date: 'March 24', gradient: 'from-neon-blue to-neon-cyan' },
-                { id: 'day2', label: 'Day 2', date: 'March 25', gradient: 'from-neon-magenta to-neon-purple' },
-                { id: 'day3', label: 'Day 3', date: 'March 26', gradient: 'from-neon-cyan to-neon-magenta' }
+                { id: 'day1', label: 'Day 1', date: 'March 24', gradient: 'from-sky-300 to-blue-400' },
+                { id: 'day2', label: 'Day 2', date: 'March 25', gradient: 'from-sky-400 to-blue-500' },
+                { id: 'day3', label: 'Day 3', date: 'March 26', gradient: 'from-sky-300 to-blue-400' }
               ].map((day) => (
                 <motion.button
                   key={day.id}
@@ -464,10 +466,10 @@ const EventFlow = () => {
                   )}
                   <span className="relative z-10 flex flex-col items-center">
                     <span className={`font-orbitron text-sm md:text-base font-bold ${
-                      selectedDay === day.id ? 'text-white' : 'text-gray-400'
+                      selectedDay === day.id ? 'text-white' : 'text-white/60'
                     }`}>{day.label}</span>
                     <span className={`text-xs ${
-                      selectedDay === day.id ? 'text-white/80' : 'text-gray-500'
+                      selectedDay === day.id ? 'text-sky-300' : 'text-white/40'
                     }`}>{day.date}</span>
                   </span>
                 </motion.button>
@@ -488,9 +490,9 @@ const EventFlow = () => {
           >
             {/* Cosmic Timeline Line */}
             <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-0.5">
-              <div className="absolute inset-0 bg-gradient-to-b from-neon-blue via-neon-magenta to-neon-cyan opacity-30" />
+              <div className="absolute inset-0 bg-gradient-to-b from-sky-300 via-sky-400 to-blue-400 opacity-30" />
               <motion.div 
-                className="absolute inset-0 bg-gradient-to-b from-neon-blue via-neon-magenta to-neon-cyan"
+                className="absolute inset-0 bg-gradient-to-b from-sky-300 via-sky-400 to-blue-400"
                 initial={{ scaleY: 0 }}
                 animate={{ scaleY: 1 }}
                 transition={{ duration: 1.5, ease: "easeInOut" }}
@@ -505,14 +507,14 @@ const EventFlow = () => {
                   style={{ top: `${(index / (schedule[selectedDay].length - 1)) * 100}%` }}
                 >
                   <motion.div 
-                    className="w-full h-full bg-neon-blue rounded-full"
+                    className="w-full h-full bg-sky-300 rounded-full"
                     animate={{
                       scale: [1, 1.8, 1],
                       opacity: [0.5, 1, 0.5],
                       boxShadow: [
-                        '0 0 5px #00E5FF',
-                        '0 0 15px #FF00FF',
-                        '0 0 5px #00E5FF'
+                        '0 0 5px #38BDF8',
+                        '0 0 15px #0EA5E9',
+                        '0 0 5px #38BDF8'
                       ]
                     }}
                     transition={{
@@ -539,13 +541,13 @@ const EventFlow = () => {
                 {/* Timeline Node with Cosmic Glow */}
                 <div className="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-5 h-5 z-10">
                   <motion.div 
-                    className="absolute inset-0 bg-gradient-to-r from-neon-blue to-neon-magenta rounded-full"
+                    className="absolute inset-0 bg-gradient-to-r from-sky-300 to-blue-400 rounded-full"
                     animate={{ 
                       scale: [1, 1.8, 1],
                       boxShadow: [
-                        '0 0 10px rgba(0,229,255,0.5)',
-                        '0 0 30px rgba(255,0,255,0.8)',
-                        '0 0 10px rgba(0,229,255,0.5)'
+                        '0 0 10px rgba(56,189,248,0.5)',
+                        '0 0 30px rgba(14,165,233,0.8)',
+                        '0 0 10px rgba(56,189,248,0.5)'
                       ]
                     }}
                     transition={{ duration: 2, repeat: Infinity, delay: index * 0.2 }}
@@ -558,14 +560,14 @@ const EventFlow = () => {
                   index % 2 === 0 ? 'md:text-right' : 'md:text-left'
                 }`}>
                   <motion.div 
-                    className="inline-block bg-black/40 backdrop-blur-xl border border-neon-blue/30 rounded-xl p-4 hover:border-neon-blue/50 transition-all duration-300"
+                    className="inline-block bg-black/40 backdrop-blur-xl border border-sky-300/30 rounded-xl p-4 hover:border-sky-300/50 transition-all duration-300"
                     whileHover={{ scale: 1.02, x: index % 2 === 0 ? -5 : 5 }}
                   >
-                    <span className="font-orbitron text-lg font-bold bg-gradient-to-r from-neon-blue to-neon-magenta bg-clip-text text-transparent">
+                    <span className="font-orbitron text-lg font-bold bg-gradient-to-r from-sky-300 to-blue-400 bg-clip-text text-transparent">
                       {item.time}
                     </span>
-                    <span className="text-gray-600 text-sm mx-2">→</span>
-                    <span className="font-orbitron text-sm text-gray-400">{item.endTime}</span>
+                    <span className="text-white/40 text-sm mx-2">→</span>
+                    <span className="font-orbitron text-sm text-white/60">{item.endTime}</span>
                   </motion.div>
                 </div>
 
@@ -588,10 +590,10 @@ const EventFlow = () => {
                     />
                     
                     {/* Card */}
-                    <div className="relative bg-black/60 backdrop-blur-xl border border-neon-blue/20 rounded-2xl p-6 hover:border-neon-blue/40 transition-all duration-300 overflow-hidden">
+                    <div className="relative bg-black/60 backdrop-blur-xl border border-sky-300/20 rounded-2xl p-6 hover:border-sky-300/40 transition-all duration-300 overflow-hidden">
                       
                       {/* Cosmic Background Effect */}
-                      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-neon-blue/5 to-neon-magenta/5 rounded-full blur-3xl" />
+                      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-sky-300/5 to-blue-400/5 rounded-full blur-3xl" />
                       
                       {/* Header with Icon */}
                       <div className="flex items-start gap-4 mb-3">
@@ -608,10 +610,12 @@ const EventFlow = () => {
                           />
                         </motion.div>
                         <div className="flex-1">
+                          {/* Event Title - Skyblue gradient */}
                           <h3 className={`font-orbitron text-lg font-bold bg-gradient-to-r ${getEventTypeColor(item.type)} bg-clip-text text-transparent`}>
                             {item.event}
                           </h3>
-                          <p className="text-gray-500 text-xs mt-1 flex items-center gap-1">
+                          {/* Location - White with lower opacity */}
+                          <p className="text-white/50 text-xs mt-1 flex items-center gap-1">
                             <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -621,7 +625,7 @@ const EventFlow = () => {
                         </div>
                       </div>
 
-                      {/* Description (Expandable) */}
+                      {/* Description (Expandable) - White text */}
                       <AnimatePresence>
                         {selectedEvent === index && (
                           <motion.div
@@ -631,7 +635,7 @@ const EventFlow = () => {
                             transition={{ duration: 0.3, ease: "easeInOut" }}
                             className="overflow-hidden"
                           >
-                            <p className="text-gray-400 text-sm font-space leading-relaxed mt-3 pt-3 border-t border-neon-blue/20">
+                            <p className="text-white/70 text-sm font-space leading-relaxed mt-3 pt-3 border-t border-sky-300/20">
                               {item.description}
                             </p>
                           </motion.div>
@@ -640,7 +644,7 @@ const EventFlow = () => {
 
                       {/* Expand/Collapse Indicator */}
                       <motion.button 
-                        className="absolute bottom-2 right-2 text-gray-600 hover:text-neon-blue transition-colors"
+                        className="absolute bottom-2 right-2 text-white/40 hover:text-sky-300 transition-colors"
                         whileHover={{ scale: 1.2 }}
                         whileTap={{ scale: 0.9 }}
                       >
@@ -671,20 +675,20 @@ const EventFlow = () => {
           className="mt-12 flex flex-wrap justify-center gap-4"
         >
           {[
-            { type: 'ceremony', label: 'Ceremony', color: 'from-neon-blue to-neon-purple' },
-            { type: 'hacking', label: 'Hacking', color: 'from-neon-magenta to-neon-purple' },
-            { type: 'break', label: 'Break', color: 'from-neon-purple to-neon-magenta' },
-            { type: 'evaluation', label: 'Evaluation', color: 'from-neon-blue to-neon-magenta' },
-            { type: 'workshop', label: 'Workshop', color: 'from-neon-cyan to-neon-blue' },
-            { type: 'presentation', label: 'Presentation', color: 'from-neon-cyan to-neon-purple' }
+            { type: 'ceremony', label: 'Ceremony', color: 'from-sky-300 to-blue-400' },
+            { type: 'hacking', label: 'Hacking', color: 'from-sky-400 to-blue-500' },
+            { type: 'break', label: 'Break', color: 'from-sky-300 to-blue-400' },
+            { type: 'evaluation', label: 'Evaluation', color: 'from-sky-400 to-blue-500' },
+            { type: 'workshop', label: 'Workshop', color: 'from-sky-300 to-blue-400' },
+            { type: 'presentation', label: 'Presentation', color: 'from-sky-300 to-blue-400' }
           ].map((item, index) => (
             <motion.div 
               key={index} 
-              className="flex items-center gap-2 bg-black/20 backdrop-blur-sm px-3 py-1 rounded-full border border-neon-blue/20"
-              whileHover={{ scale: 1.05, borderColor: '#00E5FF' }}
+              className="flex items-center gap-2 bg-black/20 backdrop-blur-sm px-3 py-1 rounded-full border border-sky-300/20"
+              whileHover={{ scale: 1.05, borderColor: '#38BDF8' }}
             >
               <div className={`w-3 h-3 rounded-full bg-gradient-to-r ${item.color}`} />
-              <span className="text-xs text-gray-400">{item.label}</span>
+              <span className="text-xs text-white/60">{item.label}</span>
             </motion.div>
           ))}
         </motion.div>
@@ -700,10 +704,10 @@ const EventFlow = () => {
             className="relative inline-block"
             whileHover={{ scale: 1.02 }}
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-neon-blue to-neon-magenta rounded-xl blur-xl opacity-20" />
-            <div className="relative bg-black/40 backdrop-blur-xl border border-neon-blue/30 rounded-xl px-8 py-4">
-              <p className="text-gray-400 text-sm">
-                <span className="text-neon-cyan mr-2">⚠️</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-sky-300 to-blue-400 rounded-xl blur-xl opacity-20" />
+            <div className="relative bg-black/40 backdrop-blur-xl border border-sky-300/30 rounded-xl px-8 py-4">
+              <p className="text-white/70 text-sm">
+                <span className="text-sky-300 mr-2">⚠️</span>
                 Schedule is subject to minor changes. All participants will be notified of any updates.
               </p>
             </div>
@@ -717,8 +721,8 @@ const EventFlow = () => {
           animate={inView ? { opacity: 1, scaleX: 1 } : {}}
           transition={{ duration: 1, delay: 1 }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-neon-blue to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-neon-magenta to-transparent blur-sm" />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-sky-300 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-400 to-transparent blur-sm" />
         </motion.div>
       </div>
     </section>

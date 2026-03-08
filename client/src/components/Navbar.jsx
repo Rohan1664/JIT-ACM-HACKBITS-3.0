@@ -29,7 +29,7 @@ const Navbar = () => {
           <div className="flex items-center space-x-2">
             <span className="font-orbitron text-xl sm:text-2xl font-bold text-white">
               <span className="text-neon-blue">HACK</span>
-              <span className="text-neon-magenta">BITS</span>
+              <span className="text-neon-magenta">BITZ</span>
               <span className="text-neon-cyan"> 3.0</span>
             </span>
           </div>

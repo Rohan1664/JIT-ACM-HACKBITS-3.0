@@ -233,34 +233,34 @@ const Hero = () => {
             </div>
           </motion.div>
 
-          {/* College Info */}
+          {/* College Info - White text */}
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
             className="text-center mb-1 md:mb-2"
           >
-            <p className="text-[#00E5FF]/70 text-xs sm:text-sm md:text-base font-space">
+            <p className="text-white/90 text-xs sm:text-sm md:text-base font-space">
               Jhulelal Institute of Technology Nagpur
             </p>
-            <p className="text-gray-400 text-[10px] sm:text-xs font-space">
+            <p className="text-sky-300/70 text-[10px] sm:text-xs font-space">
               An Autonomous Institute
             </p>
           </motion.div>
 
-          {/* Department Info */}
+          {/* Department Info - Skyblue */}
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.25 }}
             className="text-center mb-2 md:mb-3"
           >
-            <span className="text-[#22D3EE] text-[10px] sm:text-xs md:text-sm font-space tracking-wider">
+            <span className="text-sky-300 text-[10px] sm:text-xs md:text-sm font-space tracking-wider drop-shadow-[0_0_8px_rgba(0,229,255,0.5)]">
               JIT ACM PRESENT
             </span>
           </motion.div>
 
-          {/* Main Title */}
+          {/* Main Title - White and Skyblue */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -272,18 +272,18 @@ const Hero = () => {
               variants={itemVariants}
               className="font-orbitron text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-2"
             >
-              <span className="bg-gradient-to-r from-white via-[#22D3EE] to-[#00E5FF] bg-clip-text text-transparent">
+              <span className="text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]">
                 HACK
               </span>
-              <span className="bg-gradient-to-r from-[#FF00FF] via-[#00E5FF] to-[#22D3EE] bg-clip-text text-transparent">
-                BITS 3.0
+              <span className="text-sky-300 drop-shadow-[0_0_15px_rgba(0,229,255,0.5)]">
+                BITZ 3.0
               </span>
             </motion.h1>
 
-            {/* Tagline */}
+            {/* Tagline - Skyblue */}
             <motion.p 
               variants={itemVariants}
-              className="text-transparent bg-clip-text bg-gradient-to-r from-[#22D3EE] to-[#00E5FF] text-sm sm:text-base md:text-lg mb-2"
+              className="text-sky-300 text-sm sm:text-base md:text-lg mb-2 drop-shadow-[0_0_8px_rgba(0,229,255,0.5)]"
             >
               "Explore Innovation Beyond Limits"
             </motion.p>
@@ -296,8 +296,8 @@ const Hero = () => {
                 <span 
                   key={text} 
                   className={`
-                    ${index === 0 ? 'text-[#00E5FF]' : index === 1 ? 'text-[#FF00FF]' : 'text-[#22D3EE]'} 
-                    text-xs sm:text-sm md:text-base lg:text-lg
+                    ${index === 0 ? 'text-white' : index === 1 ? 'text-sky-300' : 'text-sky-200'} 
+                    text-xs sm:text-sm md:text-base lg:text-lg drop-shadow-[0_0_5px_rgba(0,229,255,0.3)]
                   `}
                 >
                   {text}
@@ -307,13 +307,14 @@ const Hero = () => {
 
             <motion.p 
               variants={itemVariants}
-              className="text-gray-300 text-xs sm:text-sm md:text-base lg:text-lg mb-4 max-w-2xl mx-auto font-space leading-relaxed px-3"
+              className="text-white/80 text-xs sm:text-sm md:text-base lg:text-lg mb-4 max-w-2xl mx-auto font-space leading-relaxed px-3 drop-shadow-[0_0_5px_rgba(255,255,255,0.2)]"
             >
-              Join us for an exhilarating 16-hour coding marathon where innovation meets execution. 
-              Build groundbreaking solutions, collaborate with brilliant minds, and compete for glory.
+              Join us for an unforgettable experience at Hackblitz, where innovation meets competition!
+              Participate in an intense 16-hour hackathon at Jhulelal Institute of Technology, Lonara, Nagpur, organized by the ACM Student Chapter.
+              Showcase your skills for a chance to win exciting prizes and exclusive goodies!
             </motion.p>
 
-            {/* Countdown Timer */}
+            {/* Countdown Timer - Text colors will be handled by the CountdownTimer component */}
             <motion.div variants={itemVariants} className="mb-4">
               <CountdownTimer targetDate="2026-03-23T08:00:00" />
             </motion.div>
@@ -326,13 +327,13 @@ const Hero = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="group backdrop-blur-md bg-white/5 border border-[#00E5FF]/30 rounded-full px-6 py-2.5 md:px-8 md:py-3 text-white font-orbitron text-sm md:text-base tracking-wider relative overflow-hidden"
+                className="group backdrop-blur-md bg-white/5 border border-sky-300/30 rounded-full px-6 py-2.5 md:px-8 md:py-3 text-white font-orbitron text-sm md:text-base tracking-wider relative overflow-hidden hover:border-sky-300/60 transition-all duration-300"
                 onClick={handleRegisterClick}
               >
-                <span className="relative z-10 flex items-center">
+                <span className="relative z-10 flex items-center text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]">
                   Launch Mission
                   <svg 
-                    className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" 
+                    className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform text-sky-300" 
                     fill="none" 
                     stroke="currentColor" 
                     viewBox="0 0 24 24"
@@ -343,7 +344,7 @@ const Hero = () => {
                 
                 {/* Subtle hover effect */}
                 <motion.div 
-                  className="absolute inset-0 bg-gradient-to-r from-[#00E5FF]/0 via-[#FF00FF]/10 to-[#00E5FF]/0"
+                  className="absolute inset-0 bg-gradient-to-r from-sky-300/0 via-sky-300/10 to-sky-300/0"
                   animate={{ 
                     x: ['-100%', '200%']
                   }}
@@ -365,8 +366,8 @@ const Hero = () => {
         animate={{ y: [0, 5, 0] }}
         transition={{ duration: 1.5, repeat: Infinity }}
       >
-        <div className="w-5 h-8 rounded-full border border-[#00E5FF]/30 flex justify-center">
-          <div className="w-1 h-2 bg-[#00E5FF]/50 rounded-full mt-1"></div>
+        <div className="w-5 h-8 rounded-full border border-sky-300/30 flex justify-center">
+          <div className="w-1 h-2 bg-sky-300/50 rounded-full mt-1"></div>
         </div>
       </motion.div>
     </section>

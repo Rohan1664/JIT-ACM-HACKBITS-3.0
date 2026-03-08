@@ -61,102 +61,102 @@ const RulesGuidelines = () => {
     {
       category: '16-Hour Timeline',
       icon: '⏰',
-      gradient: 'from-neon-blue to-neon-cyan',
+      gradient: 'from-sky-300 to-blue-400',
       items: [
         'The hackathon is a 16-hour continuous coding event; teams must adhere strictly to the given timeline.',
         'All coding must be done only during the official hackathon duration.',
         'Time tracking will be monitored throughout the event.'
       ],
-      color: 'neon-blue'
+      color: 'sky-300'
     },
     {
       category: 'No Pre-Built Code',
       icon: '📝',
-      gradient: 'from-neon-magenta to-neon-purple',
+      gradient: 'from-sky-300 to-blue-400',
       items: [
         'Use of pre-built code, templates, or previously developed projects is prohibited.',
         'Teams may use open-source libraries, APIs, and frameworks, provided they are properly acknowledged.',
         'All code must be written during the hackathon hours.'
       ],
-      color: 'neon-magenta'
+      color: 'sky-300'
     },
     {
       category: 'Team Composition',
       icon: '👥',
-      gradient: 'from-neon-cyan to-neon-blue',
+      gradient: 'from-sky-300 to-blue-400',
       items: [
         'Teams must consist of the registered members only; no substitution is allowed after the event begins.',
         'Maximum team size: 4 members',
         'Minimum team size: 2 members',
         'Cross-college teams are allowed.'
       ],
-      color: 'neon-cyan'
+      color: 'sky-300'
     },
     {
       category: 'Evaluation Checkpoints',
       icon: '✅',
-      gradient: 'from-neon-purple to-neon-magenta',
+      gradient: 'from-sky-300 to-blue-400',
       items: [
         'Regular evaluation checkpoints will be conducted by judges and mentors.',
         'Progress updates required every 4 hours.',
         'Final evaluation based on innovation, implementation, and presentation.'
       ],
-      color: 'neon-purple'
+      color: 'sky-300'
     },
     {
       category: 'Submission Deadline',
       icon: '📋',
-      gradient: 'from-neon-blue to-neon-magenta',
+      gradient: 'from-sky-300 to-blue-400',
       items: [
         'Teams must submit their final project before the submission deadline in the prescribed format.',
         'Late submissions will not be accepted under any circumstances.',
         'Submit code, documentation, and presentation video.'
       ],
-      color: 'neon-blue'
+      color: 'sky-300'
     },
     {
       category: 'Mentor Guidance',
       icon: '🤝',
-      gradient: 'from-neon-cyan to-neon-purple',
+      gradient: 'from-sky-300 to-blue-400',
       items: [
         'Mentors are available for guidance, but direct implementation by mentors is not allowed.',
         'Seek advice on architecture, APIs, and best practices.',
         'Mentors will be available throughout the event.'
       ],
-      color: 'neon-cyan'
+      color: 'sky-300'
     },
     {
       category: 'Misconduct Policy',
       icon: '⚖️',
-      gradient: 'from-neon-magenta to-neon-blue',
+      gradient: 'from-sky-300 to-blue-400',
       items: [
         'Any form of misconduct, rule violation, or unfair practice will result in immediate disqualification.',
         'Respect all participants, mentors, and organizers.',
         'Maintain a positive and collaborative environment.'
       ],
-      color: 'neon-magenta'
+      color: 'sky-300'
     },
     {
       category: 'Ethical Coding',
       icon: '👨‍💻',
-      gradient: 'from-neon-purple to-neon-cyan',
+      gradient: 'from-sky-300 to-blue-400',
       items: [
         'Participants must follow ethical coding practices; plagiarism or code copying will lead to disqualification.',
         'Give credit to any external resources used.',
         'Original work only.'
       ],
-      color: 'neon-purple'
+      color: 'sky-300'
     },
     {
       category: 'Final Decision',
       icon: '🏁',
-      gradient: 'from-neon-blue to-neon-purple',
+      gradient: 'from-sky-300 to-blue-400',
       items: [
         'The decision of the judges and organizing committee will be final and binding.',
         'No appeals will be entertained after results are announced.',
         'Organizers reserve the right to modify rules if necessary.'
       ],
-      color: 'neon-blue'
+      color: 'sky-300'
     }
   ];
 
@@ -213,11 +213,11 @@ const RulesGuidelines = () => {
           ))}
         </div>
 
-        {/* Nebula Effects */}
+        {/* Nebula Effects - Updated to skyblue */}
         <motion.div 
           className="absolute inset-0"
           style={{
-            background: 'radial-gradient(circle at 20% 30%, rgba(147, 51, 234, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(0, 229, 255, 0.15) 0%, transparent 50%)',
+            background: 'radial-gradient(circle at 20% 30%, rgba(56, 189, 248, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(14, 165, 233, 0.15) 0%, transparent 50%)',
             filter: 'blur(80px)'
           }}
           animate={{
@@ -227,7 +227,7 @@ const RulesGuidelines = () => {
           transition={{ duration: 15, repeat: Infinity }}
         />
 
-        {/* Floating Particles */}
+        {/* Floating Particles - Updated to skyblue */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           {[...Array(40)].map((_, i) => (
             <motion.div
@@ -238,7 +238,7 @@ const RulesGuidelines = () => {
                 height: Math.random() * 4 + 1,
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
-                background: i % 3 === 0 ? '#00E5FF' : i % 3 === 1 ? '#FF00FF' : '#FFFFFF',
+                background: i % 2 === 0 ? '#38BDF8' : '#0EA5E9',
                 filter: 'blur(1px)',
                 opacity: 0.2
               }}
@@ -256,12 +256,12 @@ const RulesGuidelines = () => {
           ))}
         </div>
 
-        {/* Shooting Stars */}
+        {/* Shooting Stars - Updated to skyblue */}
         <div className="absolute inset-0 pointer-events-none">
           {[...Array(5)].map((_, i) => (
             <motion.div
               key={`shooting-${i}`}
-              className="absolute h-0.5 w-32 bg-gradient-to-r from-transparent via-white to-transparent"
+              className="absolute h-0.5 w-32 bg-gradient-to-r from-transparent via-sky-300 to-transparent"
               style={{
                 top: `${Math.random() * 60}%`,
                 left: `${Math.random() * 100}%`,
@@ -284,9 +284,9 @@ const RulesGuidelines = () => {
         </div>
       </div>
 
-      {/* Grid Pattern Overlay - Cosmic Style */}
+      {/* Grid Pattern Overlay - Cosmic Style - Updated to skyblue */}
       <div className="absolute inset-0" style={{
-        backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(0, 229, 255, 0.02) 1px, transparent 0)',
+        backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(56, 189, 248, 0.02) 1px, transparent 0)',
         backgroundSize: '50px 50px'
       }} />
 
@@ -298,23 +298,25 @@ const RulesGuidelines = () => {
           variants={containerVariants}
           className="text-center mb-16"
         >
-          {/* Section Label with Cosmic Glow */}
+          {/* Section Label with Cosmic Glow - Updated to skyblue */}
           <motion.div variants={itemVariants} className="relative inline-block mb-4">
-            <div className="absolute inset-0 bg-gradient-to-r from-neon-blue/20 via-neon-magenta/20 to-neon-cyan/20 rounded-full blur-xl"></div>
-            <span className="relative px-6 py-2 bg-black/40 backdrop-blur-xl border border-neon-blue/30 rounded-full inline-block">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-neon-magenta text-sm font-medium tracking-wider">
+            <div className="absolute inset-0 bg-gradient-to-r from-sky-300/20 via-sky-400/20 to-blue-400/20 rounded-full blur-xl"></div>
+            <span className="relative px-6 py-2 bg-black/40 backdrop-blur-xl border border-sky-300/30 rounded-full inline-block">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-blue-400 text-sm font-medium tracking-wider">
                 📋 COSMIC CODE OF CONDUCT
               </span>
             </span>
           </motion.div>
 
+          {/* Main Title - Skyblue gradient */}
           <motion.h2 variants={itemVariants} className="font-orbitron text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-neon-blue via-neon-magenta to-neon-cyan bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-sky-300 via-sky-400 to-blue-400 bg-clip-text text-transparent">
               Rules & Guidelines
             </span>
           </motion.h2>
           
-          <motion.p variants={itemVariants} className="text-gray-400 text-lg max-w-3xl mx-auto font-space leading-relaxed">
+          {/* Description - White */}
+          <motion.p variants={itemVariants} className="text-white/80 text-lg max-w-3xl mx-auto font-space leading-relaxed">
             Navigate your cosmic journey through these essential guidelines. 
             Fair play ensures everyone reaches the stars!
           </motion.p>
@@ -337,7 +339,7 @@ const RulesGuidelines = () => {
               }}
               className="group relative"
             >
-              {/* Orbital Glow Effect */}
+              {/* Orbital Glow Effect - Skyblue */}
               <motion.div 
                 className={`absolute -inset-0.5 bg-gradient-to-r ${rule.gradient} rounded-2xl opacity-0 group-hover:opacity-30 blur-xl transition-all duration-500`}
                 animate={{
@@ -347,10 +349,10 @@ const RulesGuidelines = () => {
               />
               
               {/* Card Content */}
-              <div className="relative bg-black/60 backdrop-blur-xl border border-neon-blue/20 rounded-2xl p-6 hover:border-neon-blue/40 transition-all duration-300 h-full flex flex-col overflow-hidden">
+              <div className="relative bg-black/60 backdrop-blur-xl border border-sky-300/20 rounded-2xl p-6 hover:border-sky-300/40 transition-all duration-300 h-full flex flex-col overflow-hidden">
                 
-                {/* Cosmic Background Effect */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-neon-blue/5 to-neon-magenta/5 rounded-full blur-3xl" />
+                {/* Cosmic Background Effect - Skyblue */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-sky-300/5 to-blue-400/5 rounded-full blur-3xl" />
                 
                 {/* Header with Icon and Category */}
                 <div className="flex items-start gap-4 mb-4 relative z-10">
@@ -359,7 +361,7 @@ const RulesGuidelines = () => {
                     whileHover={{ scale: 1.1 }}
                     transition={{ type: "spring", stiffness: 400 }}
                   >
-                    <span className="text-2xl filter drop-shadow-[0_0_10px_rgba(0,229,255,0.5)] relative z-10">
+                    <span className="text-2xl filter drop-shadow-[0_0_10px_rgba(56,189,248,0.5)] relative z-10">
                       {rule.icon}
                     </span>
                     <motion.div 
@@ -368,17 +370,18 @@ const RulesGuidelines = () => {
                       transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
                     />
                   </motion.div>
+                  {/* Category - Skyblue gradient */}
                   <h3 className={`font-orbitron text-lg font-bold bg-gradient-to-r ${rule.gradient} bg-clip-text text-transparent flex-1`}>
                     {rule.category}
                   </h3>
                 </div>
 
-                {/* Rules List */}
+                {/* Rules List - White text */}
                 <ul className="space-y-3 flex-1 relative z-10">
                   {rule.items.map((item, i) => (
                     <motion.li 
                       key={i} 
-                      className="text-gray-300 text-sm font-space flex items-start gap-3 group/item"
+                      className="text-white/70 text-sm font-space flex items-start gap-3 group/item"
                       initial={{ opacity: 0.8 }}
                       whileHover={{ opacity: 1, x: 3 }}
                     >
@@ -388,7 +391,7 @@ const RulesGuidelines = () => {
                   ))}
                 </ul>
 
-                {/* Bottom Border Gradient with Animation */}
+                {/* Bottom Border Gradient with Animation - Skyblue */}
                 <motion.div 
                   className={`mt-4 h-0.5 w-0 group-hover:w-full bg-gradient-to-r ${rule.gradient}`}
                   transition={{ duration: 0.5 }}
@@ -405,12 +408,12 @@ const RulesGuidelines = () => {
           animate={inView ? "visible" : "hidden"}
           className="mt-16 relative"
         >
-          {/* Background Glow */}
-          <div className="absolute inset-0 bg-gradient-to-r from-neon-magenta/20 via-neon-purple/20 to-neon-magenta/20 rounded-3xl blur-2xl" />
+          {/* Background Glow - Skyblue */}
+          <div className="absolute inset-0 bg-gradient-to-r from-sky-300/20 via-sky-400/20 to-sky-300/20 rounded-3xl blur-2xl" />
           
           {/* Content */}
           <motion.div 
-            className="relative bg-black/60 backdrop-blur-xl border border-neon-magenta/30 rounded-3xl p-8 text-center overflow-hidden"
+            className="relative bg-black/60 backdrop-blur-xl border border-sky-300/30 rounded-3xl p-8 text-center overflow-hidden"
             whileHover={{ scale: 1.01 }}
             transition={{ type: "spring", stiffness: 400 }}
           >
@@ -418,7 +421,7 @@ const RulesGuidelines = () => {
             <motion.div
               className="absolute inset-0 opacity-10"
               style={{
-                background: 'linear-gradient(45deg, transparent 30%, rgba(255,0,255,0.2) 50%, transparent 70%)',
+                background: 'linear-gradient(45deg, transparent 30%, rgba(56,189,248,0.2) 50%, transparent 70%)',
               }}
               animate={{
                 x: ['-100%', '200%'],
@@ -430,9 +433,9 @@ const RulesGuidelines = () => {
               }}
             />
 
-            {/* Floating Orbs */}
+            {/* Floating Orbs - Skyblue */}
             <motion.div
-              className="absolute top-0 left-0 w-32 h-32 bg-neon-blue/20 rounded-full blur-3xl"
+              className="absolute top-0 left-0 w-32 h-32 bg-sky-300/20 rounded-full blur-3xl"
               animate={{
                 x: [0, 50, 0],
                 y: [0, 30, 0],
@@ -440,7 +443,7 @@ const RulesGuidelines = () => {
               transition={{ duration: 8, repeat: Infinity }}
             />
             <motion.div
-              className="absolute bottom-0 right-0 w-32 h-32 bg-neon-magenta/20 rounded-full blur-3xl"
+              className="absolute bottom-0 right-0 w-32 h-32 bg-sky-400/20 rounded-full blur-3xl"
               animate={{
                 x: [0, -50, 0],
                 y: [0, -30, 0],
@@ -455,9 +458,9 @@ const RulesGuidelines = () => {
                     scale: [1, 1.2, 1],
                     rotate: [0, 10, -10, 0],
                     filter: [
-                      'drop-shadow(0 0 10px #FF00FF)',
-                      'drop-shadow(0 0 20px #00E5FF)',
-                      'drop-shadow(0 0 10px #FF00FF)'
+                      'drop-shadow(0 0 10px #38BDF8)',
+                      'drop-shadow(0 0 20px #0EA5E9)',
+                      'drop-shadow(0 0 10px #38BDF8)'
                     ]
                   }}
                   transition={{
@@ -467,27 +470,29 @@ const RulesGuidelines = () => {
                 >
                   <span className="text-4xl">⚠️</span>
                 </motion.div>
-                <h3 className="font-orbitron text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-neon-magenta to-neon-blue">
+                {/* Important Notice Title - Skyblue gradient */}
+                <h3 className="font-orbitron text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-blue-400">
                   Important Notice
                 </h3>
               </div>
               
-              <p className="text-gray-300 font-space text-lg max-w-3xl mx-auto mb-4">
+              {/* Important Notice Text - White */}
+              <p className="text-white/80 font-space text-lg max-w-3xl mx-auto mb-4">
                 Violation of any rule may result in immediate disqualification. When in doubt, consult a mentor or organizer.
               </p>
               
               <div className="flex flex-wrap justify-center gap-4 mt-6">
                 {[
-                  { text: 'No Plagiarism', color: 'neon-magenta', icon: '❌' },
-                  { text: 'Strict Timeline', color: 'neon-blue', icon: '⏰' },
-                  { text: 'Be Respectful', color: 'neon-cyan', icon: '🤝' }
+                  { text: 'No Plagiarism', color: 'sky-300', icon: '❌' },
+                  { text: 'Strict Timeline', color: 'sky-300', icon: '⏰' },
+                  { text: 'Be Respectful', color: 'sky-300', icon: '🤝' }
                 ].map((item, i) => (
                   <motion.div 
                     key={i}
-                    className={`px-4 py-2 bg-${item.color}/10 rounded-full border border-${item.color}/30 backdrop-blur-sm`}
-                    whileHover={{ scale: 1.05, borderColor: '#00E5FF' }}
+                    className="px-4 py-2 bg-sky-300/10 rounded-full border border-sky-300/30 backdrop-blur-sm"
+                    whileHover={{ scale: 1.05, borderColor: '#38BDF8' }}
                   >
-                    <span className={`text-${item.color} text-sm font-medium`}>
+                    <span className="text-sky-300 text-sm font-medium">
                       {item.icon} {item.text}
                     </span>
                   </motion.div>
@@ -497,7 +502,7 @@ const RulesGuidelines = () => {
           </motion.div>
         </motion.div>
 
-        {/* Quick Stats */}
+        {/* Quick Stats - Updated to skyblue */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -505,10 +510,10 @@ const RulesGuidelines = () => {
           className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4"
         >
           {[
-            { label: 'Total Rules', value: '9', icon: '📋', gradient: 'from-neon-blue to-neon-cyan' },
-            { label: 'Team Size', value: '2-4', icon: '👥', gradient: 'from-neon-magenta to-neon-purple' },
-            { label: 'Duration', value: '16h', icon: '⏰', gradient: 'from-neon-cyan to-neon-blue' },
-            { label: 'Checkpoints', value: '4', icon: '✅', gradient: 'from-neon-purple to-neon-magenta' }
+            { label: 'Total Rules', value: '9', icon: '📋', gradient: 'from-sky-300 to-blue-400' },
+            { label: 'Team Size', value: '2-4', icon: '👥', gradient: 'from-sky-300 to-blue-400' },
+            { label: 'Duration', value: '16h', icon: '⏰', gradient: 'from-sky-300 to-blue-400' },
+            { label: 'Checkpoints', value: '4', icon: '✅', gradient: 'from-sky-300 to-blue-400' }
           ].map((stat, index) => (
             <motion.div
               key={index}
@@ -517,38 +522,40 @@ const RulesGuidelines = () => {
               className="relative group"
             >
               <div className={`absolute inset-0 bg-gradient-to-r ${stat.gradient} rounded-xl opacity-0 group-hover:opacity-20 blur-lg transition-opacity duration-500`} />
-              <div className="relative bg-black/50 backdrop-blur-sm border border-neon-blue/20 rounded-xl p-4 text-center hover:border-neon-blue/40 transition-all duration-300">
+              <div className="relative bg-black/50 backdrop-blur-sm border border-sky-300/20 rounded-xl p-4 text-center hover:border-sky-300/40 transition-all duration-300">
                 <motion.span 
                   className="text-2xl mb-1 block"
                   animate={{
                     filter: [
-                      'drop-shadow(0 0 5px rgba(0,229,255,0.3))',
-                      'drop-shadow(0 0 15px rgba(255,0,255,0.3))',
-                      'drop-shadow(0 0 5px rgba(0,229,255,0.3))'
+                      'drop-shadow(0 0 5px rgba(56,189,248,0.3))',
+                      'drop-shadow(0 0 15px rgba(14,165,233,0.3))',
+                      'drop-shadow(0 0 5px rgba(56,189,248,0.3))'
                     ]
                   }}
                   transition={{ duration: 3, repeat: Infinity }}
                 >
                   {stat.icon}
                 </motion.span>
+                {/* Value - Skyblue gradient */}
                 <div className={`text-2xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent`}>
                   {stat.value}
                 </div>
-                <div className="text-xs text-gray-500 mt-1">{stat.label}</div>
+                {/* Label - White */}
+                <div className="text-xs text-white/50 mt-1">{stat.label}</div>
               </div>
             </motion.div>
           ))}
         </motion.div>
 
-        {/* Cosmic Divider */}
+        {/* Cosmic Divider - Skyblue */}
         <motion.div 
           className="w-full h-px mt-20 relative"
           initial={{ opacity: 0, scaleX: 0 }}
           animate={inView ? { opacity: 1, scaleX: 1 } : {}}
           transition={{ duration: 1, delay: 1 }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-neon-blue to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-neon-magenta to-transparent blur-sm" />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-sky-300 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-400 to-transparent blur-sm" />
         </motion.div>
       </div>
     </section>

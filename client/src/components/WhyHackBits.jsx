@@ -15,31 +15,31 @@ const WhyHackBits = () => {
       description: 'Non-stop coding marathon to build innovative solutions from scratch',
       gradient: 'from-neon-blue to-neon-cyan',
       stats: 'Non-Stop',
-      color: 'neon-blue'
+      color: 'white'
     },
     {
       icon: '👥',
       title: 'Team Collaboration',
       description: 'Register your team of up to 4 members and collaborate with brilliant minds',
-      gradient: 'from-neon-magenta to-neon-purple',
+      gradient: 'from-neon-blue to-neon-cyan',
       stats: '2-4 Members',
-      color: 'neon-magenta'
+      color: 'white'
     },
     {
       icon: '🚀',
       title: 'Expert Mentorship',
       description: 'Get guidance from industry experts and experienced developers throughout the event',
-      gradient: 'from-neon-cyan to-neon-blue',
+      gradient: 'from-neon-blue to-neon-cyan',
       stats: '24/7 Support',
-      color: 'neon-cyan'
+      color: 'white'
     },
     {
       icon: '🏆',
       title: 'Exciting Prizes',
       description: 'Win amazing prizes, swag, and recognition for your innovative solutions',
-      gradient: 'from-neon-purple to-neon-magenta',
+      gradient: 'from-neon-blue to-neon-cyan',
       stats: '₹50K+ Prizes',
-      color: 'neon-purple'
+      color: 'white'
     }
   ];
 
@@ -61,12 +61,6 @@ const WhyHackBits = () => {
       label: 'Prizes',
       description: 'worth of rewards',
       gradient: 'from-neon-cyan to-neon-blue'
-    },
-    {
-      number: '500+',
-      label: 'Participants',
-      description: 'from across the country',
-      gradient: 'from-neon-purple to-neon-magenta'
     }
   ];
 
@@ -185,20 +179,21 @@ const WhyHackBits = () => {
           <motion.div variants={itemVariants} className="relative inline-block mb-4">
             <div className="absolute inset-0 bg-gradient-to-r from-neon-blue/20 via-neon-magenta/20 to-neon-cyan/20 rounded-full blur-xl"></div>
             <span className="relative px-6 py-2 bg-black/40 backdrop-blur-xl border border-neon-blue/30 rounded-full inline-block">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-neon-magenta text-sm font-medium tracking-wider">
-                ✨ WHY HACKBITS 3.0
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-blue-300 text-sm font-medium tracking-wider">
+                ✨ WHY HACKBITZ 3.0
               </span>
             </span>
           </motion.div>
 
-          {/* Main Title */}
+          {/* Main Title - Skyblue gradient */}
           <motion.h2 variants={itemVariants} className="font-orbitron text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-neon-blue via-neon-magenta to-neon-cyan bg-clip-text text-transparent">
-              Why HackBits 3.0?
+            <span className="bg-gradient-to-r from-sky-300 via-blue-300 to-sky-400 bg-clip-text text-transparent">
+              Why HackBitz 3.0?
             </span>
           </motion.h2>
           
-          <motion.p variants={itemVariants} className="text-gray-400 text-lg max-w-2xl mx-auto font-space leading-relaxed">
+          {/* Description - White */}
+          <motion.p variants={itemVariants} className="text-white/80 text-lg max-w-2xl mx-auto font-space leading-relaxed">
             Experience the ultimate coding challenge with features designed to help you 
             learn, build, and grow as a developer in this cosmic journey.
           </motion.p>
@@ -253,19 +248,19 @@ const WhyHackBits = () => {
                   />
                 </motion.div>
 
-                {/* Title */}
+                {/* Title - Skyblue gradient */}
                 <h3 className={`font-orbitron text-xl font-bold bg-gradient-to-r ${feature.gradient} bg-clip-text text-transparent mb-2`}>
                   {feature.title}
                 </h3>
 
-                {/* Description */}
-                <p className="text-gray-400 text-sm font-space leading-relaxed mb-4">
+                {/* Description - White */}
+                <p className="text-white/70 text-sm font-space leading-relaxed mb-4">
                   {feature.description}
                 </p>
 
                 {/* Stat Badge */}
                 <div className={`inline-block px-3 py-1 rounded-full bg-gradient-to-r ${feature.gradient} bg-opacity-10 border border-neon-blue/20 backdrop-blur-sm`}>
-                  <span className={`text-xs font-medium text-${feature.color} drop-shadow-[0_0_5px_currentColor]`}>
+                  <span className="text-white text-xs font-medium drop-shadow-[0_0_5px_currentColor]">
                     {feature.stats}
                   </span>
                 </div>
@@ -287,8 +282,8 @@ const WhyHackBits = () => {
           className="mt-20"
         >
           <motion.h3 variants={itemVariants} className="text-center text-2xl font-orbitron mb-12">
-            <span className="bg-gradient-to-r from-neon-blue via-neon-magenta to-neon-cyan bg-clip-text text-transparent">
-              HackBits by the Numbers
+            <span className="bg-gradient-to-r from-sky-300 via-blue-300 to-sky-400 bg-clip-text text-transparent">
+              HackBitz by the Numbers
             </span>
           </motion.h3>
 
@@ -328,8 +323,10 @@ const WhyHackBits = () => {
                   >
                     {highlight.number}
                   </motion.div>
-                  <div className="text-white font-orbitron text-sm mb-1">{highlight.label}</div>
-                  <div className="text-gray-500 text-xs">{highlight.description}</div>
+                  {/* Label - Skyblue */}
+                  <div className="text-sky-300 font-orbitron text-sm mb-1">{highlight.label}</div>
+                  {/* Description - White */}
+                  <div className="text-white/60 text-xs">{highlight.description}</div>
                 </div>
               </motion.div>
             ))}
@@ -350,7 +347,8 @@ const WhyHackBits = () => {
           >
             <div className="absolute inset-0 bg-gradient-to-r from-neon-blue/20 to-neon-cyan/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <div className="relative bg-black/60 backdrop-blur-xl border border-neon-blue/20 rounded-2xl p-6 h-full">
-              <h4 className="font-orbitron text-lg text-neon-blue mb-4 flex items-center gap-2">
+              {/* Heading - Skyblue */}
+              <h4 className="font-orbitron text-lg text-sky-300 mb-4 flex items-center gap-2">
                 <span className="text-2xl">🎯</span> What You'll Gain
               </h4>
               <ul className="space-y-3">
@@ -363,10 +361,10 @@ const WhyHackBits = () => {
                 ].map((item, i) => (
                   <motion.li 
                     key={i} 
-                    className="text-gray-400 text-sm flex items-start gap-2 group/item"
+                    className="text-white/70 text-sm flex items-start gap-2 group/item"
                     whileHover={{ x: 5 }}
                   >
-                    <span className="text-neon-blue mt-1 text-lg">✦</span>
+                    <span className="text-sky-300 mt-1 text-lg">✦</span>
                     <span>{item}</span>
                   </motion.li>
                 ))}
@@ -381,7 +379,8 @@ const WhyHackBits = () => {
           >
             <div className="absolute inset-0 bg-gradient-to-r from-neon-magenta/20 to-neon-purple/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <div className="relative bg-black/60 backdrop-blur-xl border border-neon-magenta/20 rounded-2xl p-6 h-full">
-              <h4 className="font-orbitron text-lg text-neon-magenta mb-4 flex items-center gap-2">
+              {/* Heading - Skyblue */}
+              <h4 className="font-orbitron text-lg text-sky-300 mb-4 flex items-center gap-2">
                 <span className="text-2xl">👥</span> Who Can Participate
               </h4>
               <ul className="space-y-3">
@@ -394,10 +393,10 @@ const WhyHackBits = () => {
                 ].map((item, i) => (
                   <motion.li 
                     key={i} 
-                    className="text-gray-400 text-sm flex items-start gap-2 group/item"
+                    className="text-white/70 text-sm flex items-start gap-2 group/item"
                     whileHover={{ x: 5 }}
                   >
-                    <span className="text-neon-magenta mt-1 text-lg">✦</span>
+                    <span className="text-sky-300 mt-1 text-lg">✦</span>
                     <span>{item}</span>
                   </motion.li>
                 ))}
@@ -412,7 +411,8 @@ const WhyHackBits = () => {
           >
             <div className="absolute inset-0 bg-gradient-to-r from-neon-cyan/20 to-neon-blue/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <div className="relative bg-black/60 backdrop-blur-xl border border-neon-cyan/20 rounded-2xl p-6 h-full">
-              <h4 className="font-orbitron text-lg text-neon-cyan mb-4 flex items-center gap-2">
+              {/* Heading - Skyblue */}
+              <h4 className="font-orbitron text-lg text-sky-300 mb-4 flex items-center gap-2">
                 <span className="text-2xl">💪</span> Why Participate
               </h4>
               <ul className="space-y-3">
@@ -425,10 +425,10 @@ const WhyHackBits = () => {
                 ].map((item, i) => (
                   <motion.li 
                     key={i} 
-                    className="text-gray-400 text-sm flex items-start gap-2 group/item"
+                    className="text-white/70 text-sm flex items-start gap-2 group/item"
                     whileHover={{ x: 5 }}
                   >
-                    <span className="text-neon-cyan mt-1 text-lg">✦</span>
+                    <span className="text-sky-300 mt-1 text-lg">✦</span>
                     <span>{item}</span>
                   </motion.li>
                 ))}
@@ -444,8 +444,8 @@ const WhyHackBits = () => {
           animate={inView ? { opacity: 1, scaleX: 1 } : {}}
           transition={{ duration: 1, delay: 1 }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-neon-blue to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-neon-magenta to-transparent blur-sm" />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-sky-300 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-300 to-transparent blur-sm" />
         </motion.div>
       </div>
     </section>
