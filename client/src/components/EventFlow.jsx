@@ -435,7 +435,7 @@ const EventFlow = () => {
           <div className="relative group">
             {/* Orbital Glow */}
             <motion.div 
-              className="absolute -inset-2 bg-gradient-to-r from-sky-40 to-blue-50 rounded-2xl blur-2xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"
+              className="absolute -inset-2 bg-gradient-to-r from-sky-400 to-blue-200 rounded-2xl blur-2xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"
               animate={{
                 scale: [1, 1.05, 1],
                 opacity: [0.3, 0.5, 0.3]
@@ -444,7 +444,7 @@ const EventFlow = () => {
             />
             
             {/* Selector Container */}
-            <div className="relative bg-black/100 backdrop-blur-xl border border-sky-100/10 rounded-2xl p-2 flex gap-2">
+            <div className="relative bg-black/60 backdrop-blur-xl border border-sky-100/10 rounded-2xl p-2 flex gap-2">
               {[
                 { id: 'day1', label: 'Day 1', date: 'March 24', gradient: 'from-sky-400 to-blue-400' },
                 { id: 'day2', label: 'Day 2', date: 'March 25', gradient: 'from-sky-400 to-blue-400' },
@@ -560,7 +560,7 @@ const EventFlow = () => {
                   index % 2 === 0 ? 'md:text-right' : 'md:text-left'
                 }`}>
                   <motion.div 
-                    className="inline-block bg-black/70 backdrop-blur-xl border border-sky-300/30 rounded-xl p-4 hover:border-sky-100/0 transition-all duration-300"
+                    className="inline-block bg-black/10 backdrop-blur-xl border border-sky-300/30 rounded-xl p-4 hover:border-sky-100/0 transition-all duration-300"
                     whileHover={{ scale: 1.02, x: index % 2 === 0 ? -5 : 5 }}
                   >
                     <span className="font-orbitron text-lg font-bold bg-gradient-to-r from-sky-300 to-blue-400 bg-clip-text  text-transparent">
@@ -588,7 +588,7 @@ const EventFlow = () => {
                     />
                     
                     {/* Card */}
-                    <div className="relative bg-black/80 backdrop-blur-xl border border-sky-300/20 rounded-2xl p-6 hover:border-sky-300/40 transition-all duration-300 overflow-hidden">
+                    <div className="relative bg-black/10 backdrop-blur-xl border border-sky-300/20 rounded-2xl p-6 hover:border-sky-300/40 transition-all duration-300 overflow-hidden">
                       
                       {/* Cosmic Background Effect */}
                       <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-sky-100/5 to-blue-200/5 rounded-full blur-3xl" />

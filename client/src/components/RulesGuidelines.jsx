@@ -341,7 +341,7 @@ const RulesGuidelines = () => {
             >
               {/* Orbital Glow Effect - Skyblue */}
               <motion.div 
-                className={`absolute -inset-0.5 bg-gradient-to-r ${rule.gradient} rounded-2xl opacity-0 group-hover:opacity-10 blur-xl transition-all duration-500`}
+                className={`absolute -inset-0.5 bg-gradient-to-r ${rule.gradient} rounded-2xl opacity-0 group-hover:opacity-60 blur-xl transition-all duration-500`}
                 animate={{
                   scale: [1, 1, 1],
                 }}
@@ -349,7 +349,7 @@ const RulesGuidelines = () => {
               />
               
               {/* Card Content */}
-              <div className="relative bg-black/60 backdrop-blur-xl border border-sky-200/20 rounded-2xl p-6 hover:border-sky-300 transition-all duration-300 h-full flex flex-col overflow-hidden">
+              <div className="relative bg-black/10 backdrop-blur-xl border border-sky-300/20 rounded-2xl p-6 hover:border-sky-300 transition-all duration-300 h-full flex flex-col overflow-hidden">
                 
                 {/* Cosmic Background Effect - Skyblue */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-sky-100/5 to-blue-200/5 rounded-full blur-3xl" />
@@ -422,7 +422,7 @@ const RulesGuidelines = () => {
               className="relative group"
             >
               <div className={`absolute inset-0 bg-gradient-to-r ${stat.gradient} rounded-xl opacity-0 group-hover:opacity-20 blur-lg transition-opacity duration-500`} />
-              <div className="relative bg-black/50 backdrop-blur-sm border border-sky-300/20 rounded-xl p-4 text-center hover:border-sky-300/40 transition-all duration-300">
+              <div className="relative bg-black/10 backdrop-blur-sm border border-sky-300/20 rounded-xl p-4 text-center hover:border-sky-300/40 transition-all duration-300">
                 <motion.span 
                   className="text-2xl mb-1 block"
                   animate={{

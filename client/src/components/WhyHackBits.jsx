@@ -227,7 +227,7 @@ const WhyHackBits = () => {
               />
               
               {/* Card Content */}
-              <div className="relative bg-black/80 backdrop-blur-xl border border-neon-blue/50 rounded-2xl p-6 hover:border-neon-blue/40 transition-all duration-300 h-full overflow-hidden">
+              <div className="relative bg-black/10 backdrop-blur-xl border border-neon-blue/50 rounded-2xl p-6 hover:border-neon-blue/40 transition-all duration-300 h-full overflow-hidden">
                 
                 {/* Cosmic Background Effect */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-neon-blue/5 to-neon-magenta/5 rounded-full blur-3xl" />
@@ -309,7 +309,7 @@ const WhyHackBits = () => {
                 />
                 
                 {/* Content */}
-                <div className="relative bg-black/70 backdrop-blur-sm border border-neon-blue/20 rounded-2xl p-6 text-center hover:border-neon-blue/40 transition-all duration-300">
+                <div className="relative bg-black/10 backdrop-blur-sm border border-neon-blue/20 rounded-2xl p-6 text-center hover:border-neon-blue/40 transition-all duration-300">
                   <motion.div 
                     className={`text-3xl md:text-4xl font-orbitron font-bold bg-gradient-to-r ${highlight.gradient} bg-clip-text text-transparent mb-2`}
                     animate={{
@@ -346,7 +346,7 @@ const WhyHackBits = () => {
             className="relative group"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-neon-blue/20 to-neon-cyan/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-80 transition-opacity duration-500" />
-            <div className="relative bg-black/70 backdrop-blur-xl border border-neon-blue/20 rounded-2xl p-6 h-full">
+            <div className="relative bg-black/10 backdrop-blur-xl border border-neon-blue/20 rounded-2xl p-6 h-full">
               {/* Heading - Skyblue */}
               <h4 className="font-orbitron text-lg text-sky-300 mb-4 flex items-center gap-2">
                 <span className="text-2xl">🎯</span> What You'll Gain
@@ -378,7 +378,7 @@ const WhyHackBits = () => {
             className="relative group"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-neon-blue/20 to-neon-cyan/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-80 transition-opacity duration-500" />
-            <div className="relative bg-black/70 backdrop-blur-xl border border-neon-blue/20 rounded-2xl p-6 h-full">
+            <div className="relative bg-black/10 backdrop-blur-xl border border-neon-blue/20 rounded-2xl p-6 h-full">
               {/* Heading - Skyblue */}
               <h4 className="font-orbitron text-lg text-sky-300 mb-4 flex items-center gap-2">
                 <span className="text-2xl">👥</span> Who Can Participate
@@ -410,7 +410,7 @@ const WhyHackBits = () => {
             className="relative group"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-neon-cyan/20 to-neon-blue/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-80 transition-opacity duration-500" />
-            <div className="relative bg-black/60 backdrop-blur-xl border border-neon-cyan/20 rounded-2xl p-6 h-full">
+            <div className="relative bg-black/10 backdrop-blur-xl border border-neon-cyan/20 rounded-2xl p-6 h-full">
               {/* Heading - Skyblue */}
               <h4 className="font-orbitron text-lg text-sky-300 mb-4 flex items-center gap-2">
                 <span className="text-2xl">💪</span> Why Participate
