@@ -20,10 +20,10 @@ const Hero = () => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
-    
+
     checkMobile();
     window.addEventListener('resize', checkMobile);
-    
+
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
@@ -61,7 +61,7 @@ const Hero = () => {
   };
 
   return (
-    <section 
+    <section
       ref={containerRef}
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#020617] via-[#050b1a] to-black"
@@ -94,7 +94,7 @@ const Hero = () => {
         </div>
 
         {/* Subtle Nebula Glow */}
-        <div 
+        <div
           className="absolute inset-0 opacity-20"
           style={{
             background: 'radial-gradient(circle at 30% 40%, rgba(147, 51, 234, 0.1) 0%, transparent 50%), radial-gradient(circle at 70% 60%, rgba(0, 229, 255, 0.1) 0%, transparent 50%)',
@@ -107,22 +107,22 @@ const Hero = () => {
       </div>
 
       {/* Earth at Bottom - Centered */}
-      <motion.div 
+      <motion.div
         className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full flex justify-center pointer-events-none z-10"
         style={{ y: earthY }}
       >
         <div className="relative w-[600px] md:w-[800px] lg:w-[1000px]">
           {/* Earth Glow */}
-          <div 
+          <div
             className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full h-[200px] md:h-[300px] rounded-t-full"
             style={{
               background: 'radial-gradient(ellipse at center, rgba(0, 150, 255, 0.3) 0%, transparent 70%)',
               filter: 'blur(40px)'
             }}
           />
-          
+
           {/* Earth Image */}
-          <img 
+          <img
             src={earthImg}
             alt="Earth"
             className="w-full h-auto relative z-10 opacity-90"
@@ -143,12 +143,12 @@ const Hero = () => {
           ease: "easeInOut",
           delay: 0.5
         }}
-        className="absolute left-[3%] top-[30%] z-20 hidden lg:block"
+        className="absolute left-[0%] top-[30%] z-20 hidden lg:block"
       >
         <motion.img
           src={astronaut2}
           alt="Astronaut floating left"
-          className="w-[220px] xl:w-[280px] relative"
+          className="w-[420px] xl:w-[480px] relative"
           animate={{
             filter: [
               'drop-shadow(0 0 12px rgba(255, 0, 255, 0.2))',
@@ -168,20 +168,20 @@ const Hero = () => {
       <motion.div
         style={{ y: rightAstronautY }}
         animate={{
-          y: isMobile ? [-5, 5, -5] : [-10, 10, -10],
-          rotate: isMobile ? [-1, 1, -1] : [-2, 2, -2]
+          y: isMobile ? [-5, 4.5, -5] : [-10, 9.5, -10],
+          rotate: isMobile ? [-1, 0.5, -1] : [-2, 1.5, -2]
         }}
         transition={{
           duration: isMobile ? 6 : 8,
           repeat: Infinity,
           ease: "easeInOut"
         }}
-        className="absolute right-[3%] top-[25%] z-20 hidden lg:block"
+        className="absolute right-[0%] top-[25%] z-20 hidden lg:block"
       >
         <motion.img
           src={astronautEarth}
           alt="Astronaut floating right"
-          className="w-[260px] xl:w-[320px] relative"
+          className="w-[460px] xl:w-[480px] relative"
           animate={{
             filter: [
               'drop-shadow(0 0 15px rgba(0, 229, 255, 0.2))',
@@ -200,19 +200,19 @@ const Hero = () => {
       {/* Main Content Container - Centered */}
       <div className="relative z-30 container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center justify-center min-h-screen">
-          
+
           {/* Three Images - Seamlessly blended with background */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.6 }}
             className="w-full max-w-4xl mx-auto mb-4 md:mb-6"
           >
-            <div className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+            <div className="grid grid-cols-1 gap-4 sm:gap-6 md:gap-8">
               {[
                 { src: jitacmLogo, alt: 'JIT ACM' },
-                { src: jitlogo, alt: 'JIT Logo' },
-                { src: hackbitsLogo, alt: 'HACKBITS 3.0' }
+                // { src: jitlogo, alt: 'JIT Logo' },
+                // { src: hackbitsLogo, alt: 'HACKBITS 3.0' }
               ].map((item, index) => (
                 <motion.div
                   key={index}
@@ -221,9 +221,9 @@ const Hero = () => {
                   className="relative group"
                 >
                   {/* No background, no border - just the logo */}
-                  <div className="flex items-center justify-center p-2 h-20 sm:h-24 md:h-28 lg:h-32">
-                    <img 
-                      src={item.src} 
+                  <div className="flex items-center justify-center p-2 h-20 sm:h-24 md:h-28 lg:h-40">
+                    <img
+                      src={item.src}
                       alt={item.alt}
                       className="w-full h-full object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"
                     />
@@ -234,30 +234,31 @@ const Hero = () => {
           </motion.div>
 
           {/* College Info - White text */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
             className="text-center mb-1 md:mb-2"
           >
-            <p className="text-white/90 text-xs sm:text-sm md:text-base font-space">
-              Jhulelal Institute of Technology Nagpur
+            <p className="text-sky-300/100 text-xl sm:text-2xl md:text-[32px] font-space">
+              JIT ACM STUDENT CHAPTER
             </p>
-            <p className="text-sky-300/70 text-[10px] sm:text-xs font-space">
-              An Autonomous Institute
+            <br />
+            <p className="text-white/100 text-lg sm:text-xl md:text-[32px] font-space">
+              PRESENTS
             </p>
           </motion.div>
 
           {/* Department Info - Skyblue */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.25 }}
             className="text-center mb-2 md:mb-3"
           >
-            <span className="text-sky-300 text-[10px] sm:text-xs md:text-sm font-space tracking-wider drop-shadow-[0_0_8px_rgba(0,229,255,0.5)]">
+            {/* <span className="text-sky-300 text-[10px] sm:text-xs md:text-sm font-space tracking-wider drop-shadow-[0_0_8px_rgba(0,229,255,0.5)]">
               JIT ACM PRESENT
-            </span>
+            </span> */}
           </motion.div>
 
           {/* Main Title - White and Skyblue */}
@@ -268,38 +269,38 @@ const Hero = () => {
             className="text-center w-full"
             style={{ scale: titleScale }}
           >
-            <motion.h1 
+            <motion.h1
               variants={itemVariants}
-              className="font-orbitron text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-2"
+              className="font-orbitron text-4xl sm:text-5xl md:text-100xl lg:text-50xl xl:text-9xl font-black mb-2"
             >
-              <span className="text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]">
+              <span className="text-blue-400 drop-shadow-[0_0_100px_rgba(255,255,255,0.5)]">
                 HACK
               </span>
-              <span className="text-sky-300 drop-shadow-[0_0_15px_rgba(0,229,255,0.5)]">
-                BLITZ 
+              <span className="text-cyan-300 drop-shadow-[0_0_100px_rgba(0,229,255,0.5)]">
+                BLITZ
               </span>
-              <span className="text-blue-400 drop-shadow-[0_0_15px_rgba(0,229,255,0.5)]">
-                3.0 
+              <span className="text-cyan-200 drop-shadow-[0_0_100px_rgba(0,229,255,0.5)]">
+                3.0
               </span>
             </motion.h1>
 
             {/* Tagline - Skyblue */}
-            <motion.p 
+            <motion.p
               variants={itemVariants}
-              className="text-sky-300 text-sm sm:text-base md:text-lg mb-2 drop-shadow-[0_0_8px_rgba(0,229,255,0.5)]"
+              className="text-white/100 text-sm sm:text-base md:text-lg mb-2 drop-shadow-[0_0_8px_rgba(0,229,255,0.5)]"
             >
               "Explore Innovation Beyond Limits"
             </motion.p>
 
-            <motion.div 
+            <motion.div
               variants={itemVariants}
               className="flex items-center justify-center gap-2 sm:gap-4 mb-3"
             >
               {['Innovate', 'Build', 'Compete'].map((text, index) => (
-                <span 
-                  key={text} 
+                <span
+                  key={text}
                   className={`
-                    ${index === 0 ? 'text-white' : index === 1 ? 'text-sky-300' : 'text-sky-200'} 
+                    ${index === 0 ? 'text-sky-300' : index === 1 ? 'text-sky-300' : 'text-sky-300'} 
                     text-xs sm:text-sm md:text-base lg:text-lg drop-shadow-[0_0_5px_rgba(0,229,255,0.3)]
                   `}
                 >
@@ -308,7 +309,7 @@ const Hero = () => {
               ))}
             </motion.div>
 
-            <motion.p 
+            <motion.p
               variants={itemVariants}
               className="text-white/80 text-xs sm:text-sm md:text-base lg:text-lg mb-4 max-w-2xl mx-auto font-space leading-relaxed px-3 drop-shadow-[0_0_5px_rgba(255,255,255,0.2)]"
             >
@@ -323,7 +324,7 @@ const Hero = () => {
             </motion.div>
 
             {/* Launch Mission Button */}
-            <motion.div 
+            <motion.div
               variants={itemVariants}
               className="flex items-center justify-center"
             >
@@ -334,24 +335,24 @@ const Hero = () => {
                 onClick={handleRegisterClick}
               >
                 <span className="relative z-10 flex items-center text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]">
-                  Launch Mission
-                  <svg 
-                    className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform text-sky-300" 
-                    fill="none" 
-                    stroke="currentColor" 
+                  REGISTER NOW
+                  <svg
+                    className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform text-sky-300"
+                    fill="none"
+                    stroke="currentColor"
                     viewBox="0 0 24 24"
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
                 </span>
-                
+
                 {/* Subtle hover effect */}
-                <motion.div 
+                <motion.div
                   className="absolute inset-0 bg-gradient-to-r from-sky-300/0 via-sky-300/10 to-sky-300/0"
-                  animate={{ 
+                  animate={{
                     x: ['-100%', '200%']
                   }}
-                  transition={{ 
+                  transition={{
                     duration: 3,
                     repeat: Infinity,
                     ease: "linear"
@@ -364,7 +365,7 @@ const Hero = () => {
       </div>
 
       {/* Simple Scroll Indicator */}
-      <motion.div 
+      <motion.div
         className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-40 hidden sm:block"
         animate={{ y: [0, 5, 0] }}
         transition={{ duration: 1.5, repeat: Infinity }}

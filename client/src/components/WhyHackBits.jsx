@@ -13,7 +13,7 @@ const WhyHackBits = () => {
       icon: '⏰',
       title: '16-Hour Hackathon',
       description: 'Non-stop coding marathon to build innovative solutions from scratch',
-      gradient: 'from-neon-blue to-neon-cyan',
+      gradient: 'from-neon-blue-0 to-neon-cyan-0',
       stats: 'Non-Stop',
       color: 'white'
     },
@@ -21,7 +21,7 @@ const WhyHackBits = () => {
       icon: '👥',
       title: 'Team Collaboration',
       description: 'Register your team of up to 4 members and collaborate with brilliant minds',
-      gradient: 'from-neon-blue to-neon-cyan',
+      gradient: 'from-neon-blue-0 to-neon-cyan-0',
       stats: '2-4 Members',
       color: 'white'
     },
@@ -29,7 +29,7 @@ const WhyHackBits = () => {
       icon: '🚀',
       title: 'Expert Mentorship',
       description: 'Get guidance from industry experts and experienced developers throughout the event',
-      gradient: 'from-neon-blue to-neon-cyan',
+      gradient: 'from-neon-blue-0 to-neon-cyan-0',
       stats: '24/7 Support',
       color: 'white'
     },
@@ -37,7 +37,7 @@ const WhyHackBits = () => {
       icon: '🏆',
       title: 'Exciting Prizes',
       description: 'Win amazing prizes, swag, and recognition for your innovative solutions',
-      gradient: 'from-neon-blue to-neon-cyan',
+      gradient: 'from-neon-blue-0 to-neon-cyan-0',
       stats: '₹50K+ Prizes',
       color: 'white'
     }
@@ -54,7 +54,7 @@ const WhyHackBits = () => {
       number: '4',
       label: 'Members',
       description: 'per team maximum',
-      gradient: 'from-neon-magenta to-neon-purple'
+      gradient: 'from-neon-cyan to-neon-blue'
     },
     {
       number: '50K+',
@@ -175,7 +175,7 @@ const WhyHackBits = () => {
           variants={containerVariants}
           className="text-center mb-16"
         >
-          {/* Section Label with Cosmic Glow */}
+          {/* Section Label with Cosmic Glow
           <motion.div variants={itemVariants} className="relative inline-block mb-4">
             <div className="absolute inset-0 bg-gradient-to-r from-neon-blue/20 via-neon-magenta/20 to-neon-cyan/20 rounded-full blur-xl"></div>
             <span className="relative px-6 py-2 bg-black/40 backdrop-blur-xl border border-neon-blue/30 rounded-full inline-block">
@@ -183,7 +183,7 @@ const WhyHackBits = () => {
                 ✨ WHY HACKBLITZ 3.0
               </span>
             </span>
-          </motion.div>
+          </motion.div> */}
 
           {/* Main Title - Skyblue gradient */}
           <motion.h2 variants={itemVariants} className="font-orbitron text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
@@ -219,7 +219,7 @@ const WhyHackBits = () => {
             >
               {/* Orbital Glow Effect */}
               <motion.div 
-                className={`absolute -inset-0.5 bg-gradient-to-r ${feature.gradient} rounded-2xl opacity-0 group-hover:opacity-30 blur-xl transition-all duration-500`}
+                className={`absolute -inset-0.5 bg-gradient-to-r ${feature.gradient} rounded-2xl opacity-0 group-hover:opacity-10 blur-xl transition-all duration-500`}
                 animate={{
                   scale: [1, 1.05, 1],
                 }}
@@ -227,7 +227,7 @@ const WhyHackBits = () => {
               />
               
               {/* Card Content */}
-              <div className="relative bg-black/60 backdrop-blur-xl border border-neon-blue/20 rounded-2xl p-6 hover:border-neon-blue/40 transition-all duration-300 h-full overflow-hidden">
+              <div className="relative bg-black/80 backdrop-blur-xl border border-neon-blue/50 rounded-2xl p-6 hover:border-neon-blue/40 transition-all duration-300 h-full overflow-hidden">
                 
                 {/* Cosmic Background Effect */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-neon-blue/5 to-neon-magenta/5 rounded-full blur-3xl" />
@@ -254,7 +254,7 @@ const WhyHackBits = () => {
                 </h3>
 
                 {/* Description - White */}
-                <p className="text-white/70 text-sm font-space leading-relaxed mb-4">
+                <p className="text-white/150 text-sm font-space leading-relaxed mb-4">
                   {feature.description}
                 </p>
 
@@ -266,9 +266,9 @@ const WhyHackBits = () => {
                 </div>
 
                 {/* Bottom Border Animation */}
-                <motion.div 
+                {/* <motion.div 
                   className={`absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r ${feature.gradient} scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left rounded-b-2xl`}
-                />
+                /> */}
               </div>
             </motion.div>
           ))}
@@ -287,7 +287,7 @@ const WhyHackBits = () => {
             </span>
           </motion.h3>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
             {highlights.map((highlight, index) => (
               <motion.div
                 key={index}
@@ -295,7 +295,7 @@ const WhyHackBits = () => {
                 className="relative group"
               >
                 {/* Background Glow */}
-                <div className={`absolute inset-0 bg-gradient-to-r ${highlight.gradient} rounded-2xl opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500`} />
+                <div className={`absolute inset-0 bg-gradient-to-r ${highlight.gradient} rounded-2xl opacity-0 group-hover:opacity-10 blur-xl transition-opacity duration-500`} />
                 
                 {/* Orbital Ring */}
                 <motion.div 
@@ -309,7 +309,7 @@ const WhyHackBits = () => {
                 />
                 
                 {/* Content */}
-                <div className="relative bg-black/50 backdrop-blur-sm border border-neon-blue/20 rounded-2xl p-6 text-center hover:border-neon-blue/40 transition-all duration-300">
+                <div className="relative bg-black/70 backdrop-blur-sm border border-neon-blue/20 rounded-2xl p-6 text-center hover:border-neon-blue/40 transition-all duration-300">
                   <motion.div 
                     className={`text-3xl md:text-4xl font-orbitron font-bold bg-gradient-to-r ${highlight.gradient} bg-clip-text text-transparent mb-2`}
                     animate={{
@@ -326,7 +326,7 @@ const WhyHackBits = () => {
                   {/* Label - Skyblue */}
                   <div className="text-sky-300 font-orbitron text-sm mb-1">{highlight.label}</div>
                   {/* Description - White */}
-                  <div className="text-white/60 text-xs">{highlight.description}</div>
+                  <div className="text-white/100 text-xs">{highlight.description}</div>
                 </div>
               </motion.div>
             ))}
@@ -345,8 +345,8 @@ const WhyHackBits = () => {
             variants={itemVariants}
             className="relative group"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-neon-blue/20 to-neon-cyan/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <div className="relative bg-black/60 backdrop-blur-xl border border-neon-blue/20 rounded-2xl p-6 h-full">
+            <div className="absolute inset-0 bg-gradient-to-r from-neon-blue/20 to-neon-cyan/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-80 transition-opacity duration-500" />
+            <div className="relative bg-black/70 backdrop-blur-xl border border-neon-blue/20 rounded-2xl p-6 h-full">
               {/* Heading - Skyblue */}
               <h4 className="font-orbitron text-lg text-sky-300 mb-4 flex items-center gap-2">
                 <span className="text-2xl">🎯</span> What You'll Gain
@@ -377,8 +377,8 @@ const WhyHackBits = () => {
             variants={itemVariants}
             className="relative group"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-neon-magenta/20 to-neon-purple/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <div className="relative bg-black/60 backdrop-blur-xl border border-neon-magenta/20 rounded-2xl p-6 h-full">
+            <div className="absolute inset-0 bg-gradient-to-r from-neon-blue/20 to-neon-cyan/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-80 transition-opacity duration-500" />
+            <div className="relative bg-black/70 backdrop-blur-xl border border-neon-blue/20 rounded-2xl p-6 h-full">
               {/* Heading - Skyblue */}
               <h4 className="font-orbitron text-lg text-sky-300 mb-4 flex items-center gap-2">
                 <span className="text-2xl">👥</span> Who Can Participate
@@ -409,7 +409,7 @@ const WhyHackBits = () => {
             variants={itemVariants}
             className="relative group"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-neon-cyan/20 to-neon-blue/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-r from-neon-cyan/20 to-neon-blue/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-80 transition-opacity duration-500" />
             <div className="relative bg-black/60 backdrop-blur-xl border border-neon-cyan/20 rounded-2xl p-6 h-full">
               {/* Heading - Skyblue */}
               <h4 className="font-orbitron text-lg text-sky-300 mb-4 flex items-center gap-2">
