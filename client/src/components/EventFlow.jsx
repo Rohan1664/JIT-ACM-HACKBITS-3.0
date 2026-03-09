@@ -159,89 +159,89 @@ const EventFlow = () => {
         icon: '🌠'
       }
     ],
-    day3: [
-      { 
-        time: '08:00 AM', 
-        endTime: '09:00 AM',
-        event: 'Breakfast', 
-        description: 'Morning refreshments. Energy boost for the final stretch.',
-        location: 'Food Court',
-        type: 'break',
-        icon: '☕'
-      },
-      { 
-        time: '09:00 AM', 
-        endTime: '11:00 AM',
-        event: 'Final Development', 
-        description: 'Last stretch of coding and bug fixes. Polish your project for presentation.',
-        location: 'Main Arena',
-        type: 'hacking',
-        icon: '🚀'
-      },
-      { 
-        time: '11:00 AM', 
-        endTime: '12:00 PM',
-        event: 'Submission Deadline', 
-        description: 'Final project submission in prescribed format. No extensions will be given.',
-        location: 'Submission Portal',
-        type: 'deadline',
-        icon: '⏰'
-      },
-      { 
-        time: '12:00 PM', 
-        endTime: '02:00 PM',
-        event: 'Project Presentations', 
-        description: 'Teams present their projects to judges. 5-minute presentation + 3-minute Q&A.',
-        location: 'Presentation Halls',
-        type: 'presentation',
-        icon: '🎤'
-      },
-      { 
-        time: '02:00 PM', 
-        endTime: '03:00 PM',
-        event: 'Judging & Evaluation', 
-        description: 'Final evaluation by panel of judges. Scoring based on innovation, implementation, and impact.',
-        location: 'Judging Area',
-        type: 'evaluation',
-        icon: '🏆'
-      },
-      { 
-        time: '03:00 PM', 
-        endTime: '04:00 PM',
-        event: 'Closing Ceremony', 
-        description: 'Results announcement and prize distribution. Vote of thanks and group photo.',
-        location: 'Main Auditorium',
-        type: 'ceremony',
-        icon: '🎉'
-      }
-    ]
+    // day3: [
+    //   { 
+    //     time: '08:00 AM', 
+    //     endTime: '09:00 AM',
+    //     event: 'Breakfast', 
+    //     description: 'Morning refreshments. Energy boost for the final stretch.',
+    //     location: 'Food Court',
+    //     type: 'break',
+    //     icon: '☕'
+    //   },
+    //   { 
+    //     time: '09:00 AM', 
+    //     endTime: '11:00 AM',
+    //     event: 'Final Development', 
+    //     description: 'Last stretch of coding and bug fixes. Polish your project for presentation.',
+    //     location: 'Main Arena',
+    //     type: 'hacking',
+    //     icon: '🚀'
+    //   },
+    //   { 
+    //     time: '11:00 AM', 
+    //     endTime: '12:00 PM',
+    //     event: 'Submission Deadline', 
+    //     description: 'Final project submission in prescribed format. No extensions will be given.',
+    //     location: 'Submission Portal',
+    //     type: 'deadline',
+    //     icon: '⏰'
+    //   },
+    //   { 
+    //     time: '12:00 PM', 
+    //     endTime: '02:00 PM',
+    //     event: 'Project Presentations', 
+    //     description: 'Teams present their projects to judges. 5-minute presentation + 3-minute Q&A.',
+    //     location: 'Presentation Halls',
+    //     type: 'presentation',
+    //     icon: '🎤'
+    //   },
+    //   { 
+    //     time: '02:00 PM', 
+    //     endTime: '03:00 PM',
+    //     event: 'Judging & Evaluation', 
+    //     description: 'Final evaluation by panel of judges. Scoring based on innovation, implementation, and impact.',
+    //     location: 'Judging Area',
+    //     type: 'evaluation',
+    //     icon: '🏆'
+    //   },
+    //   { 
+    //     time: '03:00 PM', 
+    //     endTime: '04:00 PM',
+    //     event: 'Closing Ceremony', 
+    //     description: 'Results announcement and prize distribution. Vote of thanks and group photo.',
+    //     location: 'Main Auditorium',
+    //     type: 'ceremony',
+    //     icon: '🎉'
+    //   }
+    // ]
   };
 
   const getEventTypeColor = (type) => {
     const colors = {
-      ceremony: 'from-sky-300 to-blue-400',
-      workshop: 'from-sky-300 to-blue-400',
-      hacking: 'from-sky-400 to-blue-500',
-      break: 'from-sky-300 to-blue-400',
-      evaluation: 'from-sky-400 to-blue-500',
-      deadline: 'from-sky-300 to-blue-400',
-      presentation: 'from-sky-300 to-blue-400'
+      ceremony: 'from-sky-0 to-blue-0',
+      workshop: 'from-sky-0 to-blue-0',
+      hacking: 'from-sky-0 to-blue-0',
+      break: 'from-sky-0 to-blue-0',
+      evaluation: 'from-sky-0 to-blue-0',
+      deadline: 'from-sky-0 to-blue-0',
+      presentation: 'from-sky-0 to-blue-0'
     };
-    return colors[type] || 'from-sky-300 to-blue-400';
+    return colors[type] || 'from-sky-0 to-blue-0';
   };
 
-  const getEventTypeIcon = (type) => {
-    const icons = {
-      ceremony: '🎪',
-      workshop: '💡',
-      hacking: '💻',
-      break: '🍕',
-      evaluation: '📊',
-      deadline: '⏰',
-      presentation: '🎤'
-    };
-    return icons[type] || '📌';
-  };
+  // const getEventTypeIcon = (type) => {
+  //   const icons = {
+  //     ceremony: '🎪',
+  //     workshop: '💡',
+  //     hacking: '💻',
+  //     break: '🍕',
+  //     evaluation: '📊',
+  //     deadline: '⏰',
+  //     presentation: '🎤'
+  //   };
+  //   return icons[type] || '📌';
+  // };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -435,7 +435,7 @@ const EventFlow = () => {
           <div className="relative group">
             {/* Orbital Glow */}
             <motion.div 
-              className="absolute -inset-2 bg-gradient-to-r from-sky-300 to-blue-400 rounded-2xl blur-2xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"
+              className="absolute -inset-2 bg-gradient-to-r from-sky-40 to-blue-50 rounded-2xl blur-2xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"
               animate={{
                 scale: [1, 1.05, 1],
                 opacity: [0.3, 0.5, 0.3]
@@ -444,11 +444,11 @@ const EventFlow = () => {
             />
             
             {/* Selector Container */}
-            <div className="relative bg-black/60 backdrop-blur-xl border border-sky-300/30 rounded-2xl p-2 flex gap-2">
+            <div className="relative bg-black/100 backdrop-blur-xl border border-sky-100/10 rounded-2xl p-2 flex gap-2">
               {[
-                { id: 'day1', label: 'Day 1', date: 'March 24', gradient: 'from-sky-300 to-blue-400' },
-                { id: 'day2', label: 'Day 2', date: 'March 25', gradient: 'from-sky-400 to-blue-500' },
-                { id: 'day3', label: 'Day 3', date: 'March 26', gradient: 'from-sky-300 to-blue-400' }
+                { id: 'day1', label: 'Day 1', date: 'March 24', gradient: 'from-sky-400 to-blue-400' },
+                { id: 'day2', label: 'Day 2', date: 'March 25', gradient: 'from-sky-400 to-blue-400' },
+                // { id: 'day3', label: 'Day 3', date: 'March 26', gradient: 'from-sky-400 to-blue-400' }
               ].map((day) => (
                 <motion.button
                   key={day.id}
@@ -466,10 +466,10 @@ const EventFlow = () => {
                   )}
                   <span className="relative z-10 flex flex-col items-center">
                     <span className={`font-orbitron text-sm md:text-base font-bold ${
-                      selectedDay === day.id ? 'text-white' : 'text-white/60'
+                      selectedDay === day.id ? 'text-white' : 'text-white/200'
                     }`}>{day.label}</span>
                     <span className={`text-xs ${
-                      selectedDay === day.id ? 'text-sky-300' : 'text-white/40'
+                      selectedDay === day.id ? 'text-white' : 'text-white/300'
                     }`}>{day.date}</span>
                   </span>
                 </motion.button>
@@ -490,9 +490,9 @@ const EventFlow = () => {
           >
             {/* Cosmic Timeline Line */}
             <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-0.5">
-              <div className="absolute inset-0 bg-gradient-to-b from-sky-300 via-sky-400 to-blue-400 opacity-30" />
+              <div className="absolute inset-0 bg-gradient-to-b from-sky-200 via-sky-200 to-blue-200 opacity-30" />
               <motion.div 
-                className="absolute inset-0 bg-gradient-to-b from-sky-300 via-sky-400 to-blue-400"
+                className="absolute inset-0 bg-gradient-to-b from-sky-400 via-sky-400 to-blue-400"
                 initial={{ scaleY: 0 }}
                 animate={{ scaleY: 1 }}
                 transition={{ duration: 1.5, ease: "easeInOut" }}
@@ -507,7 +507,7 @@ const EventFlow = () => {
                   style={{ top: `${(index / (schedule[selectedDay].length - 1)) * 100}%` }}
                 >
                   <motion.div 
-                    className="w-full h-full bg-sky-300 rounded-full"
+                    className="w-full h-full bg-sky-500 rounded-full"
                     animate={{
                       scale: [1, 1.8, 1],
                       opacity: [0.5, 1, 0.5],
@@ -541,9 +541,9 @@ const EventFlow = () => {
                 {/* Timeline Node with Cosmic Glow */}
                 <div className="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-5 h-5 z-10">
                   <motion.div 
-                    className="absolute inset-0 bg-gradient-to-r from-sky-300 to-blue-400 rounded-full"
+                    className="absolute inset-0 bg-gradient-to-r from-sky-500 to-blue-200 rounded-full"
                     animate={{ 
-                      scale: [1, 1.8, 1],
+                      scale: [1, 1.1, 1],
                       boxShadow: [
                         '0 0 10px rgba(56,189,248,0.5)',
                         '0 0 30px rgba(14,165,233,0.8)',
@@ -560,49 +560,47 @@ const EventFlow = () => {
                   index % 2 === 0 ? 'md:text-right' : 'md:text-left'
                 }`}>
                   <motion.div 
-                    className="inline-block bg-black/40 backdrop-blur-xl border border-sky-300/30 rounded-xl p-4 hover:border-sky-300/50 transition-all duration-300"
+                    className="inline-block bg-black/70 backdrop-blur-xl border border-sky-300/30 rounded-xl p-4 hover:border-sky-100/0 transition-all duration-300"
                     whileHover={{ scale: 1.02, x: index % 2 === 0 ? -5 : 5 }}
                   >
-                    <span className="font-orbitron text-lg font-bold bg-gradient-to-r from-sky-300 to-blue-400 bg-clip-text text-transparent">
+                    <span className="font-orbitron text-lg font-bold bg-gradient-to-r from-sky-300 to-blue-400 bg-clip-text  text-transparent">
                       {item.time}
                     </span>
                     <span className="text-white/40 text-sm mx-2">→</span>
-                    <span className="font-orbitron text-sm text-white/60">{item.endTime}</span>
+                    <span className="font-orbitron text-sm text-white/100">{item.endTime}</span>
                   </motion.div>
                 </div>
 
                 {/* Event Card */}
-                <div className={`md:w-5/12 ${
-                  index % 2 === 0 ? 'md:text-left' : 'md:text-right'
-                }`}>
+                <div className={`md:w-5/12 `}>
                   <motion.div
                     whileHover={{ scale: 1.02, y: -5 }}
                     className="relative group cursor-pointer"
-                    onClick={() => setSelectedEvent(selectedEvent === index ? null : index)}
+                    onClick={() => setSelectedEvent(selectedEvent === index ? null : index)} 
                   >
                     {/* Orbital Glow Effect */}
                     <motion.div 
-                      className={`absolute -inset-1 bg-gradient-to-r ${getEventTypeColor(item.type)} rounded-2xl opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-500`}
+                      className={`absolute -inset-1 bg-gradient-to-r ${getEventTypeColor(item.type)} rounded-2xl opacity-0 group-hover:opacity-10 blur-xl transition-opacity duration-500`}
                       animate={{
-                        scale: [1, 1.05, 1],
+                        scale: [1, 1, 1],
                       }}
                       transition={{ duration: 2, repeat: Infinity }}
                     />
                     
                     {/* Card */}
-                    <div className="relative bg-black/60 backdrop-blur-xl border border-sky-300/20 rounded-2xl p-6 hover:border-sky-300/40 transition-all duration-300 overflow-hidden">
+                    <div className="relative bg-black/80 backdrop-blur-xl border border-sky-300/20 rounded-2xl p-6 hover:border-sky-300/40 transition-all duration-300 overflow-hidden">
                       
                       {/* Cosmic Background Effect */}
-                      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-sky-300/5 to-blue-400/5 rounded-full blur-3xl" />
+                      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-sky-100/5 to-blue-200/5 rounded-full blur-3xl" />
                       
                       {/* Header with Icon */}
                       <div className="flex items-start gap-4 mb-3">
                         <motion.div 
-                          className={`p-3 rounded-xl bg-gradient-to-r ${getEventTypeColor(item.type)} bg-opacity-10 relative overflow-hidden`}
+                          className={`p-2 rounded-2xl bg-gradient-to-r ${getEventTypeColor(item.type)} bg-opacity-10 relative overflow-hidden`}
                           whileHover={{ scale: 1.1 }}
                           transition={{ type: "spring", stiffness: 400 }}
                         >
-                          <span className="text-2xl relative z-10">{item.icon || getEventTypeIcon(item.type)}</span>
+                          <span className="text-4xl relative z-10">{item.icon || getEventTypeIcon(item.type)}</span>
                           <motion.div 
                             className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0"
                             animate={{ x: ['-100%', '200%'] }}
@@ -611,11 +609,11 @@ const EventFlow = () => {
                         </motion.div>
                         <div className="flex-1">
                           {/* Event Title - Skyblue gradient */}
-                          <h3 className={`font-orbitron text-lg font-bold bg-gradient-to-r ${getEventTypeColor(item.type)} bg-clip-text text-transparent`}>
+                          <h3 className={`font-orbitron text-lg font-bold bg-gradient-to-r text-white bg-clip-text text-transparent`}>
                             {item.event}
                           </h3>
                           {/* Location - White with lower opacity */}
-                          <p className="text-white/50 text-xs mt-1 flex items-center gap-1">
+                          <p className="text-white/100 text-xs mt-1 flex items-center gap-1">
                             <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -635,7 +633,7 @@ const EventFlow = () => {
                             transition={{ duration: 0.3, ease: "easeInOut" }}
                             className="overflow-hidden"
                           >
-                            <p className="text-white/70 text-sm font-space leading-relaxed mt-3 pt-3 border-t border-sky-300/20">
+                            <p className="text-white/100 text-sm font-space leading-relaxed mt-3 pt-3 border-t border-sky-300/20">
                               {item.description}
                             </p>
                           </motion.div>
@@ -668,7 +666,7 @@ const EventFlow = () => {
         </AnimatePresence>
 
         {/* Timeline Legend */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, type: "spring", stiffness: 100 }}
@@ -691,10 +689,10 @@ const EventFlow = () => {
               <span className="text-xs text-white/60">{item.label}</span>
             </motion.div>
           ))}
-        </motion.div>
+        </motion.div> */}
 
         {/* Important Notes */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9, type: "spring", stiffness: 100 }}
@@ -712,7 +710,7 @@ const EventFlow = () => {
               </p>
             </div>
           </motion.div>
-        </motion.div>
+        </motion.div> */}
 
         {/* Cosmic Divider */}
         <motion.div 

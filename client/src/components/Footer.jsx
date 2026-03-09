@@ -87,7 +87,7 @@ const Footer = () => {
   return (
     <footer 
       id="contact" // Added id for navbar link
-      className="relative bg-gradient-to-b from-[#020617] via-[#030b1a] to-[#000000] border-t border-sky-300/20 py-16 overflow-hidden"
+      className="relative bg-gradient-to-b from-[#020617] via-[#030b1a] to-[#000000] border-t border-sky-300/20 py-2 overflow-hidden"
     >
       {/* Deep Space Background - Updated to skyblue */}
       <div className="absolute inset-0">
@@ -179,7 +179,7 @@ const Footer = () => {
           {/* Logo Section */}
           <motion.div variants={itemVariants} className="col-span-1 relative group">
             {/* Glow Effect - Updated to skyblue */}
-            <div className="absolute -inset-4 bg-gradient-to-r from-sky-300/20 via-sky-400/20 to-blue-400/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            <div className="absolute -inset-4 bg-gradient-to-r from-sky-300/20 via-sky-400/20 to-blue-400/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-50 transition-opacity duration-700" />
             
             <div className="relative">
               <motion.h3 
@@ -187,13 +187,13 @@ const Footer = () => {
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 400 }}
               >
-                <span className="text-sky-300 drop-shadow-[0_0_10px_rgba(56,189,248,0.5)]">HACK</span>
-                <span className="text-sky-300 drop-shadow-[0_0_10px_rgba(56,189,248,0.5)]">BLITZ</span>
-                <span className="text-blue-400 drop-shadow-[0_0_10px_rgba(14,165,233,0.5)]"> 3.0</span>
+                <span className="text-blue-400 drop-shadow-[0_0_10px_rgba(56,189,248,0.5)]">HACK</span>
+                <span className="text-cyan-300 drop-shadow-[0_0_10px_rgba(56,189,248,0.5)]">BLITZ</span>
+                <span className="text-cyan-200 drop-shadow-[0_0_10px_rgba(14,165,233,0.5)]"> 3.0</span>
               </motion.h3>
               
               {/* Description - White text */}
-              <p className="text-white/70 text-sm font-space relative">
+              <p className="text-white/100 text-sm font-space relative">
                 JIT ACM STUDENT CHAPTER PRESENT
                 <motion.span 
                   className="absolute -bottom-1 left-0 w-12 h-0.5 bg-gradient-to-r from-sky-300 to-blue-400"
@@ -202,7 +202,7 @@ const Footer = () => {
                   transition={{ duration: 0.3 }}
                 />
               </p>
-              <p className="text-white/60 text-sm font-space mt-2">
+              <p className="text-white/100 text-sm font-space mt-2">
                 Jhulelal Institute of Technology, Nagpur
               </p>
             </div>
@@ -211,7 +211,7 @@ const Footer = () => {
           {/* Quick Links */}
           <motion.div variants={itemVariants} className="col-span-1">
             <motion.h4 
-              className="font-orbitron text-sky-300 mb-4 relative inline-block"
+              className="font-orbitron text-sky-400 mb-4 relative inline-block"
               whileHover={{ scale: 1.05 }}
             >
               Quick Links
@@ -231,7 +231,7 @@ const Footer = () => {
                 >
                   <a
                     href={link.href}
-                    className="text-white/60 hover:text-sky-300 transition-colors duration-300 text-sm font-space flex items-center gap-2 group"
+                    className="text-white/100 hover:text-sky-300 transition-colors duration-300 text-sm font-space flex items-center gap-2 group"
                   >
                     <motion.span 
                       className="w-1 h-1 rounded-full bg-sky-300 opacity-0 group-hover:opacity-100"
@@ -248,7 +248,7 @@ const Footer = () => {
           {/* Contact Info */}
           <motion.div variants={itemVariants} className="col-span-1">
             <motion.h4 
-              className="font-orbitron text-sky-300 mb-4 relative inline-block"
+              className="font-orbitron text-sky-400 mb-4 relative inline-block"
               whileHover={{ scale: 1.05 }}
             >
               Contact
@@ -267,7 +267,7 @@ const Footer = () => {
               ].map((item, index) => (
                 <motion.li 
                   key={index}
-                  className="text-white/60 text-sm font-space flex items-center gap-3 group"
+                  className="text-white/100 text-sm font-space flex items-center gap-3 group"
                   whileHover={{ x: 5 }}
                 >
                   <span className="text-lg filter drop-shadow-[0_0_8px_rgba(56,189,248,0.5)] text-sky-300">
@@ -284,7 +284,7 @@ const Footer = () => {
           {/* Social Links */}
           <motion.div variants={itemVariants} className="col-span-1">
             <motion.h4 
-              className="font-orbitron text-sky-300 mb-4 relative inline-block"
+              className="font-orbitron text-sky-400 mb-4 relative inline-block"
               whileHover={{ scale: 1.05 }}
             >
               Follow Us
@@ -329,13 +329,13 @@ const Footer = () => {
 
             {/* Star Count (Decorative) - Updated to skyblue/white */}
             <motion.div 
-              className="mt-4 flex items-center gap-2 text-white/50 text-xs"
-              animate={{ opacity: [0.5, 1, 0.5] }}
+              className="mt-4 flex items-center gap-2 text-white/100 text-xs"
+              animate={{ opacity: [1, 1, 1] }}
               transition={{ duration: 3, repeat: Infinity }}
             >
-              <span className="text-sky-300">✦</span>
+              <span className="text-sky-400">✦</span>
               <span>Join our cosmic community</span>
-              <span className="text-sky-300">✦</span>
+              <span className="text-sky-400">✦</span>
             </motion.div>
           </motion.div>
         </motion.div>
@@ -381,11 +381,11 @@ const Footer = () => {
             />
 
             {/* Copyright text - White */}
-            <p className="text-white/50 text-sm font-space relative z-10">
+            <p className="text-white/100 text-sm font-space relative z-10">
               © {currentYear} HACKBLITZ 3.0. All rights reserved. 
               <motion.span 
-                className="block text-xs mt-1 text-sky-300/50"
-                animate={{ opacity: [0.3, 0.6, 0.3] }}
+                className="block text-sm mt-1 text-sky-500"
+                animate={{ opacity: [1, 1, 1] }}
                 transition={{ duration: 3, repeat: Infinity }}
               >
                 Made with 💻 in the cosmos

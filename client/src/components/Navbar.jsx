@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
+// Import your logo image
+import jitLogo from '../assets/images/hackbits3.0.png';
+
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
 
@@ -17,7 +20,7 @@ const Navbar = () => {
     { name: 'Why Hackblitz', href: '#whyhackbits' },
     { name: 'Event Flow', href: '#eventflow' },
     { name: 'Rules', href: '#rules' },
-    { name: 'Contact', href: '#contact' } // Changed from '#footer' to '#contact'
+    // { name: 'Contact', href: '#contact' }
   ];
 
   return (
@@ -31,14 +34,20 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
-          {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <span className="font-orbitron text-xl sm:text-2xl font-bold">
-              <span className="text-sky-300 drop-shadow-[0_0_8px_rgba(56,189,248,0.5)]">HACK</span>
-              <span className="text-sky-300 drop-shadow-[0_0_8px_rgba(56,189,248,0.5)]">BLITZ</span>
-              <span className="text-blue-400 drop-shadow-[0_0_8px_rgba(14,165,233,0.5)]"> 3.0</span>
-            </span>
-          </div>
+          {/* Logo - Image instead of text */}
+          <motion.div 
+            className="flex items-left"
+            whileHover={{ scale: 0.91 }}
+            transition={{ type: "spring", stiffness: 100 }}
+          >
+            <a href="#home" className="flex items-center">
+              <img 
+                src={jitLogo} 
+                alt="JIT Logo" 
+                className="h-6 w-auto md:h-8 object-contain"
+              />
+            </a>
+          </motion.div>
 
           {/* Navigation Links - Desktop */}
           <div className="hidden md:flex items-center space-x-8">

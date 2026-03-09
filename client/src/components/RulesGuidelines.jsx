@@ -61,7 +61,7 @@ const RulesGuidelines = () => {
     {
       category: '16-Hour Timeline',
       icon: '⏰',
-      gradient: 'from-sky-300 to-blue-400',
+      gradient: 'from-sky-0 to-blue-0',
       items: [
         'The hackathon is a 16-hour continuous coding event; teams must adhere strictly to the given timeline.',
         'All coding must be done only during the official hackathon duration.',
@@ -72,7 +72,7 @@ const RulesGuidelines = () => {
     {
       category: 'No Pre-Built Code',
       icon: '📝',
-      gradient: 'from-sky-300 to-blue-400',
+      gradient: 'from-sky-0 to-blue-0',
       items: [
         'Use of pre-built code, templates, or previously developed projects is prohibited.',
         'Teams may use open-source libraries, APIs, and frameworks, provided they are properly acknowledged.',
@@ -83,7 +83,7 @@ const RulesGuidelines = () => {
     {
       category: 'Team Composition',
       icon: '👥',
-      gradient: 'from-sky-300 to-blue-400',
+      gradient: 'from-sky-0 to-blue-0',
       items: [
         'Teams must consist of the registered members only; no substitution is allowed after the event begins.',
         'Maximum team size: 4 members',
@@ -95,7 +95,7 @@ const RulesGuidelines = () => {
     {
       category: 'Evaluation Checkpoints',
       icon: '✅',
-      gradient: 'from-sky-300 to-blue-400',
+      gradient: 'from-sky-0 to-blue-0',
       items: [
         'Regular evaluation checkpoints will be conducted by judges and mentors.',
         'Progress updates required every 4 hours.',
@@ -106,7 +106,7 @@ const RulesGuidelines = () => {
     {
       category: 'Submission Deadline',
       icon: '📋',
-      gradient: 'from-sky-300 to-blue-400',
+      gradient: 'from-sky-0 to-blue-0',
       items: [
         'Teams must submit their final project before the submission deadline in the prescribed format.',
         'Late submissions will not be accepted under any circumstances.',
@@ -117,7 +117,7 @@ const RulesGuidelines = () => {
     {
       category: 'Mentor Guidance',
       icon: '🤝',
-      gradient: 'from-sky-300 to-blue-400',
+      gradient: 'from-sky-0 to-blue-0',
       items: [
         'Mentors are available for guidance, but direct implementation by mentors is not allowed.',
         'Seek advice on architecture, APIs, and best practices.',
@@ -128,7 +128,7 @@ const RulesGuidelines = () => {
     {
       category: 'Misconduct Policy',
       icon: '⚖️',
-      gradient: 'from-sky-300 to-blue-400',
+      gradient: 'from-sky-0 to-blue-0',
       items: [
         'Any form of misconduct, rule violation, or unfair practice will result in immediate disqualification.',
         'Respect all participants, mentors, and organizers.',
@@ -139,7 +139,7 @@ const RulesGuidelines = () => {
     {
       category: 'Ethical Coding',
       icon: '👨‍💻',
-      gradient: 'from-sky-300 to-blue-400',
+      gradient: 'from-sky-0 to-blue-0',
       items: [
         'Participants must follow ethical coding practices; plagiarism or code copying will lead to disqualification.',
         'Give credit to any external resources used.',
@@ -150,7 +150,7 @@ const RulesGuidelines = () => {
     {
       category: 'Final Decision',
       icon: '🏁',
-      gradient: 'from-sky-300 to-blue-400',
+      gradient: 'from-sky-00 to-blue-00',
       items: [
         'The decision of the judges and organizing committee will be final and binding.',
         'No appeals will be entertained after results are announced.',
@@ -310,7 +310,7 @@ const RulesGuidelines = () => {
 
           {/* Main Title - Skyblue gradient */}
           <motion.h2 variants={itemVariants} className="font-orbitron text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-sky-300 via-sky-400 to-blue-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-sky-200 via-sky-400 to-blue-400 bg-clip-text text-transparent">
               Rules & Guidelines
             </span>
           </motion.h2>
@@ -335,29 +335,29 @@ const RulesGuidelines = () => {
               whileHover={{ 
                 scale: 1.02, 
                 y: -8,
-                transition: { type: "spring", stiffness: 400, damping: 17 }
+                transition: { type: "spring", stiffness: 200, damping: 17 }
               }}
               className="group relative"
             >
               {/* Orbital Glow Effect - Skyblue */}
               <motion.div 
-                className={`absolute -inset-0.5 bg-gradient-to-r ${rule.gradient} rounded-2xl opacity-0 group-hover:opacity-30 blur-xl transition-all duration-500`}
+                className={`absolute -inset-0.5 bg-gradient-to-r ${rule.gradient} rounded-2xl opacity-0 group-hover:opacity-10 blur-xl transition-all duration-500`}
                 animate={{
-                  scale: [1, 1.05, 1],
+                  scale: [1, 1, 1],
                 }}
                 transition={{ duration: 2, repeat: Infinity }}
               />
               
               {/* Card Content */}
-              <div className="relative bg-black/60 backdrop-blur-xl border border-sky-300/20 rounded-2xl p-6 hover:border-sky-300/40 transition-all duration-300 h-full flex flex-col overflow-hidden">
+              <div className="relative bg-black/60 backdrop-blur-xl border border-sky-200/20 rounded-2xl p-6 hover:border-sky-300 transition-all duration-300 h-full flex flex-col overflow-hidden">
                 
                 {/* Cosmic Background Effect - Skyblue */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-sky-300/5 to-blue-400/5 rounded-full blur-3xl" />
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-sky-100/5 to-blue-200/5 rounded-full blur-3xl" />
                 
                 {/* Header with Icon and Category */}
                 <div className="flex items-start gap-4 mb-4 relative z-10">
                   <motion.div 
-                    className={`p-3 rounded-xl bg-gradient-to-r ${rule.gradient} bg-opacity-10 relative overflow-hidden`}
+                    className={`p-4 rounded-xl bg-gradient-to-r ${rule.gradient} bg-opacity-10 relative overflow-hidden`}
                     whileHover={{ scale: 1.1 }}
                     transition={{ type: "spring", stiffness: 400 }}
                   >
@@ -381,7 +381,7 @@ const RulesGuidelines = () => {
                   {rule.items.map((item, i) => (
                     <motion.li 
                       key={i} 
-                      className="text-white/70 text-sm font-space flex items-start gap-3 group/item"
+                      className="text-white/100 text-sm font-space flex items-start gap-3 group/item"
                       initial={{ opacity: 0.8 }}
                       whileHover={{ opacity: 1, x: 3 }}
                     >
@@ -392,115 +392,15 @@ const RulesGuidelines = () => {
                 </ul>
 
                 {/* Bottom Border Gradient with Animation - Skyblue */}
-                <motion.div 
+                {/* <motion.div 
                   className={`mt-4 h-0.5 w-0 group-hover:w-full bg-gradient-to-r ${rule.gradient}`}
                   transition={{ duration: 0.5 }}
-                />
+                /> */}
               </div>
             </motion.div>
           ))}
         </motion.div>
 
-        {/* Important Notice Section */}
-        <motion.div
-          variants={itemVariants}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          className="mt-16 relative"
-        >
-          {/* Background Glow - Skyblue */}
-          <div className="absolute inset-0 bg-gradient-to-r from-sky-300/20 via-sky-400/20 to-sky-300/20 rounded-3xl blur-2xl" />
-          
-          {/* Content */}
-          <motion.div 
-            className="relative bg-black/60 backdrop-blur-xl border border-sky-300/30 rounded-3xl p-8 text-center overflow-hidden"
-            whileHover={{ scale: 1.01 }}
-            transition={{ type: "spring", stiffness: 400 }}
-          >
-            {/* Animated Background */}
-            <motion.div
-              className="absolute inset-0 opacity-10"
-              style={{
-                background: 'linear-gradient(45deg, transparent 30%, rgba(56,189,248,0.2) 50%, transparent 70%)',
-              }}
-              animate={{
-                x: ['-100%', '200%'],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "linear"
-              }}
-            />
-
-            {/* Floating Orbs - Skyblue */}
-            <motion.div
-              className="absolute top-0 left-0 w-32 h-32 bg-sky-300/20 rounded-full blur-3xl"
-              animate={{
-                x: [0, 50, 0],
-                y: [0, 30, 0],
-              }}
-              transition={{ duration: 8, repeat: Infinity }}
-            />
-            <motion.div
-              className="absolute bottom-0 right-0 w-32 h-32 bg-sky-400/20 rounded-full blur-3xl"
-              animate={{
-                x: [0, -50, 0],
-                y: [0, -30, 0],
-              }}
-              transition={{ duration: 8, repeat: Infinity }}
-            />
-
-            <div className="relative z-10">
-              <div className="flex items-center justify-center gap-4 mb-4">
-                <motion.div
-                  animate={{
-                    scale: [1, 1.2, 1],
-                    rotate: [0, 10, -10, 0],
-                    filter: [
-                      'drop-shadow(0 0 10px #38BDF8)',
-                      'drop-shadow(0 0 20px #0EA5E9)',
-                      'drop-shadow(0 0 10px #38BDF8)'
-                    ]
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                  }}
-                >
-                  <span className="text-4xl">⚠️</span>
-                </motion.div>
-                {/* Important Notice Title - Skyblue gradient */}
-                <h3 className="font-orbitron text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-blue-400">
-                  Important Notice
-                </h3>
-              </div>
-              
-              {/* Important Notice Text - White */}
-              <p className="text-white/80 font-space text-lg max-w-3xl mx-auto mb-4">
-                Violation of any rule may result in immediate disqualification. When in doubt, consult a mentor or organizer.
-              </p>
-              
-              <div className="flex flex-wrap justify-center gap-4 mt-6">
-                {[
-                  { text: 'No Plagiarism', color: 'sky-300', icon: '❌' },
-                  { text: 'Strict Timeline', color: 'sky-300', icon: '⏰' },
-                  { text: 'Be Respectful', color: 'sky-300', icon: '🤝' }
-                ].map((item, i) => (
-                  <motion.div 
-                    key={i}
-                    className="px-4 py-2 bg-sky-300/10 rounded-full border border-sky-300/30 backdrop-blur-sm"
-                    whileHover={{ scale: 1.05, borderColor: '#38BDF8' }}
-                  >
-                    <span className="text-sky-300 text-sm font-medium">
-                      {item.icon} {item.text}
-                    </span>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-        </motion.div>
 
         {/* Quick Stats - Updated to skyblue */}
         <motion.div
