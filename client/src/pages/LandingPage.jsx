@@ -13,8 +13,8 @@ const LandingPage = () => {
       <main>
         <Hero />
         <WhyHackBits />
-        <EventFlow />
         <RulesGuidelines />
+        <EventFlow />
       </main>
       <Footer />
     </div>

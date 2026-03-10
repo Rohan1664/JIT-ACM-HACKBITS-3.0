@@ -402,50 +402,7 @@ const RulesGuidelines = () => {
         </motion.div>
 
 
-        {/* Quick Stats - Updated to skyblue */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4"
-        >
-          {[
-            { label: 'Total Rules', value: '9', icon: '📋', gradient: 'from-sky-300 to-blue-400' },
-            { label: 'Team Size', value: '2-4', icon: '👥', gradient: 'from-sky-300 to-blue-400' },
-            { label: 'Duration', value: '16h', icon: '⏰', gradient: 'from-sky-300 to-blue-400' },
-            { label: 'Checkpoints', value: '4', icon: '✅', gradient: 'from-sky-300 to-blue-400' }
-          ].map((stat, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              whileHover={{ scale: 1.05, y: -5 }}
-              className="relative group"
-            >
-              <div className={`absolute inset-0 bg-gradient-to-r ${stat.gradient} rounded-xl opacity-0 group-hover:opacity-20 blur-lg transition-opacity duration-500`} />
-              <div className="relative bg-black/10 backdrop-blur-sm border border-sky-300/20 rounded-xl p-4 text-center hover:border-sky-300/40 transition-all duration-300">
-                <motion.span 
-                  className="text-2xl mb-1 block"
-                  animate={{
-                    filter: [
-                      'drop-shadow(0 0 5px rgba(56,189,248,0.3))',
-                      'drop-shadow(0 0 15px rgba(14,165,233,0.3))',
-                      'drop-shadow(0 0 5px rgba(56,189,248,0.3))'
-                    ]
-                  }}
-                  transition={{ duration: 3, repeat: Infinity }}
-                >
-                  {stat.icon}
-                </motion.span>
-                {/* Value - Skyblue gradient */}
-                <div className={`text-2xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent`}>
-                  {stat.value}
-                </div>
-                {/* Label - White */}
-                <div className="text-xs text-white/50 mt-1">{stat.label}</div>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+        
 
         {/* Cosmic Divider - Skyblue */}
         <motion.div 
