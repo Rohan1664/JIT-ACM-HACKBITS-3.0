@@ -87,7 +87,7 @@ const Footer = () => {
   return (
     <footer
       id="contact" // Added id for navbar link
-      className="relative bg-gradient-to-b from-[#020617] via-[#030b1a] to-[#000000] border-t border-sky-300/20 py-1 overflow-hidden"
+      className="relative bg-gradient-to-b from-[#020617] via-[#030b1a] to-[#000000] border-t border-sky-300/20 py-2 overflow-hidden"
     >
       {/* Deep Space Background - Updated to skyblue */}
       <div className="absolute inset-0">
@@ -174,7 +174,7 @@ const Footer = () => {
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
           variants={containerVariants}
-          className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8"
+          className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-8"
         >
           {/* Logo Section */}
           <motion.div variants={itemVariants} className="col-span-1 relative group">
@@ -243,10 +243,26 @@ const Footer = () => {
                 </motion.li>
               ))}
             </ul>
-
+            
           </motion.div>
-
-
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="rounded-xl overflow-hidden border border-sky-300/30 shadow-[0_0_20px_rgba(56,189,248,0.3)]"
+          >
+            <iframe
+              title="JIT Location"
+              src="https://www.google.com/maps?q=Jhulelal+Institute+of+Technology+Nagpur&output=embed"
+              width="100%"
+              height="180"
+              style={{ border: 0 }}
+              loading="lazy"
+              className="w-full h-[180px]"
+            />
+          </motion.div>
+          
 
           {/* Contact Info */}
           <motion.div variants={itemVariants} className="col-span-1">
@@ -281,15 +297,6 @@ const Footer = () => {
                   </span>
                 </motion.li>
               ))}
-              <iframe
-                title="JIT Location"
-                src="https://www.google.com/maps?q=Jhulelal+Institute+of+Technology+Nagpur&output=embed"
-                width="100%"
-                height="180"
-                style={{ border: 0 }}
-                loading="lazy"
-                className="w-full h-[100px]"
-              />
             </ul>
           </motion.div>
 
