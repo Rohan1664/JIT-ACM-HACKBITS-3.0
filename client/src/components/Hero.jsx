@@ -146,7 +146,7 @@ const Hero = () => {
         <motion.img
           src={astronaut2}
           alt="Astronaut floating left"
-          className="w-[420px] xl:w-[480px] relative"
+          className="w-[320px] xl:w-[380px] relative"
           animate={{
             filter: [
               'drop-shadow(0 0 12px rgba(255, 0, 255, 0.2))',
@@ -198,7 +198,7 @@ const Hero = () => {
       {/* Main Content Container */}
       <div className="relative z-30 container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center justify-center min-h-screen py-10">
-          
+
           {/* Three Images Grid */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -279,31 +279,26 @@ const Hero = () => {
           >
             <motion.h1
               variants={itemVariants}
+              whileHover={{ scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 300 }}
               className="font-orbitron font-black mb-3"
             >
-              <motion.h1
-              variants={itemVariants}
-              className="font-orbitron text-4xl sm:text-5xl md:text-100xl lg:text-50xl xl:text-9xl font-black mb-2"
-            >
-              <span className="text-blue-400 drop-shadow-[0_0_100px_rgba(255,255,255,0.5)]">
-                HACK
-              </span>
-              <span className="text-cyan-300 drop-shadow-[0_0_100px_rgba(0,229,255,0.5)]">
-                BLITZ
-              </span>
-              <span className="text-cyan-200 drop-shadow-[0_0_100px_rgba(0,229,255,0.5)]">
-                3.0
-              </span>
-            </motion.h1>
+              <div className="flex items-center justify-center p-1 h-20 sm:h-30 md:h-30 lg:h-40">
+                <img
+                  src={hackbitsLogo}
+                  alt="HACKBITS 3.0"
+                  className="w-full h-full object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"
+                />
+              </div>
             </motion.h1>
 
             {/* Tagline */}
-            <motion.p
+            {/* <motion.p
               variants={itemVariants}
               className="text-white text-lg sm:text-xl md:text-2xl mb-4 font-space italic"
             >
               "Explore Innovation Beyond Limits"
-            </motion.p>
+            </motion.p> */}
 
             {/* Innovate Build Compete */}
             <motion.div
@@ -326,14 +321,14 @@ const Hero = () => {
               className="text-white/80 text-sm sm:text-base md:text-lg mb-6 max-w-3xl mx-auto font-space leading-relaxed px-4"
             >
               Join us for an unforgettable experience at Hackblitz, where innovation meets competition!
-              Participate in an intense 2-days hackathon at Jhulelal Institute of Technology, Lonara, Nagpur, 
-              organized by the ACM Student Chapter. Showcase your skills for a chance to win exciting prizes 
+              Participate in an intense 2-days hackathon at Jhulelal Institute of Technology, Lonara, Nagpur,
+              organized by the ACM Student Chapter. Showcase your skills for a chance to win exciting prizes
               and exclusive goodies!
             </motion.p>
 
             {/* Countdown Timer */}
             <motion.div variants={itemVariants} className="mb-6">
-              <CountdownTimer targetDate="2026-03-23T08:00:00" />
+              <CountdownTimer targetDate="2026-03-24T08:00:00" />
             </motion.div>
 
             {/* Register Button */}
@@ -374,10 +369,10 @@ const Hero = () => {
               className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto"
             >
               {[
-                { label: 'Total Rules', value: '9', icon: '📋' },
-                { label: 'Team Size', value: '2-4', icon: '👥' },
+                { label: 'Days', value: '2', icon: '📋' },
                 { label: 'Duration', value: '16h', icon: '⏰' },
-                { label: 'Checkpoints', value: '4', icon: '✅' }
+                { label: 'Team Size', value: '2-4', icon: '👥' },
+                { label: 'Dates', value: '24-25 ', icon: '✅' }
               ].map((stat, index) => (
                 <motion.div
                   key={index}
@@ -386,12 +381,12 @@ const Hero = () => {
                   className="relative group"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-sky-300 to-blue-400 rounded-xl opacity-0 group-hover:opacity-20 blur-lg transition-opacity duration-500" />
-                  <div className="relative bg-black/30 backdrop-blur-sm border border-sky-300/20 rounded-xl p-4 text-center hover:border-sky-300/40 transition-all duration-300">
+                  <div className="relative bg-black/30 backdrop-blur-sm border border-sky-300/70 rounded-xl p-4 text-center hover:border-sky-300/40 transition-all duration-300">
                     <span className="text-3xl mb-2 block">{stat.icon}</span>
                     <div className="text-2xl font-bold text-sky-300">
                       {stat.value}
                     </div>
-                    <div className="text-xs text-white/60 mt-1">{stat.label}</div>
+                    <div className="text-xs text-white/100 mt-1">{stat.label}</div>
                   </div>
                 </motion.div>
               ))}

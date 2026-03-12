@@ -61,7 +61,7 @@ const RulesGuidelines = () => {
     {
       category: '16-Hour Timeline',
       icon: '⏰',
-      gradient: 'from-sky-0 to-blue-0',
+      gradient: 'black',
       items: [
         'The hackathon is a 16-hour continuous coding event; teams must adhere strictly to the given timeline.',
         'All coding must be done only during the official hackathon duration.',
@@ -72,7 +72,7 @@ const RulesGuidelines = () => {
     {
       category: 'No Pre-Built Code',
       icon: '📝',
-      gradient: 'from-sky-0 to-blue-0',
+      gradient: 'black',
       items: [
         'Use of pre-built code, templates, or previously developed projects is prohibited.',
         'Teams may use open-source libraries, APIs, and frameworks, provided they are properly acknowledged.',
@@ -83,7 +83,7 @@ const RulesGuidelines = () => {
     {
       category: 'Team Composition',
       icon: '👥',
-      gradient: 'from-sky-0 to-blue-0',
+      gradient: 'black',
       items: [
         'Teams must consist of the registered members only; no substitution is allowed after the event begins.',
         'Maximum team size: 4 members',
@@ -95,7 +95,7 @@ const RulesGuidelines = () => {
     {
       category: 'Evaluation Checkpoints',
       icon: '✅',
-      gradient: 'from-sky-0 to-blue-0',
+      gradient: 'black',
       items: [
         'Regular evaluation checkpoints will be conducted by judges and mentors.',
         'Progress updates required every 4 hours.',
@@ -106,7 +106,7 @@ const RulesGuidelines = () => {
     {
       category: 'Submission Deadline',
       icon: '📋',
-      gradient: 'from-sky-0 to-blue-0',
+      gradient: 'black',
       items: [
         'Teams must submit their final project before the submission deadline in the prescribed format.',
         'Late submissions will not be accepted under any circumstances.',
@@ -117,7 +117,7 @@ const RulesGuidelines = () => {
     {
       category: 'Mentor Guidance',
       icon: '🤝',
-      gradient: 'from-sky-0 to-blue-0',
+      gradient: 'black',
       items: [
         'Mentors are available for guidance, but direct implementation by mentors is not allowed.',
         'Seek advice on architecture, APIs, and best practices.',
@@ -128,7 +128,7 @@ const RulesGuidelines = () => {
     {
       category: 'Misconduct Policy',
       icon: '⚖️',
-      gradient: 'from-sky-0 to-blue-0',
+      gradient: 'black',
       items: [
         'Any form of misconduct, rule violation, or unfair practice will result in immediate disqualification.',
         'Respect all participants, mentors, and organizers.',
@@ -139,7 +139,7 @@ const RulesGuidelines = () => {
     {
       category: 'Ethical Coding',
       icon: '👨‍💻',
-      gradient: 'from-sky-0 to-blue-0',
+      gradient: 'black',
       items: [
         'Participants must follow ethical coding practices; plagiarism or code copying will lead to disqualification.',
         'Give credit to any external resources used.',
@@ -150,7 +150,7 @@ const RulesGuidelines = () => {
     {
       category: 'Final Decision',
       icon: '🏁',
-      gradient: 'from-sky-00 to-blue-00',
+      gradient: 'black',
       items: [
         'The decision of the judges and organizing committee will be final and binding.',
         'No appeals will be entertained after results are announced.',
@@ -341,7 +341,7 @@ const RulesGuidelines = () => {
             >
               {/* Orbital Glow Effect - Skyblue */}
               <motion.div 
-                className={`absolute -inset-0.5 bg-gradient-to-r ${rule.gradient} rounded-2xl opacity-0 group-hover:opacity-60 blur-xl transition-all duration-500`}
+                className={`absolute -inset-0.5 bg-gradient-to-r ${rule.gradient} rounded-2xl opacity-0 group-hover:opacity-10 blur-xl transition-all duration-500`}
                 animate={{
                   scale: [1, 1, 1],
                 }}
@@ -352,7 +352,7 @@ const RulesGuidelines = () => {
               <div className="relative bg-black/10 backdrop-blur-xl border border-sky-300/20 rounded-2xl p-6 hover:border-sky-300 transition-all duration-300 h-full flex flex-col overflow-hidden">
                 
                 {/* Cosmic Background Effect - Skyblue */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-sky-100/5 to-blue-200/5 rounded-full blur-3xl" />
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-sky-300/5 to-blue-400/5 rounded-full blur-3xl" />
                 
                 {/* Header with Icon and Category */}
                 <div className="flex items-start gap-4 mb-4 relative z-10">
@@ -365,13 +365,13 @@ const RulesGuidelines = () => {
                       {rule.icon}
                     </span>
                     <motion.div 
-                      className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0"
+                      className="absolute inset-0 bg-gradient-to-r from-white/10 via-white/20 to-white/10"
                       animate={{ x: ['-100%', '200%'] }}
                       transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
                     />
                   </motion.div>
                   {/* Category - Skyblue gradient */}
-                  <h3 className={`font-orbitron text-lg font-bold bg-gradient-to-r ${rule.gradient} bg-clip-text text-transparent flex-1`}>
+                  <h3 className={`font-orbitron text-white text-lg font-bold bg-gradient-to-r ${rule.gradient} bg-clip-text text-transparent flex-1`}>
                     {rule.category}
                   </h3>
                 </div>

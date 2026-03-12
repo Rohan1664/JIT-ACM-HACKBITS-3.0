@@ -12,209 +12,190 @@ const EventFlow = () => {
 
   const schedule = {
     day1: [
-      { 
-        time: '08:00 AM', 
-        endTime: '10:00 AM',
-        event: 'Registration & Inauguration', 
-        description: 'Participant registration and ID verification. Inauguration ceremony with guests and faculty. Overview of HACKBLITZ 3.0 objectives and theme.',
-        location: 'Main Auditorium',
-        type: 'ceremony',
-        icon: '🎪'
-      },
-      { 
-        time: '10:00 AM', 
-        endTime: '11:00 AM',
-        event: 'Team Formation & Ideation', 
-        description: 'Finalize teams and brainstorm ideas. Mentors available for guidance. Pitch your ideas and get feedback.',
-        location: 'Workshop Area',
-        type: 'workshop',
-        icon: '💡'
-      },
-      { 
-        time: '11:00 AM', 
-        endTime: '01:00 PM',
-        event: 'Hacking Begins', 
-        description: 'Coding starts! Build your innovative solutions. First sprint of development begins.',
-        location: 'Main Arena',
-        type: 'hacking',
-        icon: '💻'
-      },
-      { 
-        time: '01:00 PM', 
-        endTime: '02:00 PM',
-        event: 'Lunch Break', 
-        description: 'Networking and refreshments. Connect with fellow participants and mentors.',
-        location: 'Food Court',
-        type: 'break',
-        icon: '🍕'
-      },
-      { 
-        time: '02:00 PM', 
-        endTime: '06:00 PM',
-        event: 'Development Phase', 
-        description: 'Continue building with mentor check-ins. Regular guidance from industry experts.',
-        location: 'Main Arena',
-        type: 'hacking',
-        icon: '⚙️'
-      },
-      { 
-        time: '06:00 PM', 
-        endTime: '08:00 PM',
-        event: 'Evaluation Checkpoint 1', 
-        description: 'First progress review by judges. Get feedback and suggestions for improvement.',
-        location: 'Evaluation Zone',
-        type: 'evaluation',
-        icon: '📊'
-      },
-      { 
-        time: '08:00 PM', 
-        endTime: '10:00 PM',
-        event: 'Dinner & Networking', 
-        description: 'Break and connect with fellow hackers. Mini games and activities.',
-        location: 'Food Court',
-        type: 'break',
-        icon: '🌙'
-      },
-      { 
-        time: '10:00 PM', 
-        endTime: '08:00 AM',
-        event: 'Overnight Hacking', 
-        description: 'Continue coding through the night. Energy drinks and snacks available.',
-        location: 'Main Arena',
-        type: 'hacking',
-        icon: '🌃'
-      }
-    ],
+  {
+    time: '08:00 AM',
+    endTime: '09:00 AM',
+    event: 'Reporting & Registration',
+    description: 'Participant reporting time followed by registration and verification process.',
+    location: 'Registration Desk',
+    type: 'ceremony',
+    icon: '📝'
+  },
+  {
+    time: '09:00 AM',
+    endTime: '09:15 AM',
+    event: 'Keynote Session',
+    description: 'Opening keynote session introducing the hackathon theme, rules, and expectations.',
+    location: 'Main Auditorium',
+    type: 'ceremony',
+    icon: '🎤'
+  },
+  {
+    time: '09:15 AM',
+    endTime: '12:15 PM',
+    event: 'Coding Round 1',
+    description: 'Participants start building their projects and implementing innovative ideas.',
+    location: 'Main Arena',
+    type: 'hacking',
+    icon: '💻'
+  },
+  {
+    time: '12:15 PM',
+    endTime: '01:15 PM',
+    event: 'Mentoring Round',
+    description: 'Mentors guide teams, review progress, and provide suggestions for improvement.',
+    location: 'Mentor Zone',
+    type: 'mentorship',
+    icon: '🧑‍🏫'
+  },
+  {
+    time: '01:15 PM',
+    endTime: '01:45 PM',
+    event: 'Lunch Break',
+    description: 'Lunch break for participants to relax, network, and recharge before the next round.',
+    location: 'Food Court',
+    type: 'break',
+    icon: '🍱'
+  },
+  {
+    time: '01:45 PM',
+    endTime: '02:45 PM',
+    event: 'Evaluation Round 1',
+    description: 'Judges review team progress and evaluate the first stage of development.',
+    location: 'Evaluation Zone',
+    type: 'evaluation',
+    icon: '📊'
+  },
+  {
+    time: '02:45 PM',
+    endTime: '05:45 PM',
+    event: 'Coding Round 2',
+    description: 'Participants continue coding, refining features, and preparing their projects.',
+    location: 'Main Arena',
+    type: 'hacking',
+    icon: '⚙️'
+  },
+  {
+    time: '05:45 PM',
+    endTime: '06:00 PM',
+    event: 'Evaluation Round 2',
+    description: 'Second evaluation by judges to review completed work and project progress.',
+    location: 'Evaluation Zone',
+    type: 'evaluation',
+    icon: '📈'
+  },
+  {
+    time: '06:00 PM',
+    endTime: '06:15 PM',
+    event: 'Feedback Session',
+    description: 'Judges provide feedback to participants about their project performance.',
+    location: 'Main Auditorium',
+    type: 'discussion',
+    icon: '💬'
+  },
+  {
+    time: '06:15 PM',
+    endTime: '06:30 PM',
+    event: 'Elimination Round (Day 1 Results)',
+    description: 'Announcement of Day 1 results and selection of teams advancing to the next stage.',
+    location: 'Main Auditorium',
+    type: 'announcement',
+    icon: '🏁'
+  },
+  {
+    time: '06:30 PM',
+    endTime: '06:45 PM',
+    event: 'Day 1 Closing',
+    description: 'Closing announcements for Day 1 and instructions for the next stage.',
+    location: 'Main Auditorium',
+    type: 'ceremony',
+    icon: '🌙'
+  }
+],
     day2: [
-      { 
-        time: '08:00 AM', 
-        endTime: '10:00 AM',
-        event: 'Morning Hacking Session', 
-        description: 'Continue development from day one. Mentors available for guidance and technical support.',
-        location: 'Main Arena',
-        type: 'hacking',
-        icon: '☀️'
-      },
-      { 
-        time: '10:00 AM', 
-        endTime: '12:00 PM',
-        event: 'Technical Workshops', 
-        description: 'Parallel workshops on cutting-edge technologies. Choose your track.',
-        location: 'Workshop Halls',
-        type: 'workshop',
-        icon: '🔧'
-      },
-      { 
-        time: '12:00 PM', 
-        endTime: '01:00 PM',
-        event: 'Lunch Break', 
-        description: 'Refresh and network with fellow participants.',
-        location: 'Food Court',
-        type: 'break',
-        icon: '🥗'
-      },
-      { 
-        time: '01:00 PM', 
-        endTime: '04:00 PM',
-        event: 'Development Sprint', 
-        description: 'Intense coding session. Focus on implementing core features.',
-        location: 'Main Arena',
-        type: 'hacking',
-        icon: '⚡'
-      },
-      { 
-        time: '04:00 PM', 
-        endTime: '06:00 PM',
-        event: 'Mentor Checkpoint 2', 
-        description: 'Progress review with mentors. Get feedback on implementation.',
-        location: 'Evaluation Zone',
-        type: 'evaluation',
-        icon: '📋'
-      },
-      { 
-        time: '06:00 PM', 
-        endTime: '08:00 PM',
-        event: 'Mini Games & Activities', 
-        description: 'Fun team-building activities. Refresh your mind with exciting games.',
-        location: 'Activity Zone',
-        type: 'break',
-        icon: '🎮'
-      },
-      { 
-        time: '08:00 PM', 
-        endTime: '10:00 PM',
-        event: 'Dinner & Tech Talks', 
-        description: 'Dinner with informal tech talks from industry experts.',
-        location: 'Food Court',
-        type: 'break',
-        icon: '🍽️'
-      },
-      { 
-        time: '10:00 PM', 
-        endTime: '08:00 AM',
-        event: 'Night Development', 
-        description: 'Continue building through the night. Snacks and energy drinks available.',
-        location: 'Main Arena',
-        type: 'hacking',
-        icon: '🌠'
-      }
-    ],
-    // day3: [
-    //   { 
-    //     time: '08:00 AM', 
-    //     endTime: '09:00 AM',
-    //     event: 'Breakfast', 
-    //     description: 'Morning refreshments. Energy boost for the final stretch.',
-    //     location: 'Food Court',
-    //     type: 'break',
-    //     icon: '☕'
-    //   },
-    //   { 
-    //     time: '09:00 AM', 
-    //     endTime: '11:00 AM',
-    //     event: 'Final Development', 
-    //     description: 'Last stretch of coding and bug fixes. Polish your project for presentation.',
-    //     location: 'Main Arena',
-    //     type: 'hacking',
-    //     icon: '🚀'
-    //   },
-    //   { 
-    //     time: '11:00 AM', 
-    //     endTime: '12:00 PM',
-    //     event: 'Submission Deadline', 
-    //     description: 'Final project submission in prescribed format. No extensions will be given.',
-    //     location: 'Submission Portal',
-    //     type: 'deadline',
-    //     icon: '⏰'
-    //   },
-    //   { 
-    //     time: '12:00 PM', 
-    //     endTime: '02:00 PM',
-    //     event: 'Project Presentations', 
-    //     description: 'Teams present their projects to judges. 5-minute presentation + 3-minute Q&A.',
-    //     location: 'Presentation Halls',
-    //     type: 'presentation',
-    //     icon: '🎤'
-    //   },
-    //   { 
-    //     time: '02:00 PM', 
-    //     endTime: '03:00 PM',
-    //     event: 'Judging & Evaluation', 
-    //     description: 'Final evaluation by panel of judges. Scoring based on innovation, implementation, and impact.',
-    //     location: 'Judging Area',
-    //     type: 'evaluation',
-    //     icon: '🏆'
-    //   },
-    //   { 
-    //     time: '03:00 PM', 
-    //     endTime: '04:00 PM',
-    //     event: 'Closing Ceremony', 
-    //     description: 'Results announcement and prize distribution. Vote of thanks and group photo.',
-    //     location: 'Main Auditorium',
-    //     type: 'ceremony',
-    //     icon: '🎉'
-    //   }
-    // ]
+  {
+    time: '08:30 AM',
+    endTime: '09:00 AM',
+    event: 'Reporting & Verification',
+    description: 'Participants report to the venue and complete verification for Day 2 activities.',
+    location: 'Registration Desk',
+    type: 'ceremony',
+    icon: '📝'
+  },
+  {
+    time: '09:00 AM',
+    endTime: '12:00 PM',
+    event: 'Coding Round',
+    description: 'Teams continue working on their projects and implementing new features.',
+    location: 'Main Arena',
+    type: 'hacking',
+    icon: '💻'
+  },
+  {
+    time: '12:00 PM',
+    endTime: '01:00 PM',
+    event: 'Mentoring & Coding',
+    description: 'Mentors review team progress and provide suggestions while teams continue development.',
+    location: 'Mentor Zone',
+    type: 'mentorship',
+    icon: '🧑‍🏫'
+  },
+  {
+    time: '01:00 PM',
+    endTime: '01:30 PM',
+    event: 'Lunch Break',
+    description: 'Lunch break for participants to relax and recharge before the final rounds.',
+    location: 'Food Court',
+    type: 'break',
+    icon: '🍱'
+  },
+  {
+    time: '01:30 PM',
+    endTime: '05:00 PM',
+    event: 'Final Coding Round',
+    description: 'Final development phase where teams complete their projects and prepare for evaluation.',
+    location: 'Main Arena',
+    type: 'hacking',
+    icon: '⚙️'
+  },
+  {
+    time: '05:00 PM',
+    endTime: '05:45 PM',
+    event: 'Evaluation Round 4',
+    description: 'Judges evaluate the final project submissions and presentations.',
+    location: 'Evaluation Zone',
+    type: 'evaluation',
+    icon: '📊'
+  },
+  {
+    time: '05:45 PM',
+    endTime: '06:00 PM',
+    event: 'Feedback Session',
+    description: 'Judges provide feedback on projects and highlight innovative solutions.',
+    location: 'Main Auditorium',
+    type: 'discussion',
+    icon: '💬'
+  },
+  {
+    time: '06:00 PM',
+    endTime: '06:30 PM',
+    event: 'Winner Announcement & Closing Ceremony',
+    description: 'Announcement of winners, vote of thanks, and group photoshoot marking the completion of HackBlitz 3.0.',
+    location: 'Main Auditorium',
+    type: 'announcement',
+    icon: '🏆'
+  },
+  {
+    time: '06:30 PM',
+    endTime: '07:00 PM',
+    event: 'Event Closing',
+    description: 'Official closing of HACKBLITZ 3.0 and farewell to participants.',
+    location: 'Main Auditorium',
+    type: 'ceremony',
+    icon: '🎉'
+  }
+]
+
   };
 
   const getEventTypeColor = (type) => {
@@ -297,7 +278,7 @@ const EventFlow = () => {
         </div>
 
         {/* Nebula Effects */}
-        <motion.div 
+        <motion.div
           className="absolute inset-0"
           style={{
             background: 'radial-gradient(circle at 20% 30%, rgba(56, 189, 248, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(14, 165, 233, 0.15) 0%, transparent 50%)',
@@ -418,7 +399,7 @@ const EventFlow = () => {
               Event Flow
             </span>
           </motion.h2>
-          
+
           {/* Description - White */}
           <motion.p variants={itemVariants} className="text-white/80 text-lg max-w-2xl mx-auto font-space leading-relaxed">
             Your 3-day expedition through innovation - every moment counts!
@@ -426,7 +407,7 @@ const EventFlow = () => {
         </motion.div>
 
         {/* Day Selector with Cosmic Design */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, type: "spring", stiffness: 100 }}
@@ -434,7 +415,7 @@ const EventFlow = () => {
         >
           <div className="relative group">
             {/* Orbital Glow */}
-            <motion.div 
+            <motion.div
               className="absolute -inset-2 bg-gradient-to-r from-sky-400 to-blue-200 rounded-2xl blur-2xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"
               animate={{
                 scale: [1, 1.05, 1],
@@ -442,7 +423,7 @@ const EventFlow = () => {
               }}
               transition={{ duration: 3, repeat: Infinity }}
             />
-            
+
             {/* Selector Container */}
             <div className="relative bg-black/60 backdrop-blur-xl border border-sky-100/10 rounded-2xl p-2 flex gap-2">
               {[
@@ -465,12 +446,10 @@ const EventFlow = () => {
                     />
                   )}
                   <span className="relative z-10 flex flex-col items-center">
-                    <span className={`font-orbitron text-sm md:text-base font-bold ${
-                      selectedDay === day.id ? 'text-white' : 'text-white/200'
-                    }`}>{day.label}</span>
-                    <span className={`text-xs ${
-                      selectedDay === day.id ? 'text-white' : 'text-white/300'
-                    }`}>{day.date}</span>
+                    <span className={`font-orbitron text-sm md:text-base font-bold ${selectedDay === day.id ? 'text-white' : 'text-white/200'
+                      }`}>{day.label}</span>
+                    <span className={`text-xs ${selectedDay === day.id ? 'text-white' : 'text-white/300'
+                      }`}>{day.date}</span>
                   </span>
                 </motion.button>
               ))}
@@ -491,14 +470,14 @@ const EventFlow = () => {
             {/* Cosmic Timeline Line */}
             <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-0.5">
               <div className="absolute inset-0 bg-gradient-to-b from-sky-200 via-sky-200 to-blue-200 opacity-30" />
-              <motion.div 
+              <motion.div
                 className="absolute inset-0 bg-gradient-to-b from-sky-400 via-sky-400 to-blue-400"
                 initial={{ scaleY: 0 }}
                 animate={{ scaleY: 1 }}
                 transition={{ duration: 1.5, ease: "easeInOut" }}
                 style={{ originY: 0 }}
               />
-              
+
               {/* Floating orbs on timeline */}
               {schedule[selectedDay].map((_, index) => (
                 <motion.div
@@ -506,7 +485,7 @@ const EventFlow = () => {
                   className="absolute left-1/2 transform -translate-x-1/2 w-2 h-2"
                   style={{ top: `${(index / (schedule[selectedDay].length - 1)) * 100}%` }}
                 >
-                  <motion.div 
+                  <motion.div
                     className="w-full h-full bg-sky-500 rounded-full"
                     animate={{
                       scale: [1, 1.8, 1],
@@ -534,15 +513,14 @@ const EventFlow = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1, type: "spring", stiffness: 100 }}
-                className={`relative flex flex-col md:flex-row gap-4 md:gap-8 mb-8 ${
-                  index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                }`}
+                className={`relative flex flex-col md:flex-row gap-4 md:gap-8 mb-8 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                  }`}
               >
                 {/* Timeline Node with Cosmic Glow */}
                 <div className="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-5 h-5 z-10">
-                  <motion.div 
+                  <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-sky-500 to-blue-200 rounded-full"
-                    animate={{ 
+                    animate={{
                       scale: [1, 1.1, 1],
                       boxShadow: [
                         '0 0 10px rgba(56,189,248,0.5)',
@@ -556,7 +534,7 @@ const EventFlow = () => {
                 </div>
 
                 {/* Time Column */}
-                <div className={`md:w-5/12 ${
+                {/* <div className={`md:w-5/12 ${
                   index % 2 === 0 ? 'md:text-right' : 'md:text-left'
                 }`}>
                   <motion.div 
@@ -569,40 +547,40 @@ const EventFlow = () => {
                     <span className="text-white/40 text-sm mx-2">→</span>
                     <span className="font-orbitron text-sm text-white/100">{item.endTime}</span>
                   </motion.div>
-                </div>
+                </div> */}
 
                 {/* Event Card */}
                 <div className={`md:w-5/12 `}>
                   <motion.div
                     whileHover={{ scale: 1.02, y: -5 }}
                     className="relative group cursor-pointer"
-                    onClick={() => setSelectedEvent(selectedEvent === index ? null : index)} 
+                    onClick={() => setSelectedEvent(selectedEvent === index ? null : index)}
                   >
                     {/* Orbital Glow Effect */}
-                    <motion.div 
+                    <motion.div
                       className={`absolute -inset-1 bg-gradient-to-r ${getEventTypeColor(item.type)} rounded-2xl opacity-0 group-hover:opacity-10 blur-xl transition-opacity duration-500`}
                       animate={{
                         scale: [1, 1, 1],
                       }}
                       transition={{ duration: 2, repeat: Infinity }}
                     />
-                    
+
                     {/* Card */}
-                    <div className="relative bg-black/10 backdrop-blur-xl border border-sky-300/20 rounded-2xl p-6 hover:border-sky-300/40 transition-all duration-300 overflow-hidden">
-                      
+                    <div className="relative bg-black/10 backdrop-blur-xl border border-sky-300/20 rounded-2xl p-1 hover:border-sky-300/40 transition-all duration-300 overflow-hidden">
+
                       {/* Cosmic Background Effect */}
                       <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-sky-100/5 to-blue-200/5 rounded-full blur-3xl" />
-                      
+
                       {/* Header with Icon */}
                       <div className="flex items-start gap-4 mb-3">
-                        <motion.div 
+                        <motion.div
                           className={`p-2 rounded-2xl bg-gradient-to-r ${getEventTypeColor(item.type)} bg-opacity-10 relative overflow-hidden`}
                           whileHover={{ scale: 1.1 }}
                           transition={{ type: "spring", stiffness: 400 }}
                         >
                           <span className="text-4xl relative z-10">{item.icon || getEventTypeIcon(item.type)}</span>
-                          <motion.div 
-                            className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0"
+                          <motion.div
+                            className="absolute inset-0 bg-gradient-to-r from-white/1 via-white/10 to-white/1"
                             animate={{ x: ['-100%', '200%'] }}
                             transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
                           />
@@ -612,6 +590,11 @@ const EventFlow = () => {
                           <h3 className={`font-orbitron text-lg font-bold bg-gradient-to-r text-white bg-clip-text text-transparent`}>
                             {item.event}
                           </h3>
+                          <span className="font-orbitron text-lg font-bold bg-gradient-to-r from-sky-300 to-blue-400 bg-clip-text  text-transparent">
+                            {item.time}
+                          </span>
+                          <span className="text-white/40 text-sm mx-2">→</span>
+                          <span className="font-orbitron text-sm text-white/100">{item.endTime}</span>
                           {/* Location - White with lower opacity */}
                           <p className="text-white/100 text-xs mt-1 flex items-center gap-1">
                             <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -620,6 +603,7 @@ const EventFlow = () => {
                             </svg>
                             {item.location}
                           </p>
+
                         </div>
                       </div>
 
@@ -636,20 +620,26 @@ const EventFlow = () => {
                             <p className="text-white/100 text-sm font-space leading-relaxed mt-3 pt-3 border-t border-sky-300/20">
                               {item.description}
                             </p>
+
                           </motion.div>
                         )}
                       </AnimatePresence>
+                      {/* <span className="font-orbitron text-lg font-bold bg-gradient-to-r from-sky-300 to-blue-400 bg-clip-text  text-transparent">
+                        {item.time}
+                      </span>
+                      <span className="text-white/40 text-sm mx-2">→</span>
+                      <span className="font-orbitron text-sm text-white/100">{item.endTime}</span> */}
 
                       {/* Expand/Collapse Indicator */}
-                      <motion.button 
+                      <motion.button
                         className="absolute bottom-2 right-2 text-white/40 hover:text-sky-300 transition-colors"
                         whileHover={{ scale: 1.2 }}
                         whileTap={{ scale: 0.9 }}
                       >
-                        <motion.svg 
-                          className={`w-4 h-4 transform transition-transform duration-300 ${selectedEvent === index ? 'rotate-180' : ''}`} 
-                          fill="none" 
-                          stroke="currentColor" 
+                        <motion.svg
+                          className={`w-4 h-4 transform transition-transform duration-300 ${selectedEvent === index ? 'rotate-180' : ''}`}
+                          fill="none"
+                          stroke="currentColor"
                           viewBox="0 0 24 24"
                           animate={selectedEvent === index ? { y: [0, 2, 0] } : {}}
                           transition={{ duration: 1, repeat: Infinity }}
@@ -713,7 +703,7 @@ const EventFlow = () => {
         </motion.div> */}
 
         {/* Cosmic Divider */}
-        <motion.div 
+        <motion.div
           className="w-full h-px mt-20 relative"
           initial={{ opacity: 0, scaleX: 0 }}
           animate={inView ? { opacity: 1, scaleX: 1 } : {}}

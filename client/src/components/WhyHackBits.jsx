@@ -13,7 +13,7 @@ const WhyHackBits = () => {
       icon: '⏰',
       title: '16-Hour Hackathon',
       description: 'Non-stop coding marathon to build innovative solutions from scratch',
-      gradient: 'from-neon-blue-0 to-neon-cyan-0',
+      gradient: 'black-60',
       stats: 'Non-Stop',
       color: 'white'
     },
@@ -21,7 +21,7 @@ const WhyHackBits = () => {
       icon: '👥',
       title: 'Team Collaboration',
       description: 'Register your team of up to 4 members and collaborate with brilliant minds',
-      gradient: 'from-neon-blue-0 to-neon-cyan-0',
+      gradient: 'black-60',
       stats: '2-4 Members',
       color: 'white'
     },
@@ -29,7 +29,7 @@ const WhyHackBits = () => {
       icon: '🚀',
       title: 'Expert Mentorship',
       description: 'Get guidance from industry experts and experienced developers throughout the event',
-      gradient: 'from-neon-blue-0 to-neon-cyan-0',
+      gradient: 'black-60',
       stats: '24/7 Support',
       color: 'white'
     },
@@ -37,7 +37,7 @@ const WhyHackBits = () => {
       icon: '🏆',
       title: 'Exciting Prizes',
       description: 'Win amazing prizes, swag, and recognition for your innovative solutions',
-      gradient: 'from-neon-blue-0 to-neon-cyan-0',
+      gradient: 'black-60',
       stats: '₹50K+ Prizes',
       color: 'white'
     }
@@ -118,7 +118,7 @@ const WhyHackBits = () => {
         </div>
 
         {/* Nebula Effects */}
-        <motion.div 
+        <motion.div
           className="absolute inset-0"
           style={{
             background: 'radial-gradient(circle at 30% 40%, rgba(147, 51, 234, 0.15) 0%, transparent 50%), radial-gradient(circle at 70% 60%, rgba(0, 229, 255, 0.15) 0%, transparent 50%)',
@@ -191,10 +191,10 @@ const WhyHackBits = () => {
               Why HackBlitz 3.0?
             </span>
           </motion.h2>
-          
+
           {/* Description - White */}
           <motion.p variants={itemVariants} className="text-white/80 text-lg max-w-2xl mx-auto font-space leading-relaxed">
-            Experience the ultimate coding challenge with features designed to help you 
+            Experience the ultimate coding challenge with features designed to help you
             learn, build, and grow as a developer in this cosmic journey.
           </motion.p>
         </motion.div>
@@ -210,30 +210,30 @@ const WhyHackBits = () => {
             <motion.div
               key={index}
               variants={itemVariants}
-              whileHover={{ 
-                scale: 1.02, 
+              whileHover={{
+                scale: 1.02,
                 y: -8,
                 transition: { type: "spring", stiffness: 400, damping: 17 }
               }}
               className="group relative"
             >
               {/* Orbital Glow Effect */}
-              <motion.div 
-                className={`absolute -inset-0.5 bg-gradient-to-r ${feature.gradient} rounded-2xl opacity-0 group-hover:opacity-10 blur-xl transition-all duration-500`}
+              <motion.div
+                className={`absolute -inset-0.5 bg-gradient-to-r ${feature.gradient} rounded-2xl opacity-10 group-hover:opacity-10 blur-xl transition-all duration-500`}
                 animate={{
                   scale: [1, 1.05, 1],
                 }}
                 transition={{ duration: 2, repeat: Infinity }}
               />
-              
+
               {/* Card Content */}
-              <div className="relative bg-black/10 backdrop-blur-xl border border-neon-blue/50 rounded-2xl p-6 hover:border-neon-blue/40 transition-all duration-300 h-full overflow-hidden">
-                
+              <div className="relative bg-black/10 backdrop-blur-xl border border-neon-blue/60 rounded-2xl p-6 hover:border-neon-blue/60 transition-all duration-300 h-full overflow-hidden">
+
                 {/* Cosmic Background Effect */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-neon-blue/5 to-neon-magenta/5 rounded-full blur-3xl" />
-                
+
                 {/* Icon with Gradient Background */}
-                <motion.div 
+                <motion.div
                   className={`inline-block p-4 rounded-xl bg-gradient-to-r ${feature.gradient} bg-opacity-10 mb-4 relative overflow-hidden`}
                   whileHover={{ scale: 1.1 }}
                   transition={{ type: "spring", stiffness: 400 }}
@@ -241,15 +241,15 @@ const WhyHackBits = () => {
                   <span className="text-3xl filter drop-shadow-[0_0_10px_rgba(0,229,255,0.5)] relative z-10">
                     {feature.icon}
                   </span>
-                  <motion.div 
-                    className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0"
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-white/5 via-white/20 to-white/5"
                     animate={{ x: ['-100%', '200%'] }}
                     transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
                   />
                 </motion.div>
 
                 {/* Title - Skyblue gradient */}
-                <h3 className={`font-orbitron text-xl font-bold bg-gradient-to-r ${feature.gradient} bg-clip-text text-transparent mb-2`}>
+                <h3 className="font-orbitron text-xl font-bold bg-gradient-to-r from-white to-sky-300 bg-clip-text text-transparent mb-2">
                   {feature.title}
                 </h3>
 
@@ -296,9 +296,9 @@ const WhyHackBits = () => {
               >
                 {/* Background Glow */}
                 <div className={`absolute inset-0 bg-gradient-to-r ${highlight.gradient} rounded-2xl opacity-0 group-hover:opacity-10 blur-xl transition-opacity duration-500`} />
-                
+
                 {/* Orbital Ring */}
-                <motion.div 
+                <motion.div
                   className={`absolute -inset-2 border border-${highlight.gradient.split(' ')[0].replace('from-', '')}/20 rounded-full`}
                   animate={{
                     scale: [1, 1.1, 1],
@@ -307,10 +307,10 @@ const WhyHackBits = () => {
                   }}
                   transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
                 />
-                
+
                 {/* Content */}
                 <div className="relative bg-black/10 backdrop-blur-sm border border-neon-blue/20 rounded-2xl p-6 text-center hover:border-neon-blue/40 transition-all duration-300">
-                  <motion.div 
+                  <motion.div
                     className={`text-3xl md:text-4xl font-orbitron font-bold bg-gradient-to-r ${highlight.gradient} bg-clip-text text-transparent mb-2`}
                     animate={{
                       textShadow: [
@@ -359,8 +359,8 @@ const WhyHackBits = () => {
                   'Certificate of participation',
                   'Exclusive cosmic swag'
                 ].map((item, i) => (
-                  <motion.li 
-                    key={i} 
+                  <motion.li
+                    key={i}
                     className="text-white/70 text-sm flex items-start gap-2 group/item"
                     whileHover={{ x: 5 }}
                   >
@@ -391,8 +391,8 @@ const WhyHackBits = () => {
                   'Designers & developers',
                   'Open to all skill levels'
                 ].map((item, i) => (
-                  <motion.li 
-                    key={i} 
+                  <motion.li
+                    key={i}
                     className="text-white/70 text-sm flex items-start gap-2 group/item"
                     whileHover={{ x: 5 }}
                   >
@@ -423,8 +423,8 @@ const WhyHackBits = () => {
                   'Get noticed by recruiters',
                   'Join a community of innovators'
                 ].map((item, i) => (
-                  <motion.li 
-                    key={i} 
+                  <motion.li
+                    key={i}
                     className="text-white/70 text-sm flex items-start gap-2 group/item"
                     whileHover={{ x: 5 }}
                   >
@@ -438,7 +438,7 @@ const WhyHackBits = () => {
         </motion.div>
 
         {/* Cosmic Divider */}
-        <motion.div 
+        <motion.div
           className="w-full h-px mt-20 relative"
           initial={{ opacity: 0, scaleX: 0 }}
           animate={inView ? { opacity: 1, scaleX: 1 } : {}}
