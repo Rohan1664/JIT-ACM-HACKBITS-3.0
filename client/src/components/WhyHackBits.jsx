@@ -1,6 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import group from '../assets/images/group.png';
+import clock from '../assets/images/clock.png';
+import cup from '../assets/images/cup.png';
+import rocket from '../assets/images/rocket.png';
 
 const WhyHackBits = () => {
   const [ref, inView] = useInView({
@@ -10,7 +14,7 @@ const WhyHackBits = () => {
 
   const features = [
     {
-      icon: '⏰',
+      icon: clock,
       title: '16-Hour Hackathon',
       description: 'Non-stop coding marathon to build innovative solutions from scratch',
       gradient: 'black-60',
@@ -18,7 +22,7 @@ const WhyHackBits = () => {
       color: 'white'
     },
     {
-      icon: '👥',
+      icon: group,
       title: 'Team Collaboration',
       description: 'Register your team of up to 4 members and collaborate with brilliant minds',
       gradient: 'black-60',
@@ -26,7 +30,7 @@ const WhyHackBits = () => {
       color: 'white'
     },
     {
-      icon: '🚀',
+      icon: rocket,
       title: 'Expert Mentorship',
       description: 'Get guidance from industry experts and experienced developers throughout the event',
       gradient: 'black-60',
@@ -34,7 +38,7 @@ const WhyHackBits = () => {
       color: 'white'
     },
     {
-      icon: '🏆',
+      icon: cup,
       title: 'Exciting Prizes',
       description: 'Win amazing prizes, swag, and recognition for your innovative solutions',
       gradient: 'black-60',
@@ -238,9 +242,11 @@ const WhyHackBits = () => {
                   whileHover={{ scale: 1.1 }}
                   transition={{ type: "spring", stiffness: 400 }}
                 >
-                  <span className="text-3xl filter drop-shadow-[0_0_10px_rgba(0,229,255,0.5)] relative z-10">
-                    {feature.icon}
-                  </span>
+                  <img
+                    src={feature.icon}
+                    alt={feature.title}
+                    className="w-10 h-10 mx-auto drop-shadow-[0_0_10px_rgba(0,229,255,0.5)] relative z-10"
+                  />
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-white/5 via-white/20 to-white/5"
                     animate={{ x: ['-100%', '200%'] }}

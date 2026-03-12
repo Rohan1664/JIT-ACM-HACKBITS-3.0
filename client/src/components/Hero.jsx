@@ -10,6 +10,10 @@ import jitlogo from '../assets/images/jitlogo.png';
 import astronautEarth from '../assets/images/astronaut-earth.png';
 import astronaut2 from '../assets/images/astronaut2.png';
 import earthImg from '../assets/images/earth.png';
+import group from '../assets/images/group.png';
+import clock from '../assets/images/clock.png';
+import submission from '../assets/images/submission.png';
+import tick from '../assets/images/tick.png';
 
 const Hero = () => {
   const containerRef = useRef(null);
@@ -369,10 +373,10 @@ const Hero = () => {
               className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto"
             >
               {[
-                { label: 'Days', value: '2', icon: '📋' },
-                { label: 'Duration', value: '16h', icon: '⏰' },
-                { label: 'Team Size', value: '2-4', icon: '👥' },
-                { label: 'Dates', value: '24-25 ', icon: '✅' }
+                { label: 'Days', value: '2', icon: submission },
+                { label: 'Duration', value: '16h', icon: clock },
+                { label: 'Team Size', value: '2-4', icon: group },
+                { label: 'Dates', value: '24-25 ', icon: tick }
               ].map((stat, index) => (
                 <motion.div
                   key={index}
@@ -382,7 +386,11 @@ const Hero = () => {
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-sky-300 to-blue-400 rounded-xl opacity-0 group-hover:opacity-20 blur-lg transition-opacity duration-500" />
                   <div className="relative bg-black/30 backdrop-blur-sm border border-sky-300/70 rounded-xl p-4 text-center hover:border-sky-300/40 transition-all duration-300">
-                    <span className="text-3xl mb-2 block">{stat.icon}</span>
+                    <img
+                      src={stat.icon}
+                      alt={stat.label}
+                      className="w-10 h-10 mx-auto mb-2 object-contain"
+                    />
                     <div className="text-2xl font-bold text-sky-300">
                       {stat.value}
                     </div>
