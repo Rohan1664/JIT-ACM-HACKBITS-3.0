@@ -12,189 +12,189 @@ const EventFlow = () => {
 
   const schedule = {
     day1: [
-  {
-    time: '08:00 AM',
-    endTime: '09:00 AM',
-    event: 'Reporting & Registration',
-    description: 'Participant reporting time followed by registration and verification process.',
-    location: 'Registration Desk',
-    type: 'ceremony',
-    icon: '📝'
-  },
-  {
-    time: '09:00 AM',
-    endTime: '09:15 AM',
-    event: 'Keynote Session',
-    description: 'Opening keynote session introducing the hackathon theme, rules, and expectations.',
-    location: 'Main Auditorium',
-    type: 'ceremony',
-    icon: '🎤'
-  },
-  {
-    time: '09:15 AM',
-    endTime: '12:15 PM',
-    event: 'Coding Round 1',
-    description: 'Participants start building their projects and implementing innovative ideas.',
-    location: 'Main Arena',
-    type: 'hacking',
-    icon: '💻'
-  },
-  {
-    time: '12:15 PM',
-    endTime: '01:15 PM',
-    event: 'Mentoring Round',
-    description: 'Mentors guide teams, review progress, and provide suggestions for improvement.',
-    location: 'Mentor Zone',
-    type: 'mentorship',
-    icon: '🧑‍🏫'
-  },
-  {
-    time: '01:15 PM',
-    endTime: '01:45 PM',
-    event: 'Lunch Break',
-    description: 'Lunch break for participants to relax, network, and recharge before the next round.',
-    location: 'Food Court',
-    type: 'break',
-    icon: '🍱'
-  },
-  {
-    time: '01:45 PM',
-    endTime: '02:45 PM',
-    event: 'Evaluation Round 1',
-    description: 'Judges review team progress and evaluate the first stage of development.',
-    location: 'Evaluation Zone',
-    type: 'evaluation',
-    icon: '📊'
-  },
-  {
-    time: '02:45 PM',
-    endTime: '05:45 PM',
-    event: 'Coding Round 2',
-    description: 'Participants continue coding, refining features, and preparing their projects.',
-    location: 'Main Arena',
-    type: 'hacking',
-    icon: '⚙️'
-  },
-  {
-    time: '05:45 PM',
-    endTime: '06:00 PM',
-    event: 'Evaluation Round 2',
-    description: 'Second evaluation by judges to review completed work and project progress.',
-    location: 'Evaluation Zone',
-    type: 'evaluation',
-    icon: '📈'
-  },
-  {
-    time: '06:00 PM',
-    endTime: '06:15 PM',
-    event: 'Feedback Session',
-    description: 'Judges provide feedback to participants about their project performance.',
-    location: 'Main Auditorium',
-    type: 'discussion',
-    icon: '💬'
-  },
-  {
-    time: '06:15 PM',
-    endTime: '06:30 PM',
-    event: 'Elimination Round (Day 1 Results)',
-    description: 'Announcement of Day 1 results and selection of teams advancing to the next stage.',
-    location: 'Main Auditorium',
-    type: 'announcement',
-    icon: '🏁'
-  },
-  {
-    time: '06:30 PM',
-    endTime: '06:45 PM',
-    event: 'Day 1 Closing',
-    description: 'Closing announcements for Day 1 and instructions for the next stage.',
-    location: 'Main Auditorium',
-    type: 'ceremony',
-    icon: '🌙'
-  }
-],
+      {
+        time: '08:00 AM',
+        endTime: '09:00 AM',
+        event: 'Reporting & Registration',
+        description: 'Participant reporting time followed by registration and verification process.',
+        location: 'Registration Desk',
+        type: 'ceremony',
+        icon: '📝'
+      },
+      {
+        time: '09:00 AM',
+        endTime: '09:15 AM',
+        event: 'Keynote Session',
+        description: 'Opening keynote session introducing the hackathon theme, rules, and expectations.',
+        location: 'Main Auditorium',
+        type: 'ceremony',
+        icon: '🎤'
+      },
+      {
+        time: '09:15 AM',
+        endTime: '12:15 PM',
+        event: 'Coding Round 1',
+        description: 'Participants start building their projects and implementing innovative ideas.',
+        location: 'Main Arena',
+        type: 'hacking',
+        icon: '💻'
+      },
+      {
+        time: '12:15 PM',
+        endTime: '01:15 PM',
+        event: 'Mentoring Round',
+        description: 'Mentors guide teams, review progress, and provide suggestions for improvement.',
+        location: 'Mentor Zone',
+        type: 'mentorship',
+        icon: '🧑‍🏫'
+      },
+      {
+        time: '01:15 PM',
+        endTime: '01:45 PM',
+        event: 'Lunch Break',
+        description: 'Lunch break for participants to relax, network, and recharge before the next round.',
+        location: 'Food Court',
+        type: 'break',
+        icon: '🍱'
+      },
+      {
+        time: '01:45 PM',
+        endTime: '02:45 PM',
+        event: 'Evaluation Round 1',
+        description: 'Judges review team progress and evaluate the first stage of development.',
+        location: 'Evaluation Zone',
+        type: 'evaluation',
+        icon: '📊'
+      },
+      {
+        time: '02:45 PM',
+        endTime: '05:45 PM',
+        event: 'Coding Round 2',
+        description: 'Participants continue coding, refining features, and preparing their projects.',
+        location: 'Main Arena',
+        type: 'hacking',
+        icon: '⚙️'
+      },
+      {
+        time: '05:45 PM',
+        endTime: '06:00 PM',
+        event: 'Evaluation Round 2',
+        description: 'Second evaluation by judges to review completed work and project progress.',
+        location: 'Evaluation Zone',
+        type: 'evaluation',
+        icon: '📈'
+      },
+      {
+        time: '06:00 PM',
+        endTime: '06:15 PM',
+        event: 'Feedback Session',
+        description: 'Judges provide feedback to participants about their project performance.',
+        location: 'Main Auditorium',
+        type: 'discussion',
+        icon: '💬'
+      },
+      {
+        time: '06:15 PM',
+        endTime: '06:30 PM',
+        event: 'Elimination Round (Day 1 Results)',
+        description: 'Announcement of Day 1 results and selection of teams advancing to the next stage.',
+        location: 'Main Auditorium',
+        type: 'announcement',
+        icon: '🏁'
+      },
+      {
+        time: '06:30 PM',
+        endTime: '06:45 PM',
+        event: 'Day 1 Closing',
+        description: 'Closing announcements for Day 1 and instructions for the next stage.',
+        location: 'Main Auditorium',
+        type: 'ceremony',
+        icon: '🌙'
+      }
+    ],
     day2: [
-  {
-    time: '08:30 AM',
-    endTime: '09:00 AM',
-    event: 'Reporting & Verification',
-    description: 'Participants report to the venue and complete verification for Day 2 activities.',
-    location: 'Registration Desk',
-    type: 'ceremony',
-    icon: '📝'
-  },
-  {
-    time: '09:00 AM',
-    endTime: '12:00 PM',
-    event: 'Coding Round',
-    description: 'Teams continue working on their projects and implementing new features.',
-    location: 'Main Arena',
-    type: 'hacking',
-    icon: '💻'
-  },
-  {
-    time: '12:00 PM',
-    endTime: '01:00 PM',
-    event: 'Mentoring & Coding',
-    description: 'Mentors review team progress and provide suggestions while teams continue development.',
-    location: 'Mentor Zone',
-    type: 'mentorship',
-    icon: '🧑‍🏫'
-  },
-  {
-    time: '01:00 PM',
-    endTime: '01:30 PM',
-    event: 'Lunch Break',
-    description: 'Lunch break for participants to relax and recharge before the final rounds.',
-    location: 'Food Court',
-    type: 'break',
-    icon: '🍱'
-  },
-  {
-    time: '01:30 PM',
-    endTime: '05:00 PM',
-    event: 'Final Coding Round',
-    description: 'Final development phase where teams complete their projects and prepare for evaluation.',
-    location: 'Main Arena',
-    type: 'hacking',
-    icon: '⚙️'
-  },
-  {
-    time: '05:00 PM',
-    endTime: '05:45 PM',
-    event: 'Evaluation Round 4',
-    description: 'Judges evaluate the final project submissions and presentations.',
-    location: 'Evaluation Zone',
-    type: 'evaluation',
-    icon: '📊'
-  },
-  {
-    time: '05:45 PM',
-    endTime: '06:00 PM',
-    event: 'Feedback Session',
-    description: 'Judges provide feedback on projects and highlight innovative solutions.',
-    location: 'Main Auditorium',
-    type: 'discussion',
-    icon: '💬'
-  },
-  {
-    time: '06:00 PM',
-    endTime: '06:30 PM',
-    event: 'Winner Announcement & Closing Ceremony',
-    description: 'Announcement of winners, vote of thanks, and group photoshoot marking the completion of HackBlitz 3.0.',
-    location: 'Main Auditorium',
-    type: 'announcement',
-    icon: '🏆'
-  },
-  {
-    time: '06:30 PM',
-    endTime: '07:00 PM',
-    event: 'Event Closing',
-    description: 'Official closing of HACKBLITZ 3.0 and farewell to participants.',
-    location: 'Main Auditorium',
-    type: 'ceremony',
-    icon: '🎉'
-  }
-]
+      {
+        time: '08:30 AM',
+        endTime: '09:00 AM',
+        event: 'Reporting & Verification',
+        description: 'Participants report to the venue and complete verification for Day 2 activities.',
+        location: 'Registration Desk',
+        type: 'ceremony',
+        icon: '📝'
+      },
+      {
+        time: '09:00 AM',
+        endTime: '12:00 PM',
+        event: 'Coding Round',
+        description: 'Teams continue working on their projects and implementing new features.',
+        location: 'Main Arena',
+        type: 'hacking',
+        icon: '💻'
+      },
+      {
+        time: '12:00 PM',
+        endTime: '01:00 PM',
+        event: 'Mentoring & Coding',
+        description: 'Mentors review team progress and provide suggestions while teams continue development.',
+        location: 'Mentor Zone',
+        type: 'mentorship',
+        icon: '🧑‍🏫'
+      },
+      {
+        time: '01:00 PM',
+        endTime: '01:30 PM',
+        event: 'Lunch Break',
+        description: 'Lunch break for participants to relax and recharge before the final rounds.',
+        location: 'Food Court',
+        type: 'break',
+        icon: '🍱'
+      },
+      {
+        time: '01:30 PM',
+        endTime: '05:00 PM',
+        event: 'Final Coding Round',
+        description: 'Final development phase where teams complete their projects and prepare for evaluation.',
+        location: 'Main Arena',
+        type: 'hacking',
+        icon: '⚙️'
+      },
+      {
+        time: '05:00 PM',
+        endTime: '05:45 PM',
+        event: 'Evaluation Round 4',
+        description: 'Judges evaluate the final project submissions and presentations.',
+        location: 'Evaluation Zone',
+        type: 'evaluation',
+        icon: '📊'
+      },
+      {
+        time: '05:45 PM',
+        endTime: '06:00 PM',
+        event: 'Feedback Session',
+        description: 'Judges provide feedback on projects and highlight innovative solutions.',
+        location: 'Main Auditorium',
+        type: 'discussion',
+        icon: '💬'
+      },
+      {
+        time: '06:00 PM',
+        endTime: '06:30 PM',
+        event: 'Winner Announcement & Closing Ceremony',
+        description: 'Announcement of winners, vote of thanks, and group photoshoot marking the completion of HackBlitz 3.0.',
+        location: 'Main Auditorium',
+        type: 'announcement',
+        icon: '🏆'
+      },
+      {
+        time: '06:30 PM',
+        endTime: '07:00 PM',
+        event: 'Event Closing',
+        description: 'Official closing of HACKBLITZ 3.0 and farewell to participants.',
+        location: 'Main Auditorium',
+        type: 'ceremony',
+        icon: '🎉'
+      }
+    ]
 
   };
 
@@ -590,7 +590,7 @@ const EventFlow = () => {
                           <h3 className={`font-orbitron text-lg font-bold bg-gradient-to-r text-white bg-clip-text text-transparent`}>
                             {item.event}
                           </h3>
-                          <span className="font-orbitron text-lg font-bold bg-gradient-to-r from-sky-300 to-blue-400 bg-clip-text  text-transparent">
+                          <span className="font-orbitron text-sm font-bold bg-gradient-to-r from-sky-300 to-blue-400 bg-clip-text  text-transparent">
                             {item.time}
                           </span>
                           <span className="text-white/40 text-sm mx-2">→</span>

@@ -5,6 +5,8 @@ import group from '../assets/images/group.png';
 import clock from '../assets/images/clock.png';
 import cup from '../assets/images/cup.png';
 import rocket from '../assets/images/rocket.png';
+import target from '../assets/images/target.png';
+import bussinessman from '../assets/images/bussinessman.png'
 
 const WhyHackBits = () => {
   const [ref, inView] = useInView({
@@ -185,7 +187,7 @@ const WhyHackBits = () => {
             <span className="relative px-6 py-2 bg-black/40 backdrop-blur-xl border border-neon-blue/30 rounded-full inline-block">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-blue-300 text-sm font-medium tracking-wider">
                 ✨ WHY HACKBLITZ 3.0
-              </span>
+              </span>f
             </span>
           </motion.div> */}
 
@@ -355,7 +357,11 @@ const WhyHackBits = () => {
             <div className="relative bg-black/10 backdrop-blur-xl border border-neon-blue/20 rounded-2xl p-6 h-full">
               {/* Heading - Skyblue */}
               <h4 className="font-orbitron text-lg text-sky-300 mb-4 flex items-center gap-2">
-                <span className="text-2xl">🎯</span> What You'll Gain
+                <img
+                  src={target}
+                  alt="target"
+                  className="w-6 h-6 object-contain"
+                />What You'll Gain
               </h4>
               <ul className="space-y-3">
                 {[
@@ -387,7 +393,11 @@ const WhyHackBits = () => {
             <div className="relative bg-black/10 backdrop-blur-xl border border-neon-blue/20 rounded-2xl p-6 h-full">
               {/* Heading - Skyblue */}
               <h4 className="font-orbitron text-lg text-sky-300 mb-4 flex items-center gap-2">
-                <span className="text-2xl">👥</span> Who Can Participate
+                <img
+                  src={group}
+                  alt="Group"
+                  className="w-6 h-6 object-contain"
+                />Who Can Participate
               </h4>
               <ul className="space-y-3">
                 {[
@@ -419,7 +429,11 @@ const WhyHackBits = () => {
             <div className="relative bg-black/10 backdrop-blur-xl border border-neon-cyan/20 rounded-2xl p-6 h-full">
               {/* Heading - Skyblue */}
               <h4 className="font-orbitron text-lg text-sky-300 mb-4 flex items-center gap-2">
-                <span className="text-2xl">💪</span> Why Participate
+                <img
+                  src={bussinessman}
+                  alt="Businessman"
+                  className="w-6 h-6 object-contain"
+                />Why Participate
               </h4>
               <ul className="space-y-3">
                 {[

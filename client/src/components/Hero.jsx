@@ -394,7 +394,7 @@ const Hero = () => {
                     <div className="text-2xl font-bold text-sky-300">
                       {stat.value}
                     </div>
-                    <div className="text-xs text-white/100 mt-1">{stat.label}</div>
+                    <div className="text-sm text-white/100 mt-1">{stat.label}</div>
                   </div>
                 </motion.div>
               ))}

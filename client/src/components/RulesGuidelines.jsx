@@ -1,6 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import clock from '../assets/images/clock.png';
+import notebook from '../assets/images/notebook.png';
+import group from '../assets/images/group.png';
+import tick from '../assets/images/tick.png';
+import submission from '../assets/images/submission.png';
+import handshake from '../assets/images/handshake.png';
+import scale from '../assets/images/scale.png';
+import programming from '../assets/images/programming.png';
 
 // Icons for different rule categories
 const RuleIcons = {
@@ -60,7 +68,7 @@ const RulesGuidelines = () => {
   const rules = [
     {
       category: '16-Hour Timeline',
-      icon: '⏰',
+      icon: clock,
       gradient: 'black',
       items: [
         'The hackathon is a 16-hour continuous coding event; teams must adhere strictly to the given timeline.',
@@ -71,7 +79,7 @@ const RulesGuidelines = () => {
     },
     {
       category: 'No Pre-Built Code',
-      icon: '📝',
+      icon: notebook,
       gradient: 'black',
       items: [
         'Use of pre-built code, templates, or previously developed projects is prohibited.',
@@ -82,10 +90,10 @@ const RulesGuidelines = () => {
     },
     {
       category: 'Team Composition',
-      icon: '👥',
+      icon: group,
       gradient: 'black',
       items: [
-        'Teams must consist of the registered members only; no substitution is allowed after the event begins.',
+        'Teams must consist of the registered members only.',
         'Maximum team size: 4 members',
         'Minimum team size: 2 members',
         'Cross-college teams are allowed.'
@@ -94,72 +102,71 @@ const RulesGuidelines = () => {
     },
     {
       category: 'Evaluation Checkpoints',
-      icon: '✅',
+      icon: tick,
       gradient: 'black',
       items: [
-        'Regular evaluation checkpoints will be conducted by judges and mentors.',
+        'Regular evaluation checkpoints will be conducted.',
         'Progress updates required every 4 hours.',
-        'Final evaluation based on innovation, implementation, and presentation.'
+        'Final evaluation based on innovation and implementation.'
       ],
       color: 'sky-300'
     },
     {
       category: 'Submission Deadline',
-      icon: '📋',
+      icon: submission,
       gradient: 'black',
       items: [
-        'Teams must submit their final project before the submission deadline in the prescribed format.',
-        'Late submissions will not be accepted under any circumstances.',
-        'Submit code, documentation, and presentation video.'
+        'Teams must submit their final project before the deadline.',
+        'Late submissions will not be accepted.',
+        'Submit code, documentation, and presentation.'
       ],
       color: 'sky-300'
     },
     {
       category: 'Mentor Guidance',
-      icon: '🤝',
+      icon: handshake,
       gradient: 'black',
       items: [
-        'Mentors are available for guidance, but direct implementation by mentors is not allowed.',
-        'Seek advice on architecture, APIs, and best practices.',
+        'Mentors are available for guidance.',
+        'Direct implementation by mentors is not allowed.',
         'Mentors will be available throughout the event.'
       ],
       color: 'sky-300'
     },
     {
       category: 'Misconduct Policy',
-      icon: '⚖️',
+      icon: scale,
       gradient: 'black',
       items: [
-        'Any form of misconduct, rule violation, or unfair practice will result in immediate disqualification.',
-        'Respect all participants, mentors, and organizers.',
-        'Maintain a positive and collaborative environment.'
+        'Any misconduct will result in disqualification.',
+        'Respect all participants and organizers.',
+        'Maintain a collaborative environment.'
       ],
       color: 'sky-300'
     },
     {
       category: 'Ethical Coding',
-      icon: '👨‍💻',
+      icon: programming,
       gradient: 'black',
       items: [
-        'Participants must follow ethical coding practices; plagiarism or code copying will lead to disqualification.',
-        'Give credit to any external resources used.',
+        'Follow ethical coding practices.',
+        'Give credit to external resources.',
         'Original work only.'
       ],
       color: 'sky-300'
     },
     {
       category: 'Final Decision',
-      icon: '🏁',
+      icon: tick,
       gradient: 'black',
       items: [
-        'The decision of the judges and organizing committee will be final and binding.',
-        'No appeals will be entertained after results are announced.',
-        'Organizers reserve the right to modify rules if necessary.'
+        'Judges decision is final.',
+        'No appeals after results.',
+        'Organizers may modify rules if necessary.'
       ],
       color: 'sky-300'
     }
   ];
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -214,7 +221,7 @@ const RulesGuidelines = () => {
         </div>
 
         {/* Nebula Effects - Updated to skyblue */}
-        <motion.div 
+        <motion.div
           className="absolute inset-0"
           style={{
             background: 'radial-gradient(circle at 20% 30%, rgba(56, 189, 248, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(14, 165, 233, 0.15) 0%, transparent 50%)',
@@ -314,10 +321,10 @@ const RulesGuidelines = () => {
               Rules & Guidelines
             </span>
           </motion.h2>
-          
+
           {/* Description - White */}
           <motion.p variants={itemVariants} className="text-white/80 text-lg max-w-3xl mx-auto font-space leading-relaxed">
-            Navigate your cosmic journey through these essential guidelines. 
+            Navigate your cosmic journey through these essential guidelines.
             Fair play ensures everyone reaches the stars!
           </motion.p>
         </motion.div>
@@ -332,43 +339,41 @@ const RulesGuidelines = () => {
             <motion.div
               key={index}
               variants={itemVariants}
-              whileHover={{ 
-                scale: 1.02, 
+              whileHover={{
+                scale: 1.02,
                 y: -8,
                 transition: { type: "spring", stiffness: 200, damping: 17 }
               }}
               className="group relative"
             >
               {/* Orbital Glow Effect - Skyblue */}
-              <motion.div 
+              <motion.div
                 className={`absolute -inset-0.5 bg-gradient-to-r ${rule.gradient} rounded-2xl opacity-0 group-hover:opacity-10 blur-xl transition-all duration-500`}
                 animate={{
                   scale: [1, 1, 1],
                 }}
                 transition={{ duration: 2, repeat: Infinity }}
               />
-              
+
               {/* Card Content */}
               <div className="relative bg-black/10 backdrop-blur-xl border border-sky-300/20 rounded-2xl p-6 hover:border-sky-300 transition-all duration-300 h-full flex flex-col overflow-hidden">
-                
+
                 {/* Cosmic Background Effect - Skyblue */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-sky-300/5 to-blue-400/5 rounded-full blur-3xl" />
-                
+
                 {/* Header with Icon and Category */}
                 <div className="flex items-start gap-4 mb-4 relative z-10">
-                  <motion.div 
+                  <motion.div
                     className={`p-4 rounded-xl bg-gradient-to-r ${rule.gradient} bg-opacity-10 relative overflow-hidden`}
                     whileHover={{ scale: 1.1 }}
                     transition={{ type: "spring", stiffness: 400 }}
                   >
-                    <span className="text-2xl filter drop-shadow-[0_0_10px_rgba(56,189,248,0.5)] relative z-10">
-                      {rule.icon}
-                    </span>
-                    <motion.div 
-                      className="absolute inset-0 bg-gradient-to-r from-white/10 via-white/20 to-white/10"
-                      animate={{ x: ['-100%', '200%'] }}
-                      transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                    <img
+                      src={rule.icon}
+                      alt={rule.category}
+                      className="w-12 h-12 object-contain drop-shadow-[0_0_10px_rgba(56,189,248,0.7)]"
                     />
+                    
                   </motion.div>
                   {/* Category - Skyblue gradient */}
                   <h3 className={`font-orbitron text-white text-lg font-bold bg-gradient-to-r ${rule.gradient} bg-clip-text text-transparent flex-1`}>
@@ -379,9 +384,9 @@ const RulesGuidelines = () => {
                 {/* Rules List - White text */}
                 <ul className="space-y-3 flex-1 relative z-10">
                   {rule.items.map((item, i) => (
-                    <motion.li 
-                      key={i} 
-                      className="text-white/100 text-sm font-space flex items-start gap-3 group/item"
+                    <motion.li
+                      key={i}
+                      className="text-white/100 text-lg font-space flex items-start gap-3 group/item"
                       initial={{ opacity: 0.8 }}
                       whileHover={{ opacity: 1, x: 3 }}
                     >
@@ -402,10 +407,10 @@ const RulesGuidelines = () => {
         </motion.div>
 
 
-        
+
 
         {/* Cosmic Divider - Skyblue */}
-        <motion.div 
+        <motion.div
           className="w-full h-px mt-20 relative"
           initial={{ opacity: 0, scaleX: 0 }}
           animate={inView ? { opacity: 1, scaleX: 1 } : {}}
