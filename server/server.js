@@ -8,9 +8,11 @@ dotenv.config();
 
 const app = express();
 
-// Middleware
+// Middleware - Updated CORS for production
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:3000'],
+  origin: process.env.NODE_ENV === 'production' 
+    ? ['https://hackbits-3.0.vercel.app'] // Replace with your actual Vercel URL
+    : ['http://localhost:5173', 'http://localhost:3000'],
   credentials: true
 }));
 app.use(express.json());
@@ -26,7 +28,6 @@ const connectDB = async () => {
     console.log('✅ MongoDB Connected Successfully');
   } catch (error) {
     console.error('❌ MongoDB Connection Error:', error);
-    process.exit(1);
   }
 };
 
@@ -65,9 +66,14 @@ app.use((req, res) => {
   res.status(404).json({ message: 'Route not found' });
 });
 
-const PORT = process.env.PORT || 5000;
+// Export for Vercel serverless
+module.exports = app;
 
-app.listen(PORT, () => {
-  console.log(`✅ Server running on port ${PORT}`);
-  console.log(`📍 Local: http://localhost:${PORT}`);
-});
+// For local development
+if (process.env.NODE_ENV !== 'production') {
+  const PORT = process.env.PORT || 5000;
+  app.listen(PORT, () => {
+    console.log(`✅ Server running on port ${PORT}`);
+    console.log(`📍 Local: http://localhost:${PORT}`);
+  });
+}

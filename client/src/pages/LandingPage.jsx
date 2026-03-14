@@ -4,6 +4,7 @@ import Hero from '../components/Hero';
 import WhyHackBits from '../components/WhyHackBits';
 import EventFlow from '../components/EventFlow';
 import RulesGuidelines from '../components/RulesGuidelines';
+import TeamPage from '../components/TeamPage';
 import Footer from '../components/Footer';
 
 const LandingPage = () => {
@@ -15,6 +16,7 @@ const LandingPage = () => {
         <WhyHackBits />
         <RulesGuidelines />
         <EventFlow />
+        <TeamPage />
       </main>
       <Footer />
     </div>
