@@ -211,19 +211,6 @@ const EventFlow = () => {
     return colors[type] || 'from-sky-0 to-blue-0';
   };
 
-  // const getEventTypeIcon = (type) => {
-  //   const icons = {
-  //     ceremony: '🎪',
-  //     workshop: '💡',
-  //     hacking: '💻',
-  //     break: '🍕',
-  //     evaluation: '📊',
-  //     deadline: '⏰',
-  //     presentation: '🎤'
-  //   };
-  //   return icons[type] || '📌';
-  // };
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -249,12 +236,12 @@ const EventFlow = () => {
   };
 
   return (
-    <section id="eventflow" className="relative py-20 md:py-28 overflow-hidden bg-gradient-to-b from-[#020617] via-[#030b1a] to-[#000000]">
-      {/* Deep Space Background */}
+    <section id="eventflow" className="relative py-16 md:py-20 lg:py-28 overflow-hidden bg-gradient-to-b from-[#020617] via-[#030b1a] to-[#000000]">
+      {/* Deep Space Background - Optimized for mobile */}
       <div className="absolute inset-0">
-        {/* Star Field */}
+        {/* Star Field - Reduced for mobile */}
         <div className="absolute inset-0">
-          {[...Array(150)].map((_, i) => (
+          {[...Array(80)].map((_, i) => ( // Reduced stars for mobile
             <motion.div
               key={`star-${i}`}
               className="absolute rounded-full bg-white"
@@ -291,9 +278,9 @@ const EventFlow = () => {
           transition={{ duration: 15, repeat: Infinity }}
         />
 
-        {/* Floating Particles */}
+        {/* Floating Particles - Reduced for mobile */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          {[...Array(40)].map((_, i) => (
+          {[...Array(20)].map((_, i) => ( // Reduced particles for mobile
             <motion.div
               key={`dust-${i}`}
               className="absolute rounded-full"
@@ -320,12 +307,12 @@ const EventFlow = () => {
           ))}
         </div>
 
-        {/* Shooting Stars */}
+        {/* Shooting Stars - Reduced for mobile */}
         <div className="absolute inset-0 pointer-events-none">
-          {[...Array(5)].map((_, i) => (
+          {[...Array(3)].map((_, i) => ( // Reduced shooting stars for mobile
             <motion.div
               key={`shooting-${i}`}
-              className="absolute h-0.5 w-32 bg-gradient-to-r from-transparent via-sky-300 to-transparent"
+              className="absolute h-0.5 w-24 sm:w-32 bg-gradient-to-r from-transparent via-sky-300 to-transparent"
               style={{
                 top: `${Math.random() * 60}%`,
                 left: `${Math.random() * 100}%`,
@@ -354,8 +341,8 @@ const EventFlow = () => {
         }} />
       </div>
 
-      {/* Cosmic Timeline Path */}
-      <svg className="absolute top-0 left-1/2 transform -translate-x-1/2 w-full h-full opacity-10 pointer-events-none">
+      {/* Cosmic Timeline Path - Hidden on mobile for performance */}
+      <svg className="absolute top-0 left-1/2 transform -translate-x-1/2 w-full h-full opacity-10 pointer-events-none hidden md:block">
         <defs>
           <linearGradient id="timeline-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stopColor="#38BDF8" stopOpacity="0.5" />
@@ -381,39 +368,39 @@ const EventFlow = () => {
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
           variants={containerVariants}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-12 md:mb-16"
         >
           {/* Section Label with Cosmic Glow */}
-          <motion.div variants={itemVariants} className="relative inline-block mb-4">
+          <motion.div variants={itemVariants} className="relative inline-block mb-3 sm:mb-4">
             <div className="absolute inset-0 bg-gradient-to-r from-sky-300/20 via-sky-400/20 to-blue-400/20 rounded-full blur-xl"></div>
-            <span className="relative px-6 py-2 bg-black/40 backdrop-blur-xl border border-sky-300/30 rounded-full inline-block">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-blue-400 text-sm font-medium tracking-wider">
+            <span className="relative px-4 sm:px-6 py-1.5 sm:py-2 bg-black/40 backdrop-blur-xl border border-sky-300/30 rounded-full inline-block">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-blue-400 text-xs sm:text-sm font-medium tracking-wider">
                 🚀 3-DAY COSMIC JOURNEY
               </span>
             </span>
           </motion.div>
 
-          {/* Main Title - Skyblue gradient */}
-          <motion.h2 variants={itemVariants} className="font-orbitron text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
+          {/* Main Title - Skyblue gradient - Responsive text */}
+          <motion.h2 variants={itemVariants} className="font-orbitron text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-2 sm:mb-3 md:mb-4">
             <span className="bg-gradient-to-r from-sky-300 via-sky-400 to-blue-400 bg-clip-text text-transparent">
               Event Flow
             </span>
           </motion.h2>
 
-          {/* Description - White */}
-          <motion.p variants={itemVariants} className="text-white/80 text-lg max-w-2xl mx-auto font-space leading-relaxed">
+          {/* Description - White - Responsive text */}
+          <motion.p variants={itemVariants} className="text-white/80 text-sm sm:text-base md:text-lg max-w-2xl mx-auto font-space leading-relaxed px-4">
             Your 3-day expedition through innovation - every moment counts!
           </motion.p>
         </motion.div>
 
-        {/* Day Selector with Cosmic Design */}
+        {/* Day Selector with Cosmic Design - Responsive */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, type: "spring", stiffness: 100 }}
-          className="flex justify-center mb-12"
+          className="flex justify-center mb-8 sm:mb-10 md:mb-12"
         >
-          <div className="relative group">
+          <div className="relative group w-full max-w-md mx-auto">
             {/* Orbital Glow */}
             <motion.div
               className="absolute -inset-2 bg-gradient-to-r from-sky-400 to-blue-200 rounded-2xl blur-2xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"
@@ -425,16 +412,15 @@ const EventFlow = () => {
             />
 
             {/* Selector Container */}
-            <div className="relative bg-black/60 backdrop-blur-xl border border-sky-100/10 rounded-2xl p-2 flex gap-2">
+            <div className="relative bg-black/60 backdrop-blur-xl border border-sky-100/10 rounded-xl sm:rounded-2xl p-1.5 sm:p-2 flex gap-1 sm:gap-2">
               {[
                 { id: 'day1', label: 'Day 1', date: 'March 24', gradient: 'from-sky-400 to-blue-400' },
                 { id: 'day2', label: 'Day 2', date: 'March 25', gradient: 'from-sky-400 to-blue-400' },
-                // { id: 'day3', label: 'Day 3', date: 'March 26', gradient: 'from-sky-400 to-blue-400' }
               ].map((day) => (
                 <motion.button
                   key={day.id}
                   onClick={() => setSelectedDay(day.id)}
-                  className="relative px-6 md:px-8 py-3 rounded-xl transition-all duration-300 overflow-hidden"
+                  className="relative flex-1 px-3 sm:px-4 md:px-6 lg:px-8 py-2 sm:py-2.5 md:py-3 rounded-lg sm:rounded-xl transition-all duration-300 overflow-hidden"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -446,9 +432,9 @@ const EventFlow = () => {
                     />
                   )}
                   <span className="relative z-10 flex flex-col items-center">
-                    <span className={`font-orbitron text-sm md:text-base font-bold ${selectedDay === day.id ? 'text-white' : 'text-white/200'
+                    <span className={`font-orbitron text-xs sm:text-sm md:text-base font-bold ${selectedDay === day.id ? 'text-white' : 'text-white/200'
                       }`}>{day.label}</span>
-                    <span className={`text-xs ${selectedDay === day.id ? 'text-white' : 'text-white/300'
+                    <span className={`text-[10px] sm:text-xs ${selectedDay === day.id ? 'text-white' : 'text-white/300'
                       }`}>{day.date}</span>
                   </span>
                 </motion.button>
@@ -467,8 +453,8 @@ const EventFlow = () => {
             transition={{ duration: 0.5, type: "spring", stiffness: 100 }}
             className="max-w-4xl mx-auto relative"
           >
-            {/* Cosmic Timeline Line */}
-            <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-0.5">
+            {/* Cosmic Timeline Line - Hidden on mobile, shown on desktop */}
+            <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-0.5 hidden md:block">
               <div className="absolute inset-0 bg-gradient-to-b from-sky-200 via-sky-200 to-blue-200 opacity-30" />
               <motion.div
                 className="absolute inset-0 bg-gradient-to-b from-sky-400 via-sky-400 to-blue-400"
@@ -478,11 +464,11 @@ const EventFlow = () => {
                 style={{ originY: 0 }}
               />
 
-              {/* Floating orbs on timeline */}
+              {/* Floating orbs on timeline - Hidden on mobile */}
               {schedule[selectedDay].map((_, index) => (
                 <motion.div
                   key={index}
-                  className="absolute left-1/2 transform -translate-x-1/2 w-2 h-2"
+                  className="absolute left-1/2 transform -translate-x-1/2 w-2 h-2 hidden md:block"
                   style={{ top: `${(index / (schedule[selectedDay].length - 1)) * 100}%` }}
                 >
                   <motion.div
@@ -513,11 +499,11 @@ const EventFlow = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1, type: "spring", stiffness: 100 }}
-                className={`relative flex flex-col md:flex-row gap-4 md:gap-8 mb-8 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                className={`relative flex flex-col md:flex-row gap-4 md:gap-8 mb-4 sm:mb-6 md:mb-8 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
                   }`}
               >
-                {/* Timeline Node with Cosmic Glow */}
-                <div className="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-5 h-5 z-10">
+                {/* Timeline Node with Cosmic Glow - Visible on all devices */}
+                <div className="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-4 h-4 sm:w-5 sm:h-5 z-10">
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-sky-500 to-blue-200 rounded-full"
                     animate={{
@@ -533,24 +519,8 @@ const EventFlow = () => {
                   <div className="absolute inset-1 bg-[#030014] rounded-full" />
                 </div>
 
-                {/* Time Column */}
-                {/* <div className={`md:w-5/12 ${
-                  index % 2 === 0 ? 'md:text-right' : 'md:text-left'
-                }`}>
-                  <motion.div 
-                    className="inline-block bg-black/10 backdrop-blur-xl border border-sky-300/30 rounded-xl p-4 hover:border-sky-100/0 transition-all duration-300"
-                    whileHover={{ scale: 1.02, x: index % 2 === 0 ? -5 : 5 }}
-                  >
-                    <span className="font-orbitron text-lg font-bold bg-gradient-to-r from-sky-300 to-blue-400 bg-clip-text  text-transparent">
-                      {item.time}
-                    </span>
-                    <span className="text-white/40 text-sm mx-2">→</span>
-                    <span className="font-orbitron text-sm text-white/100">{item.endTime}</span>
-                  </motion.div>
-                </div> */}
-
-                {/* Event Card */}
-                <div className={`md:w-5/12 `}>
+                {/* Event Card - Full width on mobile */}
+                <div className="w-full md:w-5/12 pl-10 md:pl-0">
                   <motion.div
                     whileHover={{ scale: 1.02, y: -5 }}
                     className="relative group cursor-pointer"
@@ -558,7 +528,7 @@ const EventFlow = () => {
                   >
                     {/* Orbital Glow Effect */}
                     <motion.div
-                      className={`absolute -inset-1 bg-gradient-to-r ${getEventTypeColor(item.type)} rounded-2xl opacity-0 group-hover:opacity-10 blur-xl transition-opacity duration-500`}
+                      className={`absolute -inset-1 bg-gradient-to-r ${getEventTypeColor(item.type)} rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-10 blur-xl transition-opacity duration-500`}
                       animate={{
                         scale: [1, 1, 1],
                       }}
@@ -566,48 +536,52 @@ const EventFlow = () => {
                     />
 
                     {/* Card */}
-                    <div className="relative bg-black/10 backdrop-blur-xl border border-sky-300/20 rounded-2xl p-1 hover:border-sky-300/40 transition-all duration-300 overflow-hidden">
+                    <div className="relative bg-black/10 backdrop-blur-xl border border-sky-300/20 rounded-xl sm:rounded-2xl p-3 sm:p-4 hover:border-sky-300/40 transition-all duration-300 overflow-hidden">
 
                       {/* Cosmic Background Effect */}
-                      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-sky-100/5 to-blue-200/5 rounded-full blur-3xl" />
+                      <div className="absolute top-0 right-0 w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 bg-gradient-to-br from-sky-100/5 to-blue-200/5 rounded-full blur-3xl" />
 
                       {/* Header with Icon */}
-                      <div className="flex items-start gap-4 mb-3">
+                      <div className="flex items-start gap-2 sm:gap-3 mb-2 sm:mb-3">
                         <motion.div
-                          className={`p-2 rounded-2xl bg-gradient-to-r ${getEventTypeColor(item.type)} bg-opacity-10 relative overflow-hidden`}
+                          className={`p-1.5 sm:p-2 rounded-xl sm:rounded-2xl bg-gradient-to-r ${getEventTypeColor(item.type)} bg-opacity-10 relative overflow-hidden flex-shrink-0`}
                           whileHover={{ scale: 1.1 }}
                           transition={{ type: "spring", stiffness: 400 }}
                         >
-                          <span className="text-4xl relative z-10">{item.icon || getEventTypeIcon(item.type)}</span>
+                          <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl relative z-10">{item.icon}</span>
                           <motion.div
                             className="absolute inset-0 bg-gradient-to-r from-white/1 via-white/10 to-white/1"
                             animate={{ x: ['-100%', '200%'] }}
                             transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
                           />
                         </motion.div>
-                        <div className="flex-1">
-                          {/* Event Title - Skyblue gradient */}
-                          <h3 className={`font-orbitron text-lg font-bold bg-gradient-to-r text-white bg-clip-text text-transparent`}>
+                        <div className="flex-1 min-w-0">
+                          {/* Event Title */}
+                          <h3 className={`font-orbitron text-sm sm:text-base md:text-lg font-bold text-white truncate`}>
                             {item.event}
                           </h3>
-                          <span className="font-orbitron text-sm font-bold bg-gradient-to-r from-sky-300 to-blue-400 bg-clip-text  text-transparent">
-                            {item.time}
-                          </span>
-                          <span className="text-white/40 text-sm mx-2">→</span>
-                          <span className="font-orbitron text-sm text-white/100">{item.endTime}</span>
-                          {/* Location - White with lower opacity */}
-                          <p className="text-white/100 text-xs mt-1 flex items-center gap-1">
-                            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          
+                          {/* Time display */}
+                          <div className="flex flex-wrap items-center gap-1 mt-0.5 sm:mt-1">
+                            <span className="font-orbitron text-[10px] sm:text-xs md:text-sm font-bold bg-gradient-to-r from-sky-300 to-blue-400 bg-clip-text text-transparent">
+                              {item.time}
+                            </span>
+                            <span className="text-white/40 text-[8px] sm:text-xs">→</span>
+                            <span className="font-orbitron text-[10px] sm:text-xs md:text-sm text-white/100">{item.endTime}</span>
+                          </div>
+                          
+                          {/* Location */}
+                          <p className="text-white/100 text-[10px] sm:text-xs mt-0.5 sm:mt-1 flex items-center gap-1">
+                            <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                             </svg>
-                            {item.location}
+                            <span className="truncate">{item.location}</span>
                           </p>
-
                         </div>
                       </div>
 
-                      {/* Description (Expandable) - White text */}
+                      {/* Description (Expandable) - Responsive text */}
                       <AnimatePresence>
                         {selectedEvent === index && (
                           <motion.div
@@ -617,18 +591,12 @@ const EventFlow = () => {
                             transition={{ duration: 0.3, ease: "easeInOut" }}
                             className="overflow-hidden"
                           >
-                            <p className="text-white/100 text-sm font-space leading-relaxed mt-3 pt-3 border-t border-sky-300/20">
+                            <p className="text-white/100 text-[11px] sm:text-xs md:text-sm font-space leading-relaxed mt-2 sm:mt-3 pt-2 sm:pt-3 border-t border-sky-300/20">
                               {item.description}
                             </p>
-
                           </motion.div>
                         )}
                       </AnimatePresence>
-                      {/* <span className="font-orbitron text-lg font-bold bg-gradient-to-r from-sky-300 to-blue-400 bg-clip-text  text-transparent">
-                        {item.time}
-                      </span>
-                      <span className="text-white/40 text-sm mx-2">→</span>
-                      <span className="font-orbitron text-sm text-white/100">{item.endTime}</span> */}
 
                       {/* Expand/Collapse Indicator */}
                       <motion.button
@@ -637,7 +605,7 @@ const EventFlow = () => {
                         whileTap={{ scale: 0.9 }}
                       >
                         <motion.svg
-                          className={`w-4 h-4 transform transition-transform duration-300 ${selectedEvent === index ? 'rotate-180' : ''}`}
+                          className={`w-3 h-3 sm:w-4 sm:h-4 transform transition-transform duration-300 ${selectedEvent === index ? 'rotate-180' : ''}`}
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -655,56 +623,9 @@ const EventFlow = () => {
           </motion.div>
         </AnimatePresence>
 
-        {/* Timeline Legend */}
-        {/* <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, type: "spring", stiffness: 100 }}
-          className="mt-12 flex flex-wrap justify-center gap-4"
-        >
-          {[
-            { type: 'ceremony', label: 'Ceremony', color: 'from-sky-300 to-blue-400' },
-            { type: 'hacking', label: 'Hacking', color: 'from-sky-400 to-blue-500' },
-            { type: 'break', label: 'Break', color: 'from-sky-300 to-blue-400' },
-            { type: 'evaluation', label: 'Evaluation', color: 'from-sky-400 to-blue-500' },
-            { type: 'workshop', label: 'Workshop', color: 'from-sky-300 to-blue-400' },
-            { type: 'presentation', label: 'Presentation', color: 'from-sky-300 to-blue-400' }
-          ].map((item, index) => (
-            <motion.div 
-              key={index} 
-              className="flex items-center gap-2 bg-black/20 backdrop-blur-sm px-3 py-1 rounded-full border border-sky-300/20"
-              whileHover={{ scale: 1.05, borderColor: '#38BDF8' }}
-            >
-              <div className={`w-3 h-3 rounded-full bg-gradient-to-r ${item.color}`} />
-              <span className="text-xs text-white/60">{item.label}</span>
-            </motion.div>
-          ))}
-        </motion.div> */}
-
-        {/* Important Notes */}
-        {/* <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9, type: "spring", stiffness: 100 }}
-          className="mt-12 text-center"
-        >
-          <motion.div 
-            className="relative inline-block"
-            whileHover={{ scale: 1.02 }}
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-sky-300 to-blue-400 rounded-xl blur-xl opacity-20" />
-            <div className="relative bg-black/40 backdrop-blur-xl border border-sky-300/30 rounded-xl px-8 py-4">
-              <p className="text-white/70 text-sm">
-                <span className="text-sky-300 mr-2">⚠️</span>
-                Schedule is subject to minor changes. All participants will be notified of any updates.
-              </p>
-            </div>
-          </motion.div>
-        </motion.div> */}
-
-        {/* Cosmic Divider */}
+        {/* Cosmic Divider - Responsive margin */}
         <motion.div
-          className="w-full h-px mt-20 relative"
+          className="w-full h-px mt-12 sm:mt-16 md:mt-20 relative"
           initial={{ opacity: 0, scaleX: 0 }}
           animate={inView ? { opacity: 1, scaleX: 1 } : {}}
           transition={{ duration: 1, delay: 1 }}

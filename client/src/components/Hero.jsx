@@ -69,11 +69,11 @@ const Hero = () => {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#020617] via-[#050b1a] to-black"
     >
-      {/* Deep Space Background */}
+      {/* Deep Space Background - Optimized for mobile */}
       <div className="absolute inset-0">
-        {/* Star Field */}
+        {/* Star Field - Reduced for mobile */}
         <div className="absolute inset-0">
-          {[...Array(150)].map((_, i) => (
+          {[...Array(isMobile ? 60 : 150)].map((_, i) => (
             <motion.div
               key={`star-${i}`}
               className="absolute rounded-full bg-white"
@@ -109,18 +109,18 @@ const Hero = () => {
         <ParticleBackground />
       </div>
 
-      {/* Earth at Bottom - Centered */}
+      {/* Earth at Bottom - Centered - Responsive sizing */}
       <motion.div
         className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full flex justify-center pointer-events-none z-10"
         style={{ y: earthY }}
       >
-        <div className="relative w-[600px] md:w-[800px] lg:w-[1000px]">
+        <div className="relative w-[400px] sm:w-[500px] md:w-[600px] lg:w-[800px] xl:w-[1000px]">
           {/* Earth Glow */}
           <div
-            className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full h-[200px] md:h-[300px] rounded-t-full"
+            className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full h-[100px] sm:h-[150px] md:h-[200px] lg:h-[250px] xl:h-[300px] rounded-t-full"
             style={{
               background: 'radial-gradient(ellipse at center, rgba(0, 150, 255, 0.3) 0%, transparent 70%)',
-              filter: 'blur(40px)'
+              filter: 'blur(20px) sm:blur(30px) md:blur(40px)'
             }}
           />
           {/* Earth Image */}
@@ -132,15 +132,15 @@ const Hero = () => {
         </div>
       </motion.div>
 
-      {/* Left Astronaut */}
+      {/* Left Astronaut - Hidden on mobile, visible on desktop */}
       <motion.div
         style={{ y: leftAstronautY }}
         animate={{
-          y: isMobile ? [-3, 3, -3] : [-8, 8, -8],
-          rotate: isMobile ? [-1, 1, -1] : [-2, 2, -2]
+          y: [-8, 8, -8],
+          rotate: [-2, 2, -2]
         }}
         transition={{
-          duration: isMobile ? 5 : 7,
+          duration: 7,
           repeat: Infinity,
           ease: "easeInOut",
           delay: 0.5
@@ -150,7 +150,7 @@ const Hero = () => {
         <motion.img
           src={astronaut2}
           alt="Astronaut floating left"
-          className="w-[320px] xl:w-[380px] relative"
+          className="w-[280px] xl:w-[320px] 2xl:w-[380px] relative"
           animate={{
             filter: [
               'drop-shadow(0 0 12px rgba(255, 0, 255, 0.2))',
@@ -166,15 +166,15 @@ const Hero = () => {
         />
       </motion.div>
 
-      {/* Right Astronaut */}
+      {/* Right Astronaut - Hidden on mobile, visible on desktop */}
       <motion.div
         style={{ y: rightAstronautY }}
         animate={{
-          y: isMobile ? [-5, 4.5, -5] : [-10, 9.5, -10],
-          rotate: isMobile ? [-1, 0.5, -1] : [-2, 1.5, -2]
+          y: [-10, 9.5, -10],
+          rotate: [-2, 1.5, -2]
         }}
         transition={{
-          duration: isMobile ? 6 : 8,
+          duration: 8,
           repeat: Infinity,
           ease: "easeInOut"
         }}
@@ -183,7 +183,7 @@ const Hero = () => {
         <motion.img
           src={astronautEarth}
           alt="Astronaut floating right"
-          className="w-[460px] xl:w-[480px] relative"
+          className="w-[400px] xl:w-[440px] 2xl:w-[480px] relative"
           animate={{
             filter: [
               'drop-shadow(0 0 15px rgba(0, 229, 255, 0.2))',
@@ -201,23 +201,23 @@ const Hero = () => {
 
       {/* Main Content Container */}
       <div className="relative z-30 container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center justify-center min-h-screen py-10">
+        <div className="flex flex-col items-center justify-center min-h-screen py-8 sm:py-10">
 
           {/* Three Images Grid */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.6 }}
-            className="w-full max-w-4xl mx-auto mb-6 md:mb-8"
+            className="w-full max-w-4xl mx-auto mb-4 sm:mb-6 md:mb-8"
           >
-            <div className="grid grid-cols-1 gap-4 sm:gap-6 md:gap-8">
+            <div className="grid grid-cols-1 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
               {/* Image 1 - JIT ACM */}
               <motion.div
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300 }}
                 className="relative group"
               >
-                <div className="flex items-center justify-center p-2 h-20 sm:h-24 md:h-28 lg:h-40">
+                <div className="flex items-center justify-center p-1 h-[110px] sm:h-[120px] md:h-[130px] lg:h-[150px] xl:h-[170px]">
                   <img
                     src={jitacmLogo}
                     alt="JIT ACM"
@@ -225,50 +225,20 @@ const Hero = () => {
                   />
                 </div>
               </motion.div>
-
-              {/* Image 2 - JIT Logo */}
-              {/* <motion.div
-                whileHover={{ scale: 1.02 }}
-                transition={{ type: "spring", stiffness: 300 }}
-                className="relative group"
-              >
-                <div className="flex items-center justify-center p-2 h-20 sm:h-24 md:h-28 lg:h-32">
-                  <img
-                    src={jitlogo}
-                    alt="JIT Logo"
-                    className="w-full h-full object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"
-                  />
-                </div>
-              </motion.div> */}
-
-              {/* Image 3 - HACKBITS 3.0 */}
-              {/* <motion.div
-                whileHover={{ scale: 1.02 }}
-                transition={{ type: "spring", stiffness: 300 }}
-                className="relative group"
-              >
-                <div className="flex items-center justify-center p-2 h-20 sm:h-24 md:h-28 lg:h-32">
-                  <img
-                    src={hackbitsLogo}
-                    alt="HACKBITS 3.0"
-                    className="w-full h-full object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"
-                  />
-                </div>
-              </motion.div> */}
             </div>
           </motion.div>
 
-          {/* College Info */}
+          {/* College Info - Responsive text */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="text-center mb-4"
+            className="text-center mb-3 sm:mb-4"
           >
-            <p className="text-sky-300 text-2xl sm:text-3xl md:text-4xl font-space font-bold">
+            <p className="text-sky-300 text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-space font-bold px-2">
               JIT ACM STUDENT CHAPTER
             </p>
-            <p className="text-white text-xl sm:text-2xl md:text-3xl font-space mt-2">
+            <p className="text-white text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-space mt-1 sm:mt-2">
               PRESENTS
             </p>
           </motion.div>
@@ -285,9 +255,9 @@ const Hero = () => {
               variants={itemVariants}
               whileHover={{ scale: 1.02 }}
               transition={{ type: "spring", stiffness: 300 }}
-              className="font-orbitron font-black mb-3"
+              className="font-orbitron font-black mb-2 sm:mb-3"
             >
-              <div className="flex items-center justify-center p-1 h-20 sm:h-30 md:h-30 lg:h-40">
+              <div className="flex items-center justify-center p-1 h-20 sm:h-24 md:h-28 lg:h-32 xl:h-36">
                 <img
                   src={hackbitsLogo}
                   alt="HACKBITS 3.0"
@@ -296,33 +266,25 @@ const Hero = () => {
               </div>
             </motion.h1>
 
-            {/* Tagline */}
-            {/* <motion.p
-              variants={itemVariants}
-              className="text-white text-lg sm:text-xl md:text-2xl mb-4 font-space italic"
-            >
-              "Explore Innovation Beyond Limits"
-            </motion.p> */}
-
-            {/* Innovate Build Compete */}
+            {/* Innovate Build Compete - Responsive */}
             <motion.div
               variants={itemVariants}
-              className="flex items-center justify-center gap-4 sm:gap-6 mb-6"
+              className="flex items-center justify-center gap-2 sm:gap-3 md:gap-4 lg:gap-6 mb-3 sm:mb-4 md:mb-5 lg:mb-6"
             >
               {['Innovate', 'Build', 'Compete'].map((text) => (
                 <span
                   key={text}
-                  className="text-sky-300 text-base sm:text-lg md:text-xl font-space font-semibold drop-shadow-[0_0_5px_rgba(0,229,255,0.5)]"
+                  className="text-sky-300 text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-space font-semibold drop-shadow-[0_0_5px_rgba(0,229,255,0.5)]"
                 >
                   {text}
                 </span>
               ))}
             </motion.div>
 
-            {/* Description */}
+            {/* Description - Responsive text */}
             <motion.p
               variants={itemVariants}
-              className="text-white/80 text-sm sm:text-base md:text-lg mb-6 max-w-3xl mx-auto font-space leading-relaxed px-4"
+              className="text-white/80 text-xs sm:text-sm md:text-base lg:text-lg max-w-3xl mx-auto font-space leading-relaxed px-3 sm:px-4 mb-4 sm:mb-5 md:mb-6"
             >
               Join us for an unforgettable experience at Hackblitz, where innovation meets competition!
               Participate in an intense 2-days hackathon at Jhulelal Institute of Technology, Lonara, Nagpur,
@@ -331,25 +293,25 @@ const Hero = () => {
             </motion.p>
 
             {/* Countdown Timer */}
-            <motion.div variants={itemVariants} className="mb-6">
+            <motion.div variants={itemVariants} className="mb-4 sm:mb-5 md:mb-6">
               <CountdownTimer targetDate="2026-03-24T08:00:00" />
             </motion.div>
 
-            {/* Register Button */}
+            {/* Register Button - Responsive */}
             <motion.div
               variants={itemVariants}
-              className="flex items-center justify-center mb-8"
+              className="flex items-center justify-center mb-6 sm:mb-7 md:mb-8"
             >
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="group backdrop-blur-md bg-white/5 border-2 border-sky-300/50 rounded-full px-8 py-3 md:px-10 md:py-4 text-white font-orbitron text-base md:text-lg font-bold tracking-wider relative overflow-hidden hover:border-sky-300 transition-all duration-300"
+                className="group backdrop-blur-md bg-white/5 border-2 border-sky-300/50 rounded-full px-6 sm:px-7 md:px-8 lg:px-10 py-2 sm:py-2.5 md:py-3 lg:py-4 text-white font-orbitron text-xs sm:text-sm md:text-base lg:text-lg font-bold tracking-wider relative overflow-hidden hover:border-sky-300 transition-all duration-300"
                 onClick={handleRegisterClick}
               >
-                <span className="relative z-10 flex items-center gap-2">
+                <span className="relative z-10 flex items-center gap-1 sm:gap-2">
                   REGISTER NOW
                   <svg
-                    className="w-5 h-5 group-hover:translate-x-1 transition-transform text-sky-300"
+                    className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform text-sky-300"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -365,18 +327,18 @@ const Hero = () => {
               </motion.button>
             </motion.div>
 
-            {/* Quick Stats */}
+            {/* Quick Stats - Responsive grid */}
             <motion.div
               variants={containerVariants}
               initial="hidden"
               animate="visible"
-              className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto"
+              className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3 md:gap-4 max-w-3xl mx-auto px-2"
             >
               {[
                 { label: 'Days', value: '2', icon: submission },
                 { label: 'Duration', value: '16h', icon: clock },
                 { label: 'Team Size', value: '2-4', icon: group },
-                { label: 'Dates', value: '24-25 ', icon: tick }
+                { label: 'Dates', value: '24-25', icon: tick }
               ].map((stat, index) => (
                 <motion.div
                   key={index}
@@ -384,17 +346,17 @@ const Hero = () => {
                   whileHover={{ scale: 1.05, y: -5 }}
                   className="relative group"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-sky-300 to-blue-400 rounded-xl opacity-0 group-hover:opacity-20 blur-lg transition-opacity duration-500" />
-                  <div className="relative bg-black/30 backdrop-blur-sm border border-sky-300/70 rounded-xl p-4 text-center hover:border-sky-300/40 transition-all duration-300">
+                  <div className="absolute inset-0 bg-gradient-to-r from-sky-300 to-blue-400 rounded-lg sm:rounded-xl opacity-0 group-hover:opacity-20 blur-lg transition-opacity duration-500" />
+                  <div className="relative bg-black/30 backdrop-blur-sm border border-sky-300/70 rounded-lg sm:rounded-xl p-2 sm:p-3 md:p-4 text-center hover:border-sky-300/40 transition-all duration-300">
                     <img
                       src={stat.icon}
                       alt={stat.label}
-                      className="w-10 h-10 mx-auto mb-2 object-contain"
+                      className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-9 lg:h-10 mx-auto mb-1 sm:mb-2 object-contain"
                     />
-                    <div className="text-2xl font-bold text-sky-300">
+                    <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-sky-300">
                       {stat.value}
                     </div>
-                    <div className="text-sm text-white/100 mt-1">{stat.label}</div>
+                    <div className="text-[10px] sm:text-xs md:text-sm text-white/100 mt-0.5 sm:mt-1">{stat.label}</div>
                   </div>
                 </motion.div>
               ))}
@@ -403,14 +365,14 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
+      {/* Scroll Indicator - Responsive sizing */}
       <motion.div
-        className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-40"
-        animate={{ y: [0, 8, 0] }}
+        className="absolute bottom-2 sm:bottom-3 md:bottom-4 left-1/2 transform -translate-x-1/2 z-40"
+        animate={{ y: [0, 6, 0] }}
         transition={{ duration: 1.5, repeat: Infinity }}
       >
-        <div className="w-6 h-10 rounded-full border-2 border-sky-300/30 flex justify-center">
-          <div className="w-1.5 h-2 bg-sky-300/50 rounded-full mt-2"></div>
+        <div className="w-4 h-6 sm:w-5 sm:h-8 md:w-6 md:h-10 rounded-full border-2 border-sky-300/30 flex justify-center">
+          <div className="w-1 h-1.5 sm:w-1.5 sm:h-2 bg-sky-300/50 rounded-full mt-1.5 sm:mt-2"></div>
         </div>
       </motion.div>
     </section>

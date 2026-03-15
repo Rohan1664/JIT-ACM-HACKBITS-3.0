@@ -46,11 +46,34 @@ const TeamPage = () => {
   // State for pagination
   const [executivePage, setExecutivePage] = useState(1);
   const [acmPage, setAcmPage] = useState(1);
-  const [direction, setDirection] = useState(0); // -1 for left, 1 for right
-  
-  // Items per page
-  const executivePerPage = 4;
-  const acmPerPage = 5; // 5 cards per row × 1 row = 5 cards per page
+  const [direction, setDirection] = useState(0);
+
+  // Responsive items per page
+  const [executivePerPage, setExecutivePerPage] = useState(4);
+  const [acmPerPage, setAcmPerPage] = useState(5);
+
+  // Update items per page based on screen size
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) { // mobile - 3 cards per page
+        setExecutivePerPage(3);
+        setAcmPerPage(3);
+      } else if (window.innerWidth < 768) { // small tablet
+        setExecutivePerPage(2);
+        setAcmPerPage(2);
+      } else if (window.innerWidth < 1024) { // tablet
+        setExecutivePerPage(3);
+        setAcmPerPage(3);
+      } else { // desktop
+        setExecutivePerPage(4);
+        setAcmPerPage(5);
+      }
+    };
+
+    handleResize(); // Set initial value
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // Sponsors Data - For continuous slideshow
   const sponsors = [
@@ -67,7 +90,7 @@ const TeamPage = () => {
   // Duplicate sponsors for seamless infinite scroll
   const duplicatedSponsors = [...sponsors, ...sponsors, ...sponsors];
 
-  // Executive Members Data - Expanded for pagination
+  // Executive Members Data
   const executiveMembers = [
     {
       id: 1,
@@ -127,7 +150,7 @@ const TeamPage = () => {
     },
   ];
 
-  // ACM Members Data - Expanded for pagination (15 members for 3 pages of 5 cards)
+  // ACM Members Data
   const acmMembers = [
     {
       id: 1,
@@ -279,7 +302,6 @@ const TeamPage = () => {
     }
   };
 
-  // Page change handler for dots
   const handleExecutivePageChange = (page) => {
     if (page > executivePage) {
       setDirection(1);
@@ -298,7 +320,7 @@ const TeamPage = () => {
     setAcmPage(page);
   };
 
-  // Animation variants for horizontal slide
+  // Animation variants
   const slideVariants = {
     enter: (direction) => ({
       x: direction > 0 ? 300 : -300,
@@ -337,7 +359,7 @@ const TeamPage = () => {
   // Simple Particle Background Component
   const SimpleParticleBackground = () => (
     <div className="absolute inset-0 overflow-hidden">
-      {[...Array(50)].map((_, i) => (
+      {[...Array(30)].map((_, i) => ( // Reduced particles for mobile
         <motion.div
           key={i}
           className="absolute rounded-full bg-white"
@@ -364,12 +386,15 @@ const TeamPage = () => {
   );
 
   return (
-    <main className="relative min-h-screen pt-20 pb-10 overflow-hidden bg-gradient-to-b from-[#020617] via-[#030b1a] to-[#000000]">
+    <main
+      id="teampage"  // Added ID for navigation
+      className="relative min-h-screen pt-16 sm:pt-20 pb-8 sm:pb-10 overflow-hidden bg-gradient-to-b from-[#020617] via-[#030b1a] to-[#000000] scroll-mt-20"  // Added scroll-mt-20 for navbar offset
+    >
       {/* Background Elements */}
       <div className="absolute inset-0">
-        {/* Star Field */}
+        {/* Star Field - Reduced for mobile */}
         <div className="absolute inset-0">
-          {[...Array(100)].map((_, i) => (
+          {[...Array(50)].map((_, i) => ( // Reduced stars for mobile
             <motion.div
               key={`star-${i}`}
               className="absolute rounded-full bg-white"
@@ -423,14 +448,14 @@ const TeamPage = () => {
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="mb-16 text-center"
+          className="mb-10 sm:mb-16 text-center"
         >
-          <h1 className="mb-4 font-orbitron text-5xl sm:text-6xl md:text-7xl font-bold">
+          <h1 className="mb-3 sm:mb-4 font-orbitron text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold">
             <span className="bg-gradient-to-r from-sky-200 via-sky-400 to-blue-400 bg-clip-text text-transparent">
               Our Team
             </span>
           </h1>
-          <p className="max-w-2xl mx-auto text-lg text-white/80 font-space">
+          <p className="max-w-2xl mx-auto text-sm sm:text-base md:text-lg text-white/80 font-space px-4">
             Meet the amazing people behind Hackblitz 3.0
           </p>
         </motion.div>
@@ -441,10 +466,10 @@ const TeamPage = () => {
           initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
           variants={containerVariants}
-          className="mb-20 overflow-hidden"
+          className="mb-12 sm:mb-16 md:mb-20 overflow-hidden"
         >
-          <motion.div variants={itemVariants} className="mb-10 text-center">
-            <h2 className="relative inline-block font-orbitron text-3xl md:text-4xl font-bold">
+          <motion.div variants={itemVariants} className="mb-6 sm:mb-8 md:mb-10 text-center">
+            <h2 className="relative inline-block font-orbitron text-2xl sm:text-3xl md:text-4xl font-bold">
               <span className="bg-gradient-to-r from-sky-300 to-blue-400 bg-clip-text text-transparent">
                 Our Sponsors
               </span>
@@ -460,7 +485,7 @@ const TeamPage = () => {
           {/* Continuous Slider */}
           <div className="relative w-full">
             <motion.div
-              className="flex gap-6"
+              className="flex gap-4 sm:gap-6"
               animate={{
                 x: ['0%', '-50%'],
               }}
@@ -473,27 +498,26 @@ const TeamPage = () => {
                 },
               }}
             >
-              {/* Map through duplicated sponsors for seamless loop */}
               {duplicatedSponsors.map((sponsor, index) => (
                 <div
                   key={`${sponsor.id}-${index}`}
-                  className="flex-shrink-0 w-40 md:w-48"
+                  className="flex-shrink-0 w-24 sm:w-32 md:w-40 lg:w-48"
                 >
                   <div className="relative group">
-                    <div className="absolute inset-0 transition-all duration-500 bg-gradient-to-r from-sky-300 to-blue-400 rounded-xl opacity-0 group-hover:opacity-20 blur-lg" />
-                    <div className="relative p-4 transition-all duration-300 bg-black/30 backdrop-blur-sm border border-sky-300/20 rounded-xl hover:border-sky-300/40">
-                      <div className="flex items-center justify-center p-4 aspect-square">
+                    <div className="absolute inset-0 transition-all duration-500 bg-gradient-to-r from-sky-300 to-blue-400 rounded-lg sm:rounded-xl opacity-0 group-hover:opacity-20 blur-lg" />
+                    <div className="relative p-2 sm:p-3 md:p-4 transition-all duration-300 bg-black/30 backdrop-blur-sm border border-sky-300/20 rounded-lg sm:rounded-xl hover:border-sky-300/40">
+                      <div className="flex items-center justify-center p-2 sm:p-3 md:p-4 aspect-square">
                         <img
                           src={sponsor.logo}
                           alt={sponsor.name}
                           className="object-contain w-full h-full filter drop-shadow-[0_0_10px_rgba(56,189,248,0.3)]"
                         />
                       </div>
-                      <div className="mt-2 text-center">
-                        <p className="text-xs font-medium text-white/90 font-space">
+                      <div className="mt-1 sm:mt-2 text-center">
+                        <p className="text-[10px] sm:text-xs font-medium text-white/90 font-space truncate">
                           {sponsor.name}
                         </p>
-                        <p className="text-[10px] text-sky-300/70 font-space">
+                        <p className="text-[8px] sm:text-[10px] text-sky-300/70 font-space truncate">
                           {sponsor.tier}
                         </p>
                       </div>
@@ -510,10 +534,10 @@ const TeamPage = () => {
           variants={containerVariants}
           initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
-          className="mb-20"
+          className="mb-12 sm:mb-16 md:mb-20"
         >
-          <motion.div variants={itemVariants} className="mb-10 text-center">
-            <h2 className="relative inline-block font-orbitron text-3xl md:text-4xl font-bold">
+          <motion.div variants={itemVariants} className="mb-6 sm:mb-8 md:mb-10 text-center">
+            <h2 className="relative inline-block font-orbitron text-2xl sm:text-3xl md:text-4xl font-bold">
               <span className="bg-gradient-to-r from-sky-300 to-blue-400 bg-clip-text text-transparent">
                 Executive Members
               </span>
@@ -528,38 +552,36 @@ const TeamPage = () => {
 
           {/* Executive Members Grid with Horizontal Slide */}
           <div className="relative">
-            {/* Left Arrow */}
+            {/* Left Arrow - Hidden on mobile, visible on larger screens */}
             <motion.button
               onClick={prevExecutivePage}
               disabled={executivePage === 1}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className={`absolute left-0 top-1/2 transform -translate-y-1/2 -ml-4 z-20 p-3 rounded-full bg-black/50 backdrop-blur-md border border-sky-300/30 text-sky-300 hover:bg-sky-300/20 transition-all duration-300 ${
-                executivePage === 1 ? 'opacity-50 cursor-not-allowed' : ''
-              }`}
+              className={`hidden sm:flex absolute left-0 top-1/2 transform -translate-y-1/2 -ml-4 z-20 p-2 md:p-3 rounded-full bg-black/50 backdrop-blur-md border border-sky-300/30 text-sky-300 hover:bg-sky-300/20 transition-all duration-300 ${executivePage === 1 ? 'opacity-50 cursor-not-allowed' : ''
+                }`}
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
             </motion.button>
 
-            {/* Right Arrow */}
+            {/* Right Arrow - Hidden on mobile, visible on larger screens */}
             <motion.button
               onClick={nextExecutivePage}
               disabled={executivePage === executiveTotalPages}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className={`absolute right-0 top-1/2 transform -translate-y-1/2 -mr-4 z-20 p-3 rounded-full bg-black/50 backdrop-blur-md border border-sky-300/30 text-sky-300 hover:bg-sky-300/20 transition-all duration-300 ${
-                executivePage === executiveTotalPages ? 'opacity-50 cursor-not-allowed' : ''
-              }`}
+              className={`hidden sm:flex absolute right-0 top-1/2 transform -translate-y-1/2 -mr-4 z-20 p-2 md:p-3 rounded-full bg-black/50 backdrop-blur-md border border-sky-300/30 text-sky-300 hover:bg-sky-300/20 transition-all duration-300 ${executivePage === executiveTotalPages ? 'opacity-50 cursor-not-allowed' : ''
+                }`}
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </motion.button>
 
             {/* Grid with AnimatePresence for horizontal slide */}
-            <div className="overflow-hidden px-8">
+            <div className="overflow-hidden px-0 sm:px-8">
               <AnimatePresence mode="wait" custom={direction}>
                 <motion.div
                   key={executivePage}
@@ -569,7 +591,10 @@ const TeamPage = () => {
                   animate="center"
                   exit="exit"
                   transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                  className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
+                  className="grid grid-cols-1 gap-4 sm:gap-6"
+                  style={{
+                    gridTemplateColumns: `repeat(${executivePerPage}, minmax(0, 1fr))`
+                  }}
                 >
                   {currentExecutiveMembers.map((member) => (
                     <motion.div
@@ -577,16 +602,16 @@ const TeamPage = () => {
                       whileHover={{ scale: 1.03, y: -8 }}
                       className="relative group"
                     >
-                      <div className="absolute inset-0 transition-all duration-500 bg-gradient-to-r from-sky-300 to-blue-400 rounded-2xl opacity-0 group-hover:opacity-20 blur-xl" />
-                      <div className="relative flex flex-col items-center h-full p-6 text-center transition-all duration-300 bg-black/30 backdrop-blur-xl border border-sky-300/20 rounded-2xl hover:border-sky-300/40">
+                      <div className="absolute inset-0 transition-all duration-500 bg-gradient-to-r from-sky-300 to-blue-400 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-20 blur-xl" />
+                      <div className="relative flex flex-col items-center h-full p-4 sm:p-5 md:p-6 text-center transition-all duration-300 bg-black/30 backdrop-blur-xl border border-sky-300/20 rounded-xl sm:rounded-2xl hover:border-sky-300/40">
                         {/* Cosmic Background Effect */}
-                        <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-sky-300/5 to-blue-400/5 rounded-full blur-3xl" />
+                        <div className="absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-gradient-to-br from-sky-300/5 to-blue-400/5 rounded-full blur-3xl" />
 
                         {/* Member Image */}
-                        <div className="relative mb-4">
+                        <div className="relative mb-3 sm:mb-4">
                           <div className="absolute inset-0 transition-opacity duration-500 bg-gradient-to-r from-sky-300 to-blue-400 rounded-full blur-md opacity-0 group-hover:opacity-50" />
                           <motion.div
-                            className="relative w-32 h-32 overflow-hidden border-2 border-sky-300/30 rounded-full group-hover:border-sky-300 transition-all duration-300"
+                            className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 overflow-hidden border-2 border-sky-300/30 rounded-full group-hover:border-sky-300 transition-all duration-300"
                             whileHover={{ scale: 1.05 }}
                           >
                             <img
@@ -603,33 +628,35 @@ const TeamPage = () => {
                         </div>
 
                         {/* Member Info */}
-                        <h3 className="mb-1 text-lg font-bold text-white font-orbitron">
+                        <h3 className="mb-1 text-sm sm:text-base md:text-lg font-bold text-white font-orbitron">
                           {member.name}
                         </h3>
-                        <p className="mb-2 text-sm font-semibold text-sky-300 font-space">
+                        <p className="mb-1 sm:mb-2 text-xs sm:text-sm font-semibold text-sky-300 font-space">
                           {member.post}
                         </p>
-                        <p className="text-xs text-white/60 font-space">
+
+                        {/* Description - Hidden on mobile, shown on larger screens */}
+                        <p className="hidden sm:block text-[10px] sm:text-xs text-white/60 font-space line-clamp-2">
                           {member.description}
                         </p>
 
-                        {/* Social Icons */}
-                        <div className="flex gap-2 mt-4">
+                        {/* Social Icons - Hidden on mobile, shown on larger screens */}
+                        <div className="hidden sm:flex gap-2 sm:gap-3 mt-3 sm:mt-4">
                           <motion.a
                             href="#"
                             whileHover={{ scale: 1.1, y: -2 }}
-                            className="flex items-center justify-center w-8 h-8 text-sky-300 transition-all duration-300 bg-black/30 border border-sky-300/30 rounded-full hover:border-sky-300 hover:text-white"
+                            className="flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-sky-300 transition-all duration-300 bg-black/30 border border-sky-300/30 rounded-full hover:border-sky-300 hover:text-white"
                           >
-                            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                            <svg className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4" fill="currentColor" viewBox="0 0 24 24">
                               <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879v-6.99h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.99C18.343 21.128 22 16.991 22 12z" />
                             </svg>
                           </motion.a>
                           <motion.a
                             href="#"
                             whileHover={{ scale: 1.1, y: -2 }}
-                            className="flex items-center justify-center w-8 h-8 text-sky-300 transition-all duration-300 bg-black/30 border border-sky-300/30 rounded-full hover:border-sky-300 hover:text-white"
+                            className="flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-sky-300 transition-all duration-300 bg-black/30 border border-sky-300/30 rounded-full hover:border-sky-300 hover:text-white"
                           >
-                            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                            <svg className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4" fill="currentColor" viewBox="0 0 24 24">
                               <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z" />
                             </svg>
                           </motion.a>
@@ -640,13 +667,41 @@ const TeamPage = () => {
                 </motion.div>
               </AnimatePresence>
             </div>
+            {/* Mobile Navigation Buttons */}
+            <div className="flex justify-between items-center mb-4 sm:hidden">
+              <motion.button
+                onClick={prevExecutivePage}
+                disabled={executivePage === 1}
+                whileTap={{ scale: 0.9 }}
+                className={`p-2 rounded-full bg-black/50 backdrop-blur-md border border-sky-300/30 text-sky-300 ${executivePage === 1 ? 'opacity-50 cursor-not-allowed' : ''
+                  }`}
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </motion.button>
+              <span className="text-white/80 font-space text-sm">
+                Page {executivePage} of {executiveTotalPages}
+              </span>
+              <motion.button
+                onClick={nextExecutivePage}
+                disabled={executivePage === executiveTotalPages}
+                whileTap={{ scale: 0.9 }}
+                className={`p-2 rounded-full bg-black/50 backdrop-blur-md border border-sky-300/30 text-sky-300 ${executivePage === executiveTotalPages ? 'opacity-50 cursor-not-allowed' : ''
+                  }`}
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </motion.button>
+            </div>
           </div>
 
-          {/* Pagination Dots for Executive Members */}
+          {/* Pagination Dots */}
           {executiveTotalPages > 1 && (
             <motion.div
               variants={itemVariants}
-              className="flex items-center justify-center gap-2 mt-8"
+              className="flex items-center justify-center gap-1.5 sm:gap-2 mt-6 sm:mt-8"
             >
               {[...Array(executiveTotalPages)].map((_, i) => (
                 <motion.button
@@ -654,26 +709,25 @@ const TeamPage = () => {
                   onClick={() => handleExecutivePageChange(i + 1)}
                   whileHover={{ scale: 1.2 }}
                   whileTap={{ scale: 0.9 }}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    executivePage === i + 1
-                      ? 'bg-sky-300 w-6'
-                      : 'bg-sky-300/30 hover:bg-sky-300/50'
-                  }`}
+                  className={`h-2 sm:h-3 rounded-full transition-all duration-300 ${executivePage === i + 1
+                    ? 'bg-sky-300 w-4 sm:w-6'
+                    : 'bg-sky-300/30 hover:bg-sky-300/50 w-2 sm:w-3'
+                    }`}
                 />
               ))}
             </motion.div>
           )}
         </motion.div>
 
-        {/* ACM Members Section with Pagination - 1 Row, 5 Cards */}
+        {/* ACM Members Section */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
-          className="mb-20"
+          className="mb-12 sm:mb-16 md:mb-20"
         >
-          <motion.div variants={itemVariants} className="mb-10 text-center">
-            <h2 className="relative inline-block font-orbitron text-3xl md:text-4xl font-bold">
+          <motion.div variants={itemVariants} className="mb-6 sm:mb-8 md:mb-10 text-center">
+            <h2 className="relative inline-block font-orbitron text-2xl sm:text-3xl md:text-4xl font-bold">
               <span className="bg-gradient-to-r from-sky-300 to-blue-400 bg-clip-text text-transparent">
                 ACM Members
               </span>
@@ -686,40 +740,38 @@ const TeamPage = () => {
             </h2>
           </motion.div>
 
-          {/* ACM Members Grid with Horizontal Slide */}
+          {/* ACM Members Grid */}
           <div className="relative">
-            {/* Left Arrow */}
+            {/* Left Arrow - Hidden on mobile, visible on larger screens */}
             <motion.button
               onClick={prevAcmPage}
               disabled={acmPage === 1}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className={`absolute left-0 top-1/2 transform -translate-y-1/2 -ml-4 z-20 p-3 rounded-full bg-black/50 backdrop-blur-md border border-sky-300/30 text-sky-300 hover:bg-sky-300/20 transition-all duration-300 ${
-                acmPage === 1 ? 'opacity-50 cursor-not-allowed' : ''
-              }`}
+              className={`hidden sm:flex absolute left-0 top-1/2 transform -translate-y-1/2 -ml-4 z-20 p-2 md:p-3 rounded-full bg-black/50 backdrop-blur-md border border-sky-300/30 text-sky-300 hover:bg-sky-300/20 transition-all duration-300 ${acmPage === 1 ? 'opacity-50 cursor-not-allowed' : ''
+                }`}
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
             </motion.button>
 
-            {/* Right Arrow */}
+            {/* Right Arrow - Hidden on mobile, visible on larger screens */}
             <motion.button
               onClick={nextAcmPage}
               disabled={acmPage === acmTotalPages}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className={`absolute right-0 top-1/2 transform -translate-y-1/2 -mr-4 z-20 p-3 rounded-full bg-black/50 backdrop-blur-md border border-sky-300/30 text-sky-300 hover:bg-sky-300/20 transition-all duration-300 ${
-                acmPage === acmTotalPages ? 'opacity-50 cursor-not-allowed' : ''
-              }`}
+              className={`hidden sm:flex absolute right-0 top-1/2 transform -translate-y-1/2 -mr-4 z-20 p-2 md:p-3 rounded-full bg-black/50 backdrop-blur-md border border-sky-300/30 text-sky-300 hover:bg-sky-300/20 transition-all duration-300 ${acmPage === acmTotalPages ? 'opacity-50 cursor-not-allowed' : ''
+                }`}
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </motion.button>
 
-            {/* Grid with AnimatePresence for horizontal slide - 1 Row, 5 Cards */}
-            <div className="overflow-hidden px-8">
+            {/* Grid with AnimatePresence */}
+            <div className="overflow-hidden px-0 sm:px-8">
               <AnimatePresence mode="wait" custom={direction}>
                 <motion.div
                   key={acmPage}
@@ -729,7 +781,10 @@ const TeamPage = () => {
                   animate="center"
                   exit="exit"
                   transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                  className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6"
+                  className="grid gap-4 sm:gap-6"
+                  style={{
+                    gridTemplateColumns: `repeat(${acmPerPage}, minmax(0, 1fr))`
+                  }}
                 >
                   {currentAcmMembers.map((member) => (
                     <motion.div
@@ -737,16 +792,16 @@ const TeamPage = () => {
                       whileHover={{ scale: 1.03, y: -8 }}
                       className="relative group"
                     >
-                      <div className="absolute inset-0 transition-all duration-500 bg-gradient-to-r from-sky-300 to-blue-400 rounded-2xl opacity-0 group-hover:opacity-20 blur-xl" />
-                      <div className="relative flex flex-col items-center h-full p-4 text-center transition-all duration-300 bg-black/30 backdrop-blur-xl border border-sky-300/20 rounded-2xl hover:border-sky-300/40">
+                      <div className="absolute inset-0 transition-all duration-500 bg-gradient-to-r from-sky-300 to-blue-400 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-20 blur-xl" />
+                      <div className="relative flex flex-col items-center h-full p-3 sm:p-4 text-center transition-all duration-300 bg-black/30 backdrop-blur-xl border border-sky-300/20 rounded-xl sm:rounded-2xl hover:border-sky-300/40">
                         {/* Cosmic Background Effect */}
-                        <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-sky-300/5 to-blue-400/5 rounded-full blur-3xl" />
+                        <div className="absolute top-0 right-0 w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 bg-gradient-to-br from-sky-300/5 to-blue-400/5 rounded-full blur-3xl" />
 
                         {/* Member Image */}
-                        <div className="relative mb-3">
+                        <div className="relative mb-2 sm:mb-3">
                           <div className="absolute inset-0 transition-opacity duration-500 bg-gradient-to-r from-sky-300 to-blue-400 rounded-full blur-md opacity-0 group-hover:opacity-50" />
                           <motion.div
-                            className="relative w-24 h-24 overflow-hidden border-2 border-sky-300/30 rounded-full group-hover:border-sky-300 transition-all duration-300"
+                            className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 overflow-hidden border-2 border-sky-300/30 rounded-full group-hover:border-sky-300 transition-all duration-300"
                             whileHover={{ scale: 1.05 }}
                           >
                             <img
@@ -763,33 +818,35 @@ const TeamPage = () => {
                         </div>
 
                         {/* Member Info */}
-                        <h3 className="mb-1 text-sm font-bold text-white font-orbitron">
+                        <h3 className="mb-1 text-xs sm:text-sm font-bold text-white font-orbitron">
                           {member.name}
                         </h3>
-                        <p className="mb-1 text-xs font-semibold text-sky-300 font-space">
+                        <p className="mb-1 text-[10px] sm:text-xs font-semibold text-sky-300 font-space">
                           {member.post}
                         </p>
-                        <p className="text-[10px] text-white/60 font-space line-clamp-2">
+
+                        {/* Description - Hidden on mobile, shown on larger screens */}
+                        <p className="hidden sm:block text-[8px] sm:text-[10px] text-white/60 font-space line-clamp-2">
                           {member.description}
                         </p>
 
-                        {/* Social Icons */}
-                        <div className="flex gap-1 mt-3">
+                        {/* Social Icons - Hidden on mobile, shown on larger screens */}
+                        <div className="hidden sm:flex gap-1.5 sm:gap-2 mt-2 sm:mt-3">
                           <motion.a
                             href="#"
                             whileHover={{ scale: 1.1, y: -2 }}
-                            className="flex items-center justify-center w-6 h-6 text-sky-300 transition-all duration-300 bg-black/30 border border-sky-300/30 rounded-full hover:border-sky-300 hover:text-white"
+                            className="flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 text-sky-300 transition-all duration-300 bg-black/30 border border-sky-300/30 rounded-full hover:border-sky-300 hover:text-white"
                           >
-                            <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
+                            <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3" fill="currentColor" viewBox="0 0 24 24">
                               <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879v-6.99h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.99C18.343 21.128 22 16.991 22 12z" />
                             </svg>
                           </motion.a>
                           <motion.a
                             href="#"
                             whileHover={{ scale: 1.1, y: -2 }}
-                            className="flex items-center justify-center w-6 h-6 text-sky-300 transition-all duration-300 bg-black/30 border border-sky-300/30 rounded-full hover:border-sky-300 hover:text-white"
+                            className="flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 text-sky-300 transition-all duration-300 bg-black/30 border border-sky-300/30 rounded-full hover:border-sky-300 hover:text-white"
                           >
-                            <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
+                            <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3" fill="currentColor" viewBox="0 0 24 24">
                               <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z" />
                             </svg>
                           </motion.a>
@@ -800,13 +857,41 @@ const TeamPage = () => {
                 </motion.div>
               </AnimatePresence>
             </div>
+            {/* Mobile Navigation Buttons */}
+            <div className="flex justify-between items-center mb-4 sm:hidden">
+              <motion.button
+                onClick={prevAcmPage}
+                disabled={acmPage === 1}
+                whileTap={{ scale: 0.9 }}
+                className={`p-2 rounded-full bg-black/50 backdrop-blur-md border border-sky-300/30 text-sky-300 ${acmPage === 1 ? 'opacity-50 cursor-not-allowed' : ''
+                  }`}
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </motion.button>
+              <span className="text-white/80 font-space text-sm">
+                Page {acmPage} of {acmTotalPages}
+              </span>
+              <motion.button
+                onClick={nextAcmPage}
+                disabled={acmPage === acmTotalPages}
+                whileTap={{ scale: 0.9 }}
+                className={`p-2 rounded-full bg-black/50 backdrop-blur-md border border-sky-300/30 text-sky-300 ${acmPage === acmTotalPages ? 'opacity-50 cursor-not-allowed' : ''
+                  }`}
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </motion.button>
+            </div>
           </div>
 
-          {/* Pagination Dots for ACM Members */}
+          {/* Pagination Dots */}
           {acmTotalPages > 1 && (
             <motion.div
               variants={itemVariants}
-              className="flex items-center justify-center gap-2 mt-8"
+              className="flex items-center justify-center gap-1.5 sm:gap-2 mt-6 sm:mt-8"
             >
               {[...Array(acmTotalPages)].map((_, i) => (
                 <motion.button
@@ -814,11 +899,10 @@ const TeamPage = () => {
                   onClick={() => handleAcmPageChange(i + 1)}
                   whileHover={{ scale: 1.2 }}
                   whileTap={{ scale: 0.9 }}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    acmPage === i + 1
-                      ? 'bg-sky-300 w-6'
-                      : 'bg-sky-300/30 hover:bg-sky-300/50'
-                  }`}
+                  className={`h-2 sm:h-3 rounded-full transition-all duration-300 ${acmPage === i + 1
+                    ? 'bg-sky-300 w-4 sm:w-6'
+                    : 'bg-sky-300/30 hover:bg-sky-300/50 w-2 sm:w-3'
+                    }`}
                 />
               ))}
             </motion.div>

@@ -95,12 +95,12 @@ const WhyHackBits = () => {
   };
 
   return (
-    <section id="whyhackbits" className="relative py-20 md:py-28 overflow-hidden bg-gradient-to-b from-[#020617] via-[#030b1a] to-[#000000]">
-      {/* Deep Space Background */}
+    <section id="whyhackbits" className="relative py-16 md:py-20 lg:py-28 overflow-hidden bg-gradient-to-b from-[#020617] via-[#030b1a] to-[#000000]">
+      {/* Deep Space Background - Optimized for mobile */}
       <div className="absolute inset-0">
-        {/* Star Field */}
+        {/* Star Field - Reduced for mobile */}
         <div className="absolute inset-0">
-          {[...Array(150)].map((_, i) => (
+          {[...Array(80)].map((_, i) => ( // Reduced stars for mobile
             <motion.div
               key={`star-${i}`}
               className="absolute rounded-full bg-white"
@@ -137,9 +137,9 @@ const WhyHackBits = () => {
           transition={{ duration: 15, repeat: Infinity }}
         />
 
-        {/* Floating Cosmic Dust */}
+        {/* Floating Cosmic Dust - Reduced for mobile */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          {[...Array(30)].map((_, i) => (
+          {[...Array(15)].map((_, i) => ( // Reduced particles for mobile
             <motion.div
               key={`dust-${i}`}
               className="absolute rounded-full"
@@ -179,38 +179,28 @@ const WhyHackBits = () => {
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
           variants={containerVariants}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-12 md:mb-16"
         >
-          {/* Section Label with Cosmic Glow
-          <motion.div variants={itemVariants} className="relative inline-block mb-4">
-            <div className="absolute inset-0 bg-gradient-to-r from-neon-blue/20 via-neon-magenta/20 to-neon-cyan/20 rounded-full blur-xl"></div>
-            <span className="relative px-6 py-2 bg-black/40 backdrop-blur-xl border border-neon-blue/30 rounded-full inline-block">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-blue-300 text-sm font-medium tracking-wider">
-                ✨ WHY HACKBLITZ 3.0
-              </span>f
-            </span>
-          </motion.div> */}
-
-          {/* Main Title - Skyblue gradient */}
-          <motion.h2 variants={itemVariants} className="font-orbitron text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
+          {/* Main Title - Skyblue gradient - Responsive text sizes */}
+          <motion.h2 variants={itemVariants} className="font-orbitron text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4">
             <span className="bg-gradient-to-r from-sky-300 via-blue-300 to-sky-400 bg-clip-text text-transparent">
               Why HackBlitz 3.0?
             </span>
           </motion.h2>
 
-          {/* Description - White */}
-          <motion.p variants={itemVariants} className="text-white/80 text-lg max-w-2xl mx-auto font-space leading-relaxed">
+          {/* Description - White - Responsive text */}
+          <motion.p variants={itemVariants} className="text-white/80 text-sm sm:text-base md:text-lg max-w-2xl mx-auto font-space leading-relaxed px-4">
             Experience the ultimate coding challenge with features designed to help you
             learn, build, and grow as a developer in this cosmic journey.
           </motion.p>
         </motion.div>
 
-        {/* Features Grid */}
+        {/* Features Grid - Responsive grid layout */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6 lg:gap-8"
         >
           {features.map((feature, index) => (
             <motion.div
@@ -225,7 +215,7 @@ const WhyHackBits = () => {
             >
               {/* Orbital Glow Effect */}
               <motion.div
-                className={`absolute -inset-0.5 bg-gradient-to-r ${feature.gradient} rounded-2xl opacity-10 group-hover:opacity-10 blur-xl transition-all duration-500`}
+                className={`absolute -inset-0.5 bg-gradient-to-r ${feature.gradient} rounded-xl sm:rounded-2xl opacity-10 group-hover:opacity-10 blur-xl transition-all duration-500`}
                 animate={{
                   scale: [1, 1.05, 1],
                 }}
@@ -233,21 +223,21 @@ const WhyHackBits = () => {
               />
 
               {/* Card Content */}
-              <div className="relative bg-black/10 backdrop-blur-xl border border-neon-blue/60 rounded-2xl p-6 hover:border-neon-blue/60 transition-all duration-300 h-full overflow-hidden">
+              <div className="relative bg-black/10 backdrop-blur-xl border border-neon-blue/60 rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 hover:border-neon-blue/60 transition-all duration-300 h-full overflow-hidden">
 
                 {/* Cosmic Background Effect */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-neon-blue/5 to-neon-magenta/5 rounded-full blur-3xl" />
+                <div className="absolute top-0 right-0 w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 bg-gradient-to-br from-neon-blue/5 to-neon-magenta/5 rounded-full blur-3xl" />
 
                 {/* Icon with Gradient Background */}
                 <motion.div
-                  className={`inline-block p-4 rounded-xl bg-gradient-to-r ${feature.gradient} bg-opacity-10 mb-4 relative overflow-hidden`}
+                  className={`inline-block p-2 sm:p-3 md:p-4 rounded-lg sm:rounded-xl bg-gradient-to-r ${feature.gradient} bg-opacity-10 mb-3 sm:mb-4 relative overflow-hidden`}
                   whileHover={{ scale: 1.1 }}
                   transition={{ type: "spring", stiffness: 400 }}
                 >
                   <img
                     src={feature.icon}
                     alt={feature.title}
-                    className="w-10 h-10 mx-auto drop-shadow-[0_0_10px_rgba(0,229,255,0.5)] relative z-10"
+                    className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 mx-auto drop-shadow-[0_0_10px_rgba(0,229,255,0.5)] relative z-10"
                   />
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-white/5 via-white/20 to-white/5"
@@ -256,27 +246,22 @@ const WhyHackBits = () => {
                   />
                 </motion.div>
 
-                {/* Title - Skyblue gradient */}
-                <h3 className="font-orbitron text-xl font-bold bg-gradient-to-r from-white to-sky-300 bg-clip-text text-transparent mb-2">
+                {/* Title - Skyblue gradient - Responsive text */}
+                <h3 className="font-orbitron text-base sm:text-lg md:text-xl font-bold bg-gradient-to-r from-white to-sky-300 bg-clip-text text-transparent mb-1 sm:mb-2">
                   {feature.title}
                 </h3>
 
-                {/* Description - White */}
-                <p className="text-white/150 text-sm font-space leading-relaxed mb-4">
+                {/* Description - White - Responsive text */}
+                <p className="text-white/150 text-xs sm:text-sm md:text-sm font-space leading-relaxed mb-3 sm:mb-4">
                   {feature.description}
                 </p>
 
                 {/* Stat Badge */}
-                <div className={`inline-block px-3 py-1 rounded-full bg-gradient-to-r ${feature.gradient} bg-opacity-10 border border-neon-blue/20 backdrop-blur-sm`}>
-                  <span className="text-white text-xs font-medium drop-shadow-[0_0_5px_currentColor]">
+                <div className={`inline-block px-2 sm:px-3 py-1 rounded-full bg-gradient-to-r ${feature.gradient} bg-opacity-10 border border-neon-blue/20 backdrop-blur-sm`}>
+                  <span className="text-white text-[10px] sm:text-xs font-medium drop-shadow-[0_0_5px_currentColor]">
                     {feature.stats}
                   </span>
                 </div>
-
-                {/* Bottom Border Animation */}
-                {/* <motion.div 
-                  className={`absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r ${feature.gradient} scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left rounded-b-2xl`}
-                /> */}
               </div>
             </motion.div>
           ))}
@@ -287,15 +272,15 @@ const WhyHackBits = () => {
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="mt-20"
+          className="mt-12 sm:mt-16 md:mt-20"
         >
-          <motion.h3 variants={itemVariants} className="text-center text-2xl font-orbitron mb-12">
+          <motion.h3 variants={itemVariants} className="text-center text-lg sm:text-xl md:text-2xl font-orbitron mb-6 sm:mb-8 md:mb-12">
             <span className="bg-gradient-to-r from-sky-300 via-blue-300 to-sky-400 bg-clip-text text-transparent">
               HackBlitz by the Numbers
             </span>
           </motion.h3>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-6">
             {highlights.map((highlight, index) => (
               <motion.div
                 key={index}
@@ -303,11 +288,11 @@ const WhyHackBits = () => {
                 className="relative group"
               >
                 {/* Background Glow */}
-                <div className={`absolute inset-0 bg-gradient-to-r ${highlight.gradient} rounded-2xl opacity-0 group-hover:opacity-10 blur-xl transition-opacity duration-500`} />
+                <div className={`absolute inset-0 bg-gradient-to-r ${highlight.gradient} rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-10 blur-xl transition-opacity duration-500`} />
 
-                {/* Orbital Ring */}
+                {/* Orbital Ring - Hidden on mobile */}
                 <motion.div
-                  className={`absolute -inset-2 border border-${highlight.gradient.split(' ')[0].replace('from-', '')}/20 rounded-full`}
+                  className={`absolute -inset-2 border border-${highlight.gradient.split(' ')[0].replace('from-', '')}/20 rounded-full hidden md:block`}
                   animate={{
                     scale: [1, 1.1, 1],
                     opacity: [0.2, 0.5, 0.2],
@@ -317,9 +302,9 @@ const WhyHackBits = () => {
                 />
 
                 {/* Content */}
-                <div className="relative bg-black/10 backdrop-blur-sm border border-neon-blue/20 rounded-2xl p-6 text-center hover:border-neon-blue/40 transition-all duration-300">
+                <div className="relative bg-black/10 backdrop-blur-sm border border-neon-blue/20 rounded-lg sm:rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-6 text-center hover:border-neon-blue/40 transition-all duration-300">
                   <motion.div
-                    className={`text-3xl md:text-4xl font-orbitron font-bold bg-gradient-to-r ${highlight.gradient} bg-clip-text text-transparent mb-2`}
+                    className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl font-orbitron font-bold bg-gradient-to-r ${highlight.gradient} bg-clip-text text-transparent mb-1 sm:mb-2`}
                     animate={{
                       textShadow: [
                         '0 0 10px rgba(0,229,255,0.3)',
@@ -331,10 +316,10 @@ const WhyHackBits = () => {
                   >
                     {highlight.number}
                   </motion.div>
-                  {/* Label - Skyblue */}
-                  <div className="text-sky-300 font-orbitron text-sm mb-1">{highlight.label}</div>
-                  {/* Description - White */}
-                  <div className="text-white/100 text-xs">{highlight.description}</div>
+                  {/* Label - Skyblue - Responsive text */}
+                  <div className="text-sky-300 font-orbitron text-xs sm:text-sm md:text-base mb-0.5 sm:mb-1">{highlight.label}</div>
+                  {/* Description - White - Responsive text */}
+                  <div className="text-white/100 text-[10px] sm:text-xs md:text-sm">{highlight.description}</div>
                 </div>
               </motion.div>
             ))}
@@ -346,24 +331,25 @@ const WhyHackBits = () => {
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8"
+          className="mt-12 sm:mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6 lg:gap-8"
         >
           {/* What You'll Gain */}
           <motion.div
             variants={itemVariants}
             className="relative group"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-neon-blue/20 to-neon-cyan/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-80 transition-opacity duration-500" />
-            <div className="relative bg-black/10 backdrop-blur-xl border border-neon-blue/20 rounded-2xl p-6 h-full">
-              {/* Heading - Skyblue */}
-              <h4 className="font-orbitron text-lg text-sky-300 mb-4 flex items-center gap-2">
+            <div className="absolute inset-0 bg-gradient-to-r from-neon-blue/20 to-neon-cyan/20 rounded-xl sm:rounded-2xl blur-xl opacity-0 group-hover:opacity-80 transition-opacity duration-500" />
+            <div className="relative bg-black/10 backdrop-blur-xl border border-neon-blue/20 rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 h-full">
+              {/* Heading - Skyblue - Responsive */}
+              <h4 className="font-orbitron text-base sm:text-lg text-sky-300 mb-3 sm:mb-4 flex items-center gap-2">
                 <img
                   src={target}
                   alt="target"
-                  className="w-6 h-6 object-contain"
-                />What You'll Gain
+                  className="w-5 h-5 sm:w-6 sm:h-6 object-contain"
+                />
+                <span className="text-sm sm:text-base">What You'll Gain</span>
               </h4>
-              <ul className="space-y-3">
+              <ul className="space-y-2 sm:space-y-3">
                 {[
                   'Hands-on experience with real-world projects',
                   'Mentorship from industry experts',
@@ -373,10 +359,10 @@ const WhyHackBits = () => {
                 ].map((item, i) => (
                   <motion.li
                     key={i}
-                    className="text-white/70 text-sm flex items-start gap-2 group/item"
+                    className="text-white/70 text-xs sm:text-sm flex items-start gap-2 group/item"
                     whileHover={{ x: 5 }}
                   >
-                    <span className="text-sky-300 mt-1 text-lg">✦</span>
+                    <span className="text-sky-300 mt-0.5 text-base sm:text-lg">✦</span>
                     <span>{item}</span>
                   </motion.li>
                 ))}
@@ -389,17 +375,18 @@ const WhyHackBits = () => {
             variants={itemVariants}
             className="relative group"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-neon-blue/20 to-neon-cyan/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-80 transition-opacity duration-500" />
-            <div className="relative bg-black/10 backdrop-blur-xl border border-neon-blue/20 rounded-2xl p-6 h-full">
-              {/* Heading - Skyblue */}
-              <h4 className="font-orbitron text-lg text-sky-300 mb-4 flex items-center gap-2">
+            <div className="absolute inset-0 bg-gradient-to-r from-neon-blue/20 to-neon-cyan/20 rounded-xl sm:rounded-2xl blur-xl opacity-0 group-hover:opacity-80 transition-opacity duration-500" />
+            <div className="relative bg-black/10 backdrop-blur-xl border border-neon-blue/20 rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 h-full">
+              {/* Heading - Skyblue - Responsive */}
+              <h4 className="font-orbitron text-base sm:text-lg text-sky-300 mb-3 sm:mb-4 flex items-center gap-2">
                 <img
                   src={group}
                   alt="Group"
-                  className="w-6 h-6 object-contain"
-                />Who Can Participate
+                  className="w-5 h-5 sm:w-6 sm:h-6 object-contain"
+                />
+                <span className="text-sm sm:text-base">Who Can Participate</span>
               </h4>
-              <ul className="space-y-3">
+              <ul className="space-y-2 sm:space-y-3">
                 {[
                   'College students (any year)',
                   'Self-taught developers',
@@ -409,10 +396,10 @@ const WhyHackBits = () => {
                 ].map((item, i) => (
                   <motion.li
                     key={i}
-                    className="text-white/70 text-sm flex items-start gap-2 group/item"
+                    className="text-white/70 text-xs sm:text-sm flex items-start gap-2 group/item"
                     whileHover={{ x: 5 }}
                   >
-                    <span className="text-sky-300 mt-1 text-lg">✦</span>
+                    <span className="text-sky-300 mt-0.5 text-base sm:text-lg">✦</span>
                     <span>{item}</span>
                   </motion.li>
                 ))}
@@ -425,17 +412,18 @@ const WhyHackBits = () => {
             variants={itemVariants}
             className="relative group"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-neon-cyan/20 to-neon-blue/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-80 transition-opacity duration-500" />
-            <div className="relative bg-black/10 backdrop-blur-xl border border-neon-cyan/20 rounded-2xl p-6 h-full">
-              {/* Heading - Skyblue */}
-              <h4 className="font-orbitron text-lg text-sky-300 mb-4 flex items-center gap-2">
+            <div className="absolute inset-0 bg-gradient-to-r from-neon-cyan/20 to-neon-blue/20 rounded-xl sm:rounded-2xl blur-xl opacity-0 group-hover:opacity-80 transition-opacity duration-500" />
+            <div className="relative bg-black/10 backdrop-blur-xl border border-neon-cyan/20 rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 h-full">
+              {/* Heading - Skyblue - Responsive */}
+              <h4 className="font-orbitron text-base sm:text-lg text-sky-300 mb-3 sm:mb-4 flex items-center gap-2">
                 <img
                   src={bussinessman}
                   alt="Businessman"
-                  className="w-6 h-6 object-contain"
-                />Why Participate
+                  className="w-5 h-5 sm:w-6 sm:h-6 object-contain"
+                />
+                <span className="text-sm sm:text-base">Why Participate</span>
               </h4>
-              <ul className="space-y-3">
+              <ul className="space-y-2 sm:space-y-3">
                 {[
                   'Build your portfolio',
                   'Learn new technologies',
@@ -445,10 +433,10 @@ const WhyHackBits = () => {
                 ].map((item, i) => (
                   <motion.li
                     key={i}
-                    className="text-white/70 text-sm flex items-start gap-2 group/item"
+                    className="text-white/70 text-xs sm:text-sm flex items-start gap-2 group/item"
                     whileHover={{ x: 5 }}
                   >
-                    <span className="text-sky-300 mt-1 text-lg">✦</span>
+                    <span className="text-sky-300 mt-0.5 text-base sm:text-lg">✦</span>
                     <span>{item}</span>
                   </motion.li>
                 ))}
@@ -459,7 +447,7 @@ const WhyHackBits = () => {
 
         {/* Cosmic Divider */}
         <motion.div
-          className="w-full h-px mt-20 relative"
+          className="w-full h-px mt-12 sm:mt-16 md:mt-20 relative"
           initial={{ opacity: 0, scaleX: 0 }}
           animate={inView ? { opacity: 1, scaleX: 1 } : {}}
           transition={{ duration: 1, delay: 1 }}

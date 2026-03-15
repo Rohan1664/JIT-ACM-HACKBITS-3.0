@@ -167,6 +167,7 @@ const RulesGuidelines = () => {
       color: 'sky-300'
     }
   ];
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -192,12 +193,12 @@ const RulesGuidelines = () => {
   };
 
   return (
-    <section id="rules" className="relative py-20 md:py-28 overflow-hidden bg-gradient-to-b from-[#020617] via-[#030b1a] to-[#000000]">
-      {/* Deep Space Background */}
+    <section id="rules" className="relative py-16 md:py-20 lg:py-28 overflow-hidden bg-gradient-to-b from-[#020617] via-[#030b1a] to-[#000000]">
+      {/* Deep Space Background - Optimized for mobile */}
       <div className="absolute inset-0">
-        {/* Star Field */}
+        {/* Star Field - Reduced for mobile */}
         <div className="absolute inset-0">
-          {[...Array(150)].map((_, i) => (
+          {[...Array(80)].map((_, i) => ( // Reduced stars for mobile
             <motion.div
               key={`star-${i}`}
               className="absolute rounded-full bg-white"
@@ -234,9 +235,9 @@ const RulesGuidelines = () => {
           transition={{ duration: 15, repeat: Infinity }}
         />
 
-        {/* Floating Particles - Updated to skyblue */}
+        {/* Floating Particles - Updated to skyblue, reduced for mobile */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          {[...Array(40)].map((_, i) => (
+          {[...Array(20)].map((_, i) => ( // Reduced particles for mobile
             <motion.div
               key={`dust-${i}`}
               className="absolute rounded-full"
@@ -263,12 +264,12 @@ const RulesGuidelines = () => {
           ))}
         </div>
 
-        {/* Shooting Stars - Updated to skyblue */}
+        {/* Shooting Stars - Updated to skyblue, reduced for mobile */}
         <div className="absolute inset-0 pointer-events-none">
-          {[...Array(5)].map((_, i) => (
+          {[...Array(3)].map((_, i) => ( // Reduced shooting stars for mobile
             <motion.div
               key={`shooting-${i}`}
-              className="absolute h-0.5 w-32 bg-gradient-to-r from-transparent via-sky-300 to-transparent"
+              className="absolute h-0.5 w-24 sm:w-32 bg-gradient-to-r from-transparent via-sky-300 to-transparent"
               style={{
                 top: `${Math.random() * 60}%`,
                 left: `${Math.random() * 100}%`,
@@ -303,27 +304,27 @@ const RulesGuidelines = () => {
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
           variants={containerVariants}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-12 md:mb-16"
         >
           {/* Section Label with Cosmic Glow - Updated to skyblue */}
-          <motion.div variants={itemVariants} className="relative inline-block mb-4">
+          <motion.div variants={itemVariants} className="relative inline-block mb-3 sm:mb-4">
             <div className="absolute inset-0 bg-gradient-to-r from-sky-300/20 via-sky-400/20 to-blue-400/20 rounded-full blur-xl"></div>
-            <span className="relative px-6 py-2 bg-black/40 backdrop-blur-xl border border-sky-300/30 rounded-full inline-block">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-blue-400 text-sm font-medium tracking-wider">
+            <span className="relative px-4 sm:px-6 py-1.5 sm:py-2 bg-black/40 backdrop-blur-xl border border-sky-300/30 rounded-full inline-block">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-blue-400 text-xs sm:text-sm font-medium tracking-wider">
                 📋 COSMIC CODE OF CONDUCT
               </span>
             </span>
           </motion.div>
 
-          {/* Main Title - Skyblue gradient */}
-          <motion.h2 variants={itemVariants} className="font-orbitron text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
+          {/* Main Title - Skyblue gradient - Responsive text sizes */}
+          <motion.h2 variants={itemVariants} className="font-orbitron text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-2 sm:mb-3 md:mb-4">
             <span className="bg-gradient-to-r from-sky-200 via-sky-400 to-blue-400 bg-clip-text text-transparent">
               Rules & Guidelines
             </span>
           </motion.h2>
 
-          {/* Description - White */}
-          <motion.p variants={itemVariants} className="text-white/80 text-lg max-w-3xl mx-auto font-space leading-relaxed">
+          {/* Description - White - Responsive text */}
+          <motion.p variants={itemVariants} className="text-white/80 text-sm sm:text-base md:text-lg max-w-3xl mx-auto font-space leading-relaxed px-4">
             Navigate your cosmic journey through these essential guidelines.
             Fair play ensures everyone reaches the stars!
           </motion.p>
@@ -333,7 +334,7 @@ const RulesGuidelines = () => {
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 lg:gap-8"
         >
           {rules.map((rule, index) => (
             <motion.div
@@ -348,7 +349,7 @@ const RulesGuidelines = () => {
             >
               {/* Orbital Glow Effect - Skyblue */}
               <motion.div
-                className={`absolute -inset-0.5 bg-gradient-to-r ${rule.gradient} rounded-2xl opacity-0 group-hover:opacity-10 blur-xl transition-all duration-500`}
+                className={`absolute -inset-0.5 bg-gradient-to-r ${rule.gradient} rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-10 blur-xl transition-all duration-500`}
                 animate={{
                   scale: [1, 1, 1],
                 }}
@@ -356,62 +357,53 @@ const RulesGuidelines = () => {
               />
 
               {/* Card Content */}
-              <div className="relative bg-black/10 backdrop-blur-xl border border-sky-300/20 rounded-2xl p-6 hover:border-sky-300 transition-all duration-300 h-full flex flex-col overflow-hidden">
+              <div className="relative bg-black/10 backdrop-blur-xl border border-sky-300/20 rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 hover:border-sky-300 transition-all duration-300 h-full flex flex-col overflow-hidden">
 
                 {/* Cosmic Background Effect - Skyblue */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-sky-300/5 to-blue-400/5 rounded-full blur-3xl" />
+                <div className="absolute top-0 right-0 w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 bg-gradient-to-br from-sky-300/5 to-blue-400/5 rounded-full blur-3xl" />
 
                 {/* Header with Icon and Category */}
-                <div className="flex items-start gap-4 mb-4 relative z-10">
+                <div className="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4 relative z-10">
                   <motion.div
-                    className={`p-4 rounded-xl bg-gradient-to-r ${rule.gradient} bg-opacity-10 relative overflow-hidden`}
+                    className={`p-2 sm:p-3 md:p-4 rounded-lg sm:rounded-xl bg-gradient-to-r ${rule.gradient} bg-opacity-10 relative overflow-hidden flex-shrink-0`}
                     whileHover={{ scale: 1.1 }}
                     transition={{ type: "spring", stiffness: 400 }}
                   >
                     <img
                       src={rule.icon}
                       alt={rule.category}
-                      className="w-12 h-12 object-contain drop-shadow-[0_0_10px_rgba(56,189,248,0.7)]"
+                      className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 object-contain drop-shadow-[0_0_10px_rgba(56,189,248,0.7)]"
                     />
-                    
                   </motion.div>
-                  {/* Category - Skyblue gradient */}
-                  <h3 className={`font-orbitron text-white text-lg font-bold bg-gradient-to-r ${rule.gradient} bg-clip-text text-transparent flex-1`}>
+                  
+                  {/* Category - Skyblue gradient - Responsive text */}
+                  <h3 className={`font-orbitron text-white text-sm sm:text-base md:text-lg font-bold bg-gradient-to-r ${rule.gradient} bg-clip-text text-transparent flex-1`}>
                     {rule.category}
                   </h3>
                 </div>
 
-                {/* Rules List - White text */}
-                <ul className="space-y-3 flex-1 relative z-10">
+                {/* Rules List - White text - Responsive sizing */}
+                <ul className="space-y-2 sm:space-y-2.5 md:space-y-3 flex-1 relative z-10">
                   {rule.items.map((item, i) => (
                     <motion.li
                       key={i}
-                      className="text-white/100 text-lg font-space flex items-start gap-3 group/item"
+                      className="text-white/90 text-xs sm:text-sm md:text-base font-space flex items-start gap-2 sm:gap-3 group/item"
                       initial={{ opacity: 0.8 }}
                       whileHover={{ opacity: 1, x: 3 }}
                     >
-                      <span className={`mt-1 w-1.5 h-1.5 rounded-full bg-gradient-to-r ${rule.gradient} flex-shrink-0 shadow-[0_0_8px_currentColor]`} />
+                      <span className={`mt-1.5 sm:mt-1 w-1.5 h-1.5 rounded-full bg-gradient-to-r ${rule.gradient} flex-shrink-0 shadow-[0_0_8px_currentColor]`} />
                       <span className="leading-relaxed">{item}</span>
                     </motion.li>
                   ))}
                 </ul>
-
-                {/* Bottom Border Gradient with Animation - Skyblue */}
-                {/* <motion.div 
-                  className={`mt-4 h-0.5 w-0 group-hover:w-full bg-gradient-to-r ${rule.gradient}`}
-                  transition={{ duration: 0.5 }}
-                /> */}
               </div>
             </motion.div>
           ))}
         </motion.div>
 
-
-
-
         {/* Cosmic Divider - Skyblue */}
         <motion.div
-          className="w-full h-px mt-20 relative"
+          className="w-full h-px mt-12 sm:mt-16 md:mt-20 relative"
           initial={{ opacity: 0, scaleX: 0 }}
           animate={inView ? { opacity: 1, scaleX: 1 } : {}}
           transition={{ duration: 1, delay: 1 }}
