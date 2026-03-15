@@ -15,6 +15,7 @@ const Footer = () => {
     { name: 'Why HackBlitz', href: '#whyhackbits' },
     { name: 'Event Flow', href: '#eventflow' },
     { name: 'Rules', href: '#rules' },
+    { name: 'Our Team', href: '#teampage' },
   ];
 
   const socialLinks = [
