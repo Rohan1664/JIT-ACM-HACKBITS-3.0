@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Import your logo image
-import jitLogo from '../assets/images/hackbits3.0.png';
+import jitLogo from '../assets/images/hackbits3.0.avif';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);

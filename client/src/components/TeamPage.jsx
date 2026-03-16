@@ -6,36 +6,36 @@ import { useInView } from 'react-intersection-observer';
 // For now, we'll use placeholders - replace these with your actual imports when images are ready
 
 // Sponsor Logos (replace with your actual images)
-import sponsor1 from '../assets/images/jitacm.png';
-import sponsor2 from '../assets/images/jitacm.png';
-import sponsor3 from '../assets/images/jitacm.png';
+import sponsor1 from '../assets/images/jitacm.avif';
+import sponsor2 from '../assets/images/jitacm.avif';
+import sponsor3 from '../assets/images/jitacm.avif';
 
 // Executive Member Photos
-import executive1 from '../assets/images/jitacm.png';
-import executive2 from '../assets/images/jitacm.png';
-import executive3 from '../assets/images/jitacm.png';
-import executive4 from '../assets/images/jitacm.png';
-import executive5 from '../assets/images/jitacm.png';
-import executive6 from '../assets/images/jitacm.png';
-import executive7 from '../assets/images/jitacm.png';
-import executive8 from '../assets/images/jitacm.png';
+import executive1 from '../assets/images/jitacm.avif';
+import executive2 from '../assets/images/jitacm.avif';
+import executive3 from '../assets/images/jitacm.avif';
+import executive4 from '../assets/images/jitacm.avif';
+import executive5 from '../assets/images/jitacm.avif';
+import executive6 from '../assets/images/jitacm.avif';
+import executive7 from '../assets/images/jitacm.avif';
+import executive8 from '../assets/images/jitacm.avif';
 
 // ACM Member Photos
-import acmMember1 from '../assets/images/jitacm.png';
-import acmMember2 from '../assets/images/jitacm.png';
-import acmMember3 from '../assets/images/jitacm.png';
-import acmMember4 from '../assets/images/jitacm.png';
-import acmMember5 from '../assets/images/jitacm.png';
-import acmMember6 from '../assets/images/jitacm.png';
-import acmMember7 from '../assets/images/jitacm.png';
-import acmMember8 from '../assets/images/jitacm.png';
-import acmMember9 from '../assets/images/jitacm.png';
-import acmMember10 from '../assets/images/jitacm.png';
-import acmMember11 from '../assets/images/jitacm.png';
-import acmMember12 from '../assets/images/jitacm.png';
-import acmMember13 from '../assets/images/jitacm.png';
-import acmMember14 from '../assets/images/jitacm.png';
-import acmMember15 from '../assets/images/jitacm.png';
+import acmMember1 from '../assets/images/jitacm.avif';
+import acmMember2 from '../assets/images/jitacm.avif';
+import acmMember3 from '../assets/images/jitacm.avif';
+import acmMember4 from '../assets/images/jitacm.avif';
+import acmMember5 from '../assets/images/jitacm.avif';
+import acmMember6 from '../assets/images/jitacm.avif';
+import acmMember7 from '../assets/images/jitacm.avif';
+import acmMember8 from '../assets/images/jitacm.avif';
+import acmMember9 from '../assets/images/jitacm.avif';
+import acmMember10 from '../assets/images/jitacm.avif';
+import acmMember11 from '../assets/images/jitacm.avif';
+import acmMember12 from '../assets/images/jitacm.avif';
+import acmMember13 from '../assets/images/jitacm.avif';
+import acmMember14 from '../assets/images/jitacm.avif';
+import acmMember15 from '../assets/images/jitacm.avif';
 
 const TeamPage = () => {
   const [ref, inView] = useInView({
