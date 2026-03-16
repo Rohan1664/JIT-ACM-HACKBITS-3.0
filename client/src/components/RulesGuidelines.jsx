@@ -357,7 +357,7 @@ const RulesGuidelines = () => {
               />
 
               {/* Card Content */}
-              <div className="relative bg-black/10 backdrop-blur-xl border border-sky-300/20 rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 hover:border-sky-300 transition-all duration-300 h-full flex flex-col overflow-hidden">
+              <div className="relative bg-black/10 backdrop-blur-xl border border-sky-300/50 rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 hover:border-sky-300 transition-all duration-300 h-full flex flex-col overflow-hidden">
 
                 {/* Cosmic Background Effect - Skyblue */}
                 <div className="absolute top-0 right-0 w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 bg-gradient-to-br from-sky-300/5 to-blue-400/5 rounded-full blur-3xl" />

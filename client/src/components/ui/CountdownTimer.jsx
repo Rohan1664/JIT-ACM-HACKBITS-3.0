@@ -37,7 +37,7 @@ const CountdownTimer = ({ targetDate }) => {
   ];
 
   return (
-    <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
+    <div className="flex flex-nowrap justify-center gap-4 sm:gap-6">
       {timeBlocks.map((block, index) => (
         <motion.div
           key={block.label}
@@ -46,11 +46,11 @@ const CountdownTimer = ({ targetDate }) => {
           transition={{ delay: index * 0.1 }}
           className="text-center"
         >
-          <div className="bg-space-deep/50 backdrop-blur-sm border border-neon-blue/20 rounded-lg px-4 py-3 sm:px-6 sm:py-4 min-w-[80px] sm:min-w-[100px]">
+          <div className="bg-space-deep/50 backdrop-blur-sm border border-neon-blue/50 rounded-lg flex flex-col items-center justify-center w-[70px] sm:w-[90px] py-3 sm:py-4">
             <div className="font-orbitron text-2xl sm:text-3xl md:text-4xl font-bold text-neon-blue">
               {String(block.value).padStart(2, '0')}
             </div>
-            <div className="font-space text-xs sm:text-sm text-gray-400 mt-1">
+            <div className="font-space text-xs sm:text-sm text-white mt-1">
               {block.label}
             </div>
           </div>

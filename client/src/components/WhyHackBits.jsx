@@ -59,7 +59,7 @@ const WhyHackBits = () => {
   ];
 
   const highlights = [
-    { number: "16", label: "Hours", description: "of continuous coding" },
+    { number: "16", label: "Hours", description: "continuous coding" },
     { number: "4", label: "Members", description: "per team maximum" },
     { number: "50K+", label: "Prizes", description: "worth of rewards" }
   ];
@@ -169,23 +169,22 @@ const WhyHackBits = () => {
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="mt-20 grid grid-cols-3 gap-6 text-center"
+          className="mt-16 grid grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto"
         >
           {highlights.map((item, i) => (
             <motion.div
               key={i}
               variants={itemVariants}
-              className="bg-black/40 border border-blue-500/50 rounded-xl p-6"
+              className="aspect-square bg-black/40 border border-blue-500/40 rounded-xl flex flex-col items-center justify-center text-center p-4 sm:p-6 hover:border-sky-300/70 transition-all duration-300"
             >
-              <div className="text-3xl font-orbitron text-sky-300 mb-1">
+              <div className="text-2xl sm:text-4xl font-orbitron text-sky-300">
                 {item.number}
               </div>
-
-              <div className="text-white font-semibold">
+              <div className="text-white text-sm font-semibold mt-2">
                 {item.label}
               </div>
 
-              <div className="text-white/60 text-sm">
+              <div className="text-white/60 text-xs mt-1 max-w-[120px]">
                 {item.description}
               </div>
             </motion.div>

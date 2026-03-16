@@ -58,7 +58,7 @@ const Hero = () => {
     <section
       ref={containerRef}
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#020617] via-[#050b1a] to-black"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#020617] via-[#050b1a] to-black pt-24"
     >
       {/* Background */}
       <div className="absolute inset-0">
@@ -135,7 +135,7 @@ const Hero = () => {
       )}
 
       {/* Main Content */}
-      <div className="relative z-30 container mx-auto px-6 text-center">
+      <div className="relative z-30 container mx-auto px-6 text-center items-center">
 
         {/* Logo */}
         <div className="mb-6">
@@ -154,12 +154,12 @@ const Hero = () => {
         <p className="text-white text-xl mt-2">PRESENTS</p>
 
         {/* Hackbits Logo */}
-        <div className="mt-4 mb-4">
+        <div className="mt-6 mb-6 flex justify-center items-center w-full">
           <img
             src={hackbitsLogo}
             alt="Hackbits"
             loading="lazy"
-            className="h-28 mx-auto"
+            className="h-26 md:h-28 lg:h-32 object-contain ml-[-35px]"
           />
         </div>
 
@@ -171,7 +171,7 @@ const Hero = () => {
         </div>
 
         {/* Description */}
-        <p className="text-white/80 max-w-3xl mx-auto mb-6">
+        <p className="text-white/80 max-w-3xl mx-auto mb-8">
           Join us for an unforgettable experience at Hackblitz, where innovation
           meets competition! Participate in an intense 2-days hackathon at
           Jhulelal Institute of Technology, Nagpur organized by ACM Student
@@ -179,7 +179,7 @@ const Hero = () => {
         </p>
 
         {/* Countdown */}
-        <div className="mb-6">
+        <div className=" m-8">
           <CountdownTimer targetDate="2026-03-24T08:00:00" />
         </div>
 
@@ -218,7 +218,7 @@ const Hero = () => {
       </div>
 
       {/* Scroll Indicator */}
-      <motion.div
+      {/* <motion.div
         className="absolute bottom-4 left-1/2 -translate-x-1/2"
         animate={{ y: [0, 6, 0] }}
         transition={{ duration: 1.5, repeat: Infinity }}
@@ -226,7 +226,7 @@ const Hero = () => {
         <div className="w-6 h-10 border-2 border-sky-300 rounded-full flex justify-center">
           <div className="w-1 h-2 bg-sky-300 mt-2 rounded"></div>
         </div>
-      </motion.div>
+      </motion.div> */}
     </section>
   );
 };

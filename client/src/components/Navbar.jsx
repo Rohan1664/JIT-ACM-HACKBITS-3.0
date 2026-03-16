@@ -96,22 +96,21 @@ const Navbar = () => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-          scrolled ? 'bg-black/80 backdrop-blur-xl ' : 'bg-transparent py-3 sm:py-4'
-        }`}
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-black/80 backdrop-blur-xl ' : 'bg-transparent py-3 sm:py-4'
+          }`}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <motion.div 
+            <motion.div
               className="flex items-center"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 100 }}
             >
               <a href="#home" className="flex items-center" onClick={handleLinkClick}>
-                <img 
-                  src={jitLogo} 
-                  alt="Hackblitz 3.0 Logo" 
+                <img
+                  src={jitLogo}
+                  alt="Hackblitz 3.0 Logo"
                   className="h-8 sm:h-10 md:h-12 w-auto object-contain transition-all duration-300"
                 />
               </a>
@@ -137,16 +136,16 @@ const Navbar = () => {
             </div>
 
             {/* Mobile Menu Button */}
-            <button 
+            <button
               className="md:hidden text-white/70 hover:text-sky-300 focus:outline-none z-50 p-2 rounded-lg hover:bg-white/5 transition-colors duration-300"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
               aria-expanded={isMenuOpen}
             >
-              <svg 
-                className="w-6 h-6 transition-transform duration-300" 
-                fill="none" 
-                stroke="currentColor" 
+              <svg
+                className="w-6 h-6 transition-transform duration-300"
+                fill="none"
+                stroke="currentColor"
                 viewBox="0 0 24 24"
                 style={{ transform: isMenuOpen ? 'rotate(90deg)' : 'rotate(0)' }}
               >
@@ -214,17 +213,36 @@ const Navbar = () => {
               {/* Menu Content */}
               <div className="relative z-10 p-6 sm:p-8 flex flex-col min-h-full">
                 {/* Logo in menu */}
-                <motion.div 
+                <motion.div
                   className="flex justify-center mb-8"
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   transition={{ delay: 0.2, type: "spring" }}
                 >
-                  <img 
-                    src={jitLogo} 
-                    alt="Hackblitz 3.0 Logo" 
+                  <img
+                    src={jitLogo}
+                    alt="Hackblitz 3.0 Logo"
                     className="h-12 sm:h-16 w-auto object-contain"
                   />
+                  {/* Close Button */}
+                  <button
+                    onClick={() => setIsMenuOpen(false)}
+                    className="text-white hover:text-sky-300 p-2 rounded-lg hover:bg-white/10 transition"
+                  >
+                    <svg
+                      className="w-6 h-6"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    </svg>
+                  </button>
                 </motion.div>
 
                 {/* Navigation Links */}
@@ -250,13 +268,13 @@ const Navbar = () => {
                 </div>
 
                 {/* Footer with cosmic elements */}
-                <motion.div 
+                <motion.div
                   className="mt-8 pt-6 border-t border-sky-300/20 text-center"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.5 }}
                 >
-                  <div className="text-xs text-sky-300/50 font-space mb-3">
+                  <div className="text-xs text-white font-space mb-3">
                     ✦ Explore Beyond Limits ✦
                   </div>
                   <div className="flex justify-center gap-2">
@@ -276,7 +294,7 @@ const Navbar = () => {
                       />
                     ))}
                   </div>
-                  <div className="text-[10px] text-white/30 mt-4 font-space">
+                  <div className="text-[10px] text-white/600 mt-4 font-space">
                     © {currentYear} Hackblitz 3.0
                   </div>
                 </motion.div>
