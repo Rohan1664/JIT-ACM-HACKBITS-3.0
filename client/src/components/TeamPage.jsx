@@ -29,6 +29,11 @@ import acmMember13 from '../assets/images/jitacm.avif';
 import acmMember14 from '../assets/images/jitacm.avif';
 import acmMember15 from '../assets/images/jitacm.avif';
 
+// Import social media icons from image folder
+import instagramIcon from '../assets/images/instagram.png';
+import linkedinIcon from '../assets/images/linkedin.png';
+import githubIcon from '../assets/images/github.png';
+
 /* ── Static data ── */
 const SPONSORS = Array.from({ length: 8 }, (_, i) => ({
   id: i + 1,
@@ -36,7 +41,6 @@ const SPONSORS = Array.from({ length: 8 }, (_, i) => ({
   logo: [sponsor1, sponsor2, sponsor3][i % 3],
   tier: ['Platinum', 'Gold', 'Silver', 'Gold', 'Silver', 'Platinum', 'Bronze', 'Bronze'][i] + ' Sponsor',
 }));
-const DUPLICATED_SPONSORS = [...SPONSORS, ...SPONSORS, ...SPONSORS];
 
 const EXECUTIVE_MEMBERS = [
   { id:1, name:'Dr. Rajesh Kumar', post:'Faculty Coordinator', image:executive1, description:'Head of Computer Science Department' },
@@ -67,6 +71,11 @@ const ACM_MEMBERS = [
   { id:15, name:'Tanmay Kumar', post:'Open Source Lead', image:acmMember15, description:'Third Year CSE' },
 ];
 
+// Create duplicated arrays for infinite scroll (3 copies each)
+const DUPLICATED_SPONSORS = [...SPONSORS, ...SPONSORS, ...SPONSORS];
+const DUPLICATED_EXECUTIVE = [...EXECUTIVE_MEMBERS, ...EXECUTIVE_MEMBERS, ...EXECUTIVE_MEMBERS];
+const DUPLICATED_ACM = [...ACM_MEMBERS, ...ACM_MEMBERS, ...ACM_MEMBERS];
+
 /* ── Static background stars ── */
 const STAR_DATA = Array.from({ length: 40 }, () => ({
   w: Math.random() * 2 + 1,
@@ -77,12 +86,6 @@ const STAR_DATA = Array.from({ length: 40 }, () => ({
 }));
 
 /* ── Animation variants ── */
-const SLIDE_VARIANTS = {
-  enter: (d) => ({ x: d > 0 ? 280 : -280, opacity: 0 }),
-  center: { x: 0, opacity: 1, transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] } },
-  exit: (d) => ({ x: d < 0 ? 280 : -280, opacity: 0, transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] } }),
-};
-
 const CONTAINER_VARIANTS = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.1, delayChildren: 0.15 } },
@@ -93,30 +96,39 @@ const ITEM_VARIANTS = {
   visible: { y: 0, opacity: 1, transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] } },
 };
 
-/* ── Social icons ── */
+/* ── Social icons from image folder ── */
 const SocialIcons = React.memo(({ size = 'default' }) => {
-  const iconClass = size === 'large' ? 'w-6 h-6 sm:w-7 sm:h-7' : 'w-5 h-5 sm:w-6 sm:h-6';
-  const svgClass = size === 'large' ? 'w-3 h-3 sm:w-3.5 sm:h-3.5' : 'w-2.5 h-2.5 sm:w-3 sm:h-3';
+  const iconClass = size === 'large' ? 'w-7 h-7 sm:w-8 sm:h-8' : 'w-6 h-6 sm:w-7 sm:h-7';
   const base = `flex items-center justify-center ${iconClass} text-sky-300 transition-all duration-250 bg-black/30 border border-sky-300/25 rounded-full hover:border-sky-300 hover:bg-sky-300/10`;
+
+  const socialIcons = [
+    { icon: instagramIcon, link: 'https://instagram.com/acm_jit', name: 'instagram' },
+    { icon: linkedinIcon, link: 'https://www.linkedin.com/in/jit-acm-student-chapter', name: 'linkedin' },
+    { icon: githubIcon, link: 'https://github.com/jitacm', name: 'github' }
+  ];
 
   return (
     <>
-      {[
-        'M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879v-6.99h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.99C18.343 21.128 22 16.991 22 12z',
-        'M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z',
-      ].map((path, i) => (
-        <motion.a key={i} href="#" whileHover={{ scale: 1.15, y: -2 }} className={base}>
-          <svg className={svgClass} fill="currentColor" viewBox="0 0 24 24"><path d={path} /></svg>
+      {socialIcons.map((social, i) => (
+        <motion.a
+          key={i}
+          href={social.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          whileHover={{ scale: 1.15, y: -2 }}
+          className={base}
+        >
+          <img src={social.icon} alt={social.name} className="w-4 h-4 sm:w-5 sm:h-5 filter brightness-0 invert" />
         </motion.a>
       ))}
     </>
   );
 });
 
-/* ── Member Card ── */
+/* ── Member Card with larger text ── */
 const MemberCard = React.memo(({ member, size = 'default' }) => {
   const isExec = size === 'large';
-  const cardClass = `relative flex flex-col items-center w-full bg-black/30 backdrop-blur-xl border border-sky-300/20 rounded-xl sm:rounded-2xl hover:border-sky-300/45 transition-all duration-300 ${isExec ? 'p-3 sm:p-4 md:p-5 lg:p-6' : 'p-2.5 sm:p-3 md:p-4'} aspect-square`;
+  const cardClass = `relative flex flex-col items-center w-full bg-black/30 backdrop-blur-xl border border-sky-300/20 rounded-xl sm:rounded-2xl hover:border-sky-300/45 transition-all duration-300 ${isExec ? 'p-4 sm:p-5 md:p-6 lg:p-7' : 'p-3 sm:p-4 md:p-5'} aspect-square`;
 
   return (
     <motion.div
@@ -125,29 +137,28 @@ const MemberCard = React.memo(({ member, size = 'default' }) => {
       className="relative group w-full"
     >
       <div className={cardClass}>
-        <div className="absolute top-0 right-0 w-16 h-16 sm:w-24 sm:h-24 bg-gradient-to-br from-sky-300/5 to-blue-400/5 rounded-full blur-3xl" />
+        <div className="absolute top-0 right-0 w-20 h-20 sm:w-28 sm:h-28 bg-gradient-to-br from-sky-300/5 to-blue-400/5 rounded-full blur-3xl" />
 
         {/* Avatar */}
-        <div className={`relative overflow-hidden border-2 border-sky-300/25 rounded-full group-hover:border-sky-300/60 transition-all duration-300 ${isExec ? 'w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28' : 'w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24'} mt-1 sm:mt-2`}>
+        <div className={`relative overflow-hidden border-2 border-sky-300/25 rounded-full group-hover:border-sky-300/60 transition-all duration-300 ${isExec ? 'w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32' : 'w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28'} mt-2 sm:mt-3`}>
           <img src={member.image} alt={member.name} className="object-cover w-full h-full" loading="lazy" />
-          {/* CSS shimmer on hover */}
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/12 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out" />
         </div>
 
-        {/* Info */}
-        <div className="w-full mt-1.5 sm:mt-2 md:mt-3 text-center">
-          <h3 className={`font-bold text-white font-orbitron leading-tight px-1 ${isExec ? 'text-xs sm:text-sm md:text-base lg:text-lg' : 'text-[11px] sm:text-xs md:text-sm'}`}>
+        {/* Info with larger text */}
+        <div className="w-full mt-2 sm:mt-3 md:mt-4 text-center">
+          <h3 className={`font-bold text-white font-orbitron leading-tight px-1 ${isExec ? 'text-sm sm:text-base md:text-lg lg:text-xl' : 'text-xs sm:text-sm md:text-base'}`}>
             {member.name}
           </h3>
-          <p className={`font-semibold text-sky-300 font-space mt-0.5 sm:mt-1 ${isExec ? 'text-[10px] sm:text-xs md:text-sm' : 'text-[9px] sm:text-[11px] md:text-xs'}`}>
+          <p className={`font-semibold text-sky-300 font-space mt-1 sm:mt-2 ${isExec ? 'text-xs sm:text-sm md:text-base' : 'text-[11px] sm:text-xs md:text-sm'}`}>
             {member.post}
           </p>
           {member.description && (
-            <p className={`hidden sm:block text-white/50 font-space line-clamp-2 mt-0.5 sm:mt-1 ${isExec ? 'text-[9px] sm:text-[10px] md:text-xs' : 'text-[8px] sm:text-[9px] md:text-[11px]'}`}>
+            <p className={`hidden sm:block text-white/50 font-space line-clamp-2 mt-1 sm:mt-2 ${isExec ? 'text-[11px] sm:text-xs md:text-sm' : 'text-[10px] sm:text-[11px] md:text-xs'}`}>
               {member.description}
             </p>
           )}
-          <div className={`hidden sm:flex justify-center gap-1.5 sm:gap-2 ${isExec ? 'mt-2 sm:mt-3' : 'mt-1.5 sm:mt-2'}`}>
+          <div className={`hidden sm:flex justify-center gap-2 sm:gap-3 ${isExec ? 'mt-3 sm:mt-4' : 'mt-2 sm:mt-3'}`}>
             <SocialIcons size={isExec ? 'large' : 'default'} />
           </div>
         </div>
@@ -156,10 +167,10 @@ const MemberCard = React.memo(({ member, size = 'default' }) => {
   );
 });
 
-/* ── Section header ── */
+/* ── Section header with larger text ── */
 const SectionHeader = ({ title }) => (
   <motion.div variants={ITEM_VARIANTS} className="mb-6 sm:mb-8 md:mb-10 text-center">
-    <h2 className="relative inline-block font-orbitron text-2xl sm:text-3xl md:text-4xl font-bold">
+    <h2 className="relative inline-block font-orbitron text-3xl sm:text-4xl md:text-5xl font-bold">
       <span className="bg-gradient-to-r from-sky-300 to-blue-400 bg-clip-text text-transparent">{title}</span>
       <motion.div
         className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-sky-300/60 to-transparent"
@@ -171,107 +182,8 @@ const SectionHeader = ({ title }) => (
   </motion.div>
 );
 
-/* ── Nav arrows ── */
-const NavigationButtons = ({ onPrev, onNext, isPrevDisabled, isNextDisabled }) => (
-  <>
-    <motion.button
-      onClick={onPrev}
-      disabled={isPrevDisabled}
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.9 }}
-      className={`hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 -ml-4 z-20 p-2 md:p-3 rounded-full bg-black/50 backdrop-blur-md border border-sky-300/25 text-sky-300 hover:bg-sky-300/15 transition-all ${isPrevDisabled ? 'opacity-40 cursor-not-allowed' : ''}`}
-    >
-      <svg className="w-4 h-4 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
-    </motion.button>
-    <motion.button
-      onClick={onNext}
-      disabled={isNextDisabled}
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.9 }}
-      className={`hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 -mr-4 z-20 p-2 md:p-3 rounded-full bg-black/50 backdrop-blur-md border border-sky-300/25 text-sky-300 hover:bg-sky-300/15 transition-all ${isNextDisabled ? 'opacity-40 cursor-not-allowed' : ''}`}
-    >
-      <svg className="w-4 h-4 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-    </motion.button>
-  </>
-);
-
-const MobileNav = ({ onPrev, onNext, isPrevDisabled, isNextDisabled, page, totalPages }) => (
-  <div className="flex justify-between items-center mt-4 sm:hidden">
-    <motion.button onClick={onPrev} disabled={isPrevDisabled} whileTap={{ scale: 0.9 }}
-      className={`p-2 rounded-full bg-black/50 backdrop-blur-md border border-sky-300/25 text-sky-300 ${isPrevDisabled ? 'opacity-40 cursor-not-allowed' : ''}`}>
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
-    </motion.button>
-    <span className="text-white/60 font-space text-sm">Page {page} of {totalPages}</span>
-    <motion.button onClick={onNext} disabled={isNextDisabled} whileTap={{ scale: 0.9 }}
-      className={`p-2 rounded-full bg-black/50 backdrop-blur-md border border-sky-300/25 text-sky-300 ${isNextDisabled ? 'opacity-40 cursor-not-allowed' : ''}`}>
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-    </motion.button>
-  </div>
-);
-
-const PaginationDots = ({ total, current, onChange }) => (
-  <motion.div variants={ITEM_VARIANTS} className="flex items-center justify-center gap-1.5 sm:gap-2 mt-6 sm:mt-8">
-    {Array.from({ length: total }).map((_, i) => (
-      <motion.button
-        key={i}
-        onClick={() => onChange(i + 1)}
-        whileHover={{ scale: 1.25 }}
-        whileTap={{ scale: 0.9 }}
-        className={`h-2 sm:h-2.5 rounded-full transition-all duration-300 ${current === i + 1 ? 'bg-sky-300 w-5 sm:w-6' : 'bg-sky-300/25 hover:bg-sky-300/45 w-2 sm:w-2.5'}`}
-      />
-    ))}
-  </motion.div>
-);
-
 const TeamPage = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.08 });
-  const [executivePage, setExecutivePage] = useState(1);
-  const [acmPage, setAcmPage] = useState(1);
-  const [direction, setDirection] = useState(0);
-  const [executivePerPage, setExecutivePerPage] = useState(4);
-  const [acmPerPage, setAcmPerPage] = useState(5);
-  const [isExecutiveHovered, setIsExecutiveHovered] = useState(false);
-  const [isAcmHovered, setIsAcmHovered] = useState(false);
-
-  const handleResize = useCallback(() => {
-    const w = window.innerWidth;
-    setExecutivePerPage(w < 640 ? 2 : w < 768 ? 2 : w < 1024 ? 3 : 4);
-    setAcmPerPage(w < 640 ? 2 : w < 768 ? 2 : w < 1024 ? 3 : 5);
-  }, []);
-
-  useEffect(() => {
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, [handleResize]);
-
-  const executiveTotalPages = useMemo(() => Math.ceil(EXECUTIVE_MEMBERS.length / executivePerPage), [executivePerPage]);
-  const acmTotalPages = useMemo(() => Math.ceil(ACM_MEMBERS.length / acmPerPage), [acmPerPage]);
-  const currentExecutiveMembers = useMemo(() => EXECUTIVE_MEMBERS.slice((executivePage - 1) * executivePerPage, executivePage * executivePerPage), [executivePage, executivePerPage]);
-  const currentAcmMembers = useMemo(() => ACM_MEMBERS.slice((acmPage - 1) * acmPerPage, acmPage * acmPerPage), [acmPage, acmPerPage]);
-
-  /* Auto-slide */
-  useEffect(() => {
-    if (isExecutiveHovered || executiveTotalPages <= 1) return;
-    const id = setInterval(() => {
-      setDirection(1);
-      setExecutivePage(p => (p < executiveTotalPages ? p + 1 : 1));
-    }, 4000);
-    return () => clearInterval(id);
-  }, [executiveTotalPages, isExecutiveHovered]);
-
-  useEffect(() => {
-    if (isAcmHovered || acmTotalPages <= 1) return;
-    const id = setInterval(() => {
-      setDirection(1);
-      setAcmPage(p => (p < acmTotalPages ? p + 1 : 1));
-    }, 4000);
-    return () => clearInterval(id);
-  }, [acmTotalPages, isAcmHovered]);
-
-  const nextPage = useCallback((setter, total) => () => { setDirection(1); setter(p => (p < total ? p + 1 : p)); }, []);
-  const prevPage = useCallback((setter) => () => { setDirection(-1); setter(p => (p > 1 ? p - 1 : p)); }, []);
-  const handlePageChange = useCallback((setter, current) => (page) => { setDirection(page > current ? 1 : -1); setter(page); }, []);
 
   return (
     <LazyMotion features={domAnimation}>
@@ -305,41 +217,41 @@ const TeamPage = () => {
 
         <div className="container relative z-10 px-4 mx-auto sm:px-6 lg:px-8">
 
-          {/* Hero title */}
+          {/* Hero title with larger text */}
           <motion.div
             initial={{ opacity: 0, y: -28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="mb-10 sm:mb-16 text-center"
           >
-            <h1 className="mb-3 sm:mb-4 font-orbitron text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold">
+            <h1 className="mb-3 sm:mb-4 font-orbitron text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold">
               <span className="bg-gradient-to-r from-sky-200 via-sky-400 to-blue-400 bg-clip-text text-transparent">Our Team</span>
             </h1>
-            <p className="max-w-2xl mx-auto text-sm sm:text-base md:text-lg text-white/70 font-space px-4">
+            <p className="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-white/70 font-space px-4">
               Meet the amazing people behind Hackblitz 3.0
             </p>
           </motion.div>
 
-          {/* ── Sponsors (infinite scroll) ── */}
+          {/* ── Sponsors (FASTER infinite scroll) ── */}
           <motion.div ref={ref} initial="hidden" animate={inView ? 'visible' : 'hidden'} variants={CONTAINER_VARIANTS} className="mb-12 sm:mb-16 md:mb-20 overflow-hidden">
             <SectionHeader title="Our Sponsors" />
             <div className="relative w-full overflow-hidden">
               <motion.div
                 className="flex gap-4 sm:gap-6"
                 animate={{ x: ['0%', '-33.33%'] }}
-                transition={{ x: { repeat: Infinity, repeatType: 'loop', duration: 28, ease: 'linear' } }}
+                transition={{ x: { repeat: Infinity, repeatType: 'loop', duration: 15, ease: 'linear' } }} // Faster: 28→15
               >
                 {DUPLICATED_SPONSORS.map((s, i) => (
-                  <div key={`${s.id}-${i}`} className="flex-shrink-0 w-24 sm:w-32 md:w-40 lg:w-48">
+                  <div key={`${s.id}-${i}`} className="flex-shrink-0 w-28 sm:w-36 md:w-44 lg:w-52">
                     <motion.div className="relative group" whileHover={{ scale: 1.04 }} transition={{ duration: 0.25 }}>
                       <div className="absolute inset-0 bg-sky-300/0 group-hover:bg-sky-300/10 rounded-lg transition-all duration-300 blur-lg" />
-                      <div className="relative p-2 sm:p-3 md:p-4 bg-black/30 backdrop-blur-sm border border-sky-300/15 rounded-lg sm:rounded-xl hover:border-sky-300/35 transition-all duration-300">
+                      <div className="relative p-3 sm:p-4 md:p-5 bg-black/30 backdrop-blur-sm border border-sky-300/15 rounded-lg sm:rounded-xl hover:border-sky-300/35 transition-all duration-300">
                         <div className="flex items-center justify-center p-2 sm:p-3 aspect-square">
                           <img src={s.logo} alt={s.name} className="object-contain w-full h-full" loading="lazy" />
                         </div>
-                        <div className="mt-1 sm:mt-2 text-center">
-                          <p className="text-[10px] sm:text-xs font-medium text-white/80 font-space truncate">{s.name}</p>
-                          <p className="text-[8px] sm:text-[10px] text-sky-300/60 font-space truncate">{s.tier}</p>
+                        <div className="mt-2 sm:mt-3 text-center">
+                          <p className="text-xs sm:text-sm font-medium text-white/80 font-space truncate">{s.name}</p>
+                          <p className="text-[10px] sm:text-xs text-sky-300/60 font-space truncate">{s.tier}</p>
                         </div>
                       </div>
                     </motion.div>
@@ -349,54 +261,50 @@ const TeamPage = () => {
             </div>
           </motion.div>
 
-          {/* ── Executive Members ── */}
+          {/* ── Executive Members (FASTER infinite scroll) ── */}
           <motion.div
             variants={CONTAINER_VARIANTS}
             initial="hidden"
             animate={inView ? 'visible' : 'hidden'}
-            className="mb-12 sm:mb-16 md:mb-20"
-            onMouseEnter={() => setIsExecutiveHovered(true)}
-            onMouseLeave={() => setIsExecutiveHovered(false)}
+            className="mb-12 sm:mb-16 md:mb-20 overflow-hidden"
           >
             <SectionHeader title="Executive Members" />
-            <div className="relative">
-              <NavigationButtons onPrev={prevPage(setExecutivePage)} onNext={nextPage(setExecutivePage, executiveTotalPages)} isPrevDisabled={executivePage === 1} isNextDisabled={executivePage === executiveTotalPages} />
-              <div className="overflow-hidden px-0 sm:px-8">
-                <AnimatePresence mode="wait" custom={direction}>
-                  <motion.div key={executivePage} custom={direction} variants={SLIDE_VARIANTS} initial="enter" animate="center" exit="exit"
-                    className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-5 lg:gap-6">
-                    {currentExecutiveMembers.map(m => <MemberCard key={m.id} member={m} size="large" />)}
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-              <MobileNav onPrev={prevPage(setExecutivePage)} onNext={nextPage(setExecutivePage, executiveTotalPages)} isPrevDisabled={executivePage === 1} isNextDisabled={executivePage === executiveTotalPages} page={executivePage} totalPages={executiveTotalPages} />
+            <div className="relative w-full overflow-hidden">
+              <motion.div
+                className="flex gap-3 sm:gap-4 md:gap-5 lg:gap-6"
+                animate={{ x: ['0%', '-50%'] }}
+                transition={{ x: { repeat: Infinity, repeatType: 'loop', duration: 18, ease: 'linear' } }} // Faster: 35→18
+              >
+                {DUPLICATED_EXECUTIVE.map((member, index) => (
+                  <div key={`${member.id}-${index}`} className="flex-shrink-0 w-1/2 sm:w-1/2 md:w-1/3 lg:w-1/4">
+                    <MemberCard member={member} size="large" />
+                  </div>
+                ))}
+              </motion.div>
             </div>
-            {executiveTotalPages > 1 && <PaginationDots total={executiveTotalPages} current={executivePage} onChange={handlePageChange(setExecutivePage, executivePage)} />}
           </motion.div>
 
-          {/* ── ACM Members ── */}
+          {/* ── ACM Members (FASTER infinite scroll) ── */}
           <motion.div
             variants={CONTAINER_VARIANTS}
             initial="hidden"
             animate={inView ? 'visible' : 'hidden'}
-            className="mb-12 sm:mb-16 md:mb-20"
-            onMouseEnter={() => setIsAcmHovered(true)}
-            onMouseLeave={() => setIsAcmHovered(false)}
+            className="mb-12 sm:mb-16 md:mb-20 overflow-hidden"
           >
             <SectionHeader title="ACM Members" />
-            <div className="relative">
-              <NavigationButtons onPrev={prevPage(setAcmPage)} onNext={nextPage(setAcmPage, acmTotalPages)} isPrevDisabled={acmPage === 1} isNextDisabled={acmPage === acmTotalPages} />
-              <div className="overflow-hidden px-0 sm:px-8">
-                <AnimatePresence mode="wait" custom={direction}>
-                  <motion.div key={acmPage} custom={direction} variants={SLIDE_VARIANTS} initial="enter" animate="center" exit="exit"
-                    className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-5">
-                    {currentAcmMembers.map(m => <MemberCard key={m.id} member={m} size="default" />)}
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-              <MobileNav onPrev={prevPage(setAcmPage)} onNext={nextPage(setAcmPage, acmTotalPages)} isPrevDisabled={acmPage === 1} isNextDisabled={acmPage === acmTotalPages} page={acmPage} totalPages={acmTotalPages} />
+            <div className="relative w-full overflow-hidden">
+              <motion.div
+                className="flex gap-3 sm:gap-4 md:gap-5"
+                animate={{ x: ['0%', '-50%'] }}
+                transition={{ x: { repeat: Infinity, repeatType: 'loop', duration: 20, ease: 'linear' } }} // Faster: 40→20
+              >
+                {DUPLICATED_ACM.map((member, index) => (
+                  <div key={`${member.id}-${index}`} className="flex-shrink-0 w-1/2 sm:w-1/2 md:w-1/3 lg:w-1/5">
+                    <MemberCard member={member} size="default" />
+                  </div>
+                ))}
+              </motion.div>
             </div>
-            {acmTotalPages > 1 && <PaginationDots total={acmTotalPages} current={acmPage} onChange={handlePageChange(setAcmPage, acmPage)} />}
           </motion.div>
         </div>
       </main>

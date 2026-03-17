@@ -263,7 +263,7 @@ const Hero = () => {
         >
           {[
             { label: "Days", value: "2", icon: submission },
-            { label: "Duration", value: "16h", icon: clock },
+            { label: "Duration per day", value: "8h", icon: clock },
             { label: "Team Size", value: "2-4", icon: group },
             { label: "Dates", value: "24-25", icon: tick },
           ].map((stat, i) => (

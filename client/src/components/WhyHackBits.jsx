@@ -57,8 +57,8 @@ const WhyHackBits = () => {
   const features = [
     {
       icon: clock,
-      title: "16-Hour Hackathon",
-      description: "Non-stop coding marathon to build innovative solutions from scratch",
+      title: "8-Hour Hackathon",
+      description: "Per Day Non-stop coding marathon to build innovative solutions from scratch",
       stats: "Non-Stop",
     },
     {
