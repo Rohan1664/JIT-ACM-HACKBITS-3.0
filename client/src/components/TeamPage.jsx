@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import { motion, AnimatePresence, LazyMotion, domAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
@@ -6,8 +6,6 @@ import { useInView } from 'react-intersection-observer';
 import sponsor1 from '../assets/images/jitacm.avif';
 import sponsor2 from '../assets/images/jitacm.avif';
 import sponsor3 from '../assets/images/jitacm.avif';
-
-
 import executive1 from '../assets/images/jitacm.avif';
 import executive2 from '../assets/images/jitacm.avif';
 import executive3 from '../assets/images/jitacm.avif';
@@ -25,8 +23,6 @@ import acmMember6 from '../assets/images/jitacm.avif';
 import acmMember7 from '../assets/images/jitacm.avif';
 import acmMember8 from '../assets/images/jitacm.avif';
 import acmMember9 from '../assets/images/jitacm.avif';
-
-
 import acmMember10 from '../assets/images/jitacm.avif';
 import acmMember11 from '../assets/images/jitacm.avif';
 import acmMember12 from '../assets/images/jitacm.avif';
@@ -233,6 +229,12 @@ const TeamPage = () => {
   const [direction, setDirection] = useState(0);
   const [executivePerPage, setExecutivePerPage] = useState(4);
   const [acmPerPage, setAcmPerPage] = useState(5);
+  
+  // Auto-slide states
+  const [isExecutiveHovered, setIsExecutiveHovered] = useState(false);
+  const [isAcmHovered, setIsAcmHovered] = useState(false);
+  const executiveSectionRef = useRef(null);
+  const acmSectionRef = useRef(null);
 
   const handleResize = useCallback(() => {
     const w = window.innerWidth;
@@ -251,6 +253,25 @@ const TeamPage = () => {
   
   const currentExecutiveMembers = useMemo(() => EXECUTIVE_MEMBERS.slice((executivePage-1)*executivePerPage, executivePage*executivePerPage), [executivePage, executivePerPage]);
   const currentAcmMembers = useMemo(() => ACM_MEMBERS.slice((acmPage-1)*acmPerPage, acmPage*acmPerPage), [acmPage, acmPerPage]);
+
+  // Auto-slide effects
+  useEffect(() => {
+    if (isExecutiveHovered || executiveTotalPages <= 1) return;
+    const interval = setInterval(() => {
+      setDirection(1);
+      setExecutivePage(prev => prev < executiveTotalPages ? prev + 1 : 1);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [executiveTotalPages, isExecutiveHovered]);
+
+  useEffect(() => {
+    if (isAcmHovered || acmTotalPages <= 1) return;
+    const interval = setInterval(() => {
+      setDirection(1);
+      setAcmPage(prev => prev < acmTotalPages ? prev + 1 : 1);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [acmTotalPages, isAcmHovered]);
 
   const nextPage = useCallback((setter, total) => () => { setDirection(1); setter(p => p < total ? p+1 : p); }, []);
   const prevPage = useCallback((setter) => () => { setDirection(-1); setter(p => p > 1 ? p-1 : p); }, []);
@@ -300,17 +321,34 @@ const TeamPage = () => {
             </div>
           </motion.div>
 
-          {/* Executive Members Section */}
-          <motion.div variants={CONTAINER_VARIANTS} initial="hidden" animate={inView ? 'visible' : 'hidden'} className="mb-12 sm:mb-16 md:mb-20">
+          {/* Executive Members Section with Auto-slide */}
+          <motion.div 
+            ref={executiveSectionRef}
+            variants={CONTAINER_VARIANTS} 
+            initial="hidden" 
+            animate={inView ? 'visible' : 'hidden'} 
+            className="mb-12 sm:mb-16 md:mb-20"
+            onMouseEnter={() => setIsExecutiveHovered(true)}
+            onMouseLeave={() => setIsExecutiveHovered(false)}
+            onTouchStart={() => setIsExecutiveHovered(true)}
+            onTouchEnd={() => setIsExecutiveHovered(false)}
+          >
             <SectionHeader title="Executive Members" />
             <div className="relative">
               <NavigationButtons onPrev={prevPage(setExecutivePage)} onNext={nextPage(setExecutivePage, executiveTotalPages)} 
                 isPrevDisabled={executivePage === 1} isNextDisabled={executivePage === executiveTotalPages} />
               <div className="overflow-hidden px-0 sm:px-8">
                 <AnimatePresence mode="wait" custom={direction}>
-                  <motion.div key={executivePage} custom={direction} variants={SLIDE_VARIANTS} initial="enter" animate="center" exit="exit"
-                    transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                    className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-5 lg:gap-6">
+                  <motion.div 
+                    key={executivePage} 
+                    custom={direction} 
+                    variants={SLIDE_VARIANTS} 
+                    initial="enter" 
+                    animate="center" 
+                    exit="exit"
+                    transition={{ type: 'spring', stiffness: 200, damping: 25, mass: 0.8 }}
+                    className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-5 lg:gap-6"
+                  >
                     {currentExecutiveMembers.map(m => <MemberCard key={m.id} member={m} size="large" />)}
                   </motion.div>
                 </AnimatePresence>
@@ -323,17 +361,34 @@ const TeamPage = () => {
               onChange={handlePageChange(setExecutivePage, executivePage)} />}
           </motion.div>
 
-          {/* ACM Members Section */}
-          <motion.div variants={CONTAINER_VARIANTS} initial="hidden" animate={inView ? 'visible' : 'hidden'} className="mb-12 sm:mb-16 md:mb-20">
+          {/* ACM Members Section with Auto-slide */}
+          <motion.div 
+            ref={acmSectionRef}
+            variants={CONTAINER_VARIANTS} 
+            initial="hidden" 
+            animate={inView ? 'visible' : 'hidden'} 
+            className="mb-12 sm:mb-16 md:mb-20"
+            onMouseEnter={() => setIsAcmHovered(true)}
+            onMouseLeave={() => setIsAcmHovered(false)}
+            onTouchStart={() => setIsAcmHovered(true)}
+            onTouchEnd={() => setIsAcmHovered(false)}
+          >
             <SectionHeader title="ACM Members" />
             <div className="relative">
               <NavigationButtons onPrev={prevPage(setAcmPage)} onNext={nextPage(setAcmPage, acmTotalPages)} 
                 isPrevDisabled={acmPage === 1} isNextDisabled={acmPage === acmTotalPages} />
               <div className="overflow-hidden px-0 sm:px-8">
                 <AnimatePresence mode="wait" custom={direction}>
-                  <motion.div key={acmPage} custom={direction} variants={SLIDE_VARIANTS} initial="enter" animate="center" exit="exit"
-                    transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                    className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-5">
+                  <motion.div 
+                    key={acmPage} 
+                    custom={direction} 
+                    variants={SLIDE_VARIANTS} 
+                    initial="enter" 
+                    animate="center" 
+                    exit="exit"
+                    transition={{ type: 'spring', stiffness: 200, damping: 25, mass: 0.8 }}
+                    className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-5"
+                  >
                     {currentAcmMembers.map(m => <MemberCard key={m.id} member={m} size="default" />)}
                   </motion.div>
                 </AnimatePresence>
