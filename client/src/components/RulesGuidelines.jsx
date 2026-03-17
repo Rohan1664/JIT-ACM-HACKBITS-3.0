@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import clock from '../assets/images/clock.png';
@@ -10,388 +10,258 @@ import handshake from '../assets/images/handshake.png';
 import scale from '../assets/images/scale.png';
 import programming from '../assets/images/programming.png';
 
-// Icons for different rule categories
-const RuleIcons = {
-  '⏰ 16-Hour Timeline': (
-    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-    </svg>
-  ),
-  '📝 No Pre-Built Code': (
-    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-    </svg>
-  ),
-  '👥 Team Composition': (
-    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-    </svg>
-  ),
-  '✅ Evaluation Checkpoints': (
-    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-    </svg>
-  ),
-  '📋 Submission Deadline': (
-    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-    </svg>
-  ),
-  '🤝 Mentor Guidance': (
-    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-    </svg>
-  ),
-  '⚖️ Misconduct Policy': (
-    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-    </svg>
-  ),
-  '👨‍💻 Ethical Coding': (
-    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-    </svg>
-  ),
-  '🏁 Final Decision': (
-    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-    </svg>
-  ),
+/* ── Static star data ── */
+const STARS = Array.from({ length: 35 }, () => ({
+  w: Math.random() * 2 + 1,
+  l: Math.random() * 100,
+  t: Math.random() * 100,
+  dur: (Math.random() * 5 + 4).toFixed(1),
+  delay: (Math.random() * 3).toFixed(1),
+}));
+
+/* ── Framer variants ── */
+const sectionVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.1, delayChildren: 0.15 } },
+};
+
+const fadeUpItem = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+  },
+};
+
+const cardVariant = {
+  hidden: { opacity: 0, y: 28, scale: 0.96 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] },
+  },
 };
 
 const RulesGuidelines = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.08 });
 
   const rules = [
     {
       category: '16-Hour Timeline',
       icon: clock,
-      gradient: 'black',
       items: [
         'The hackathon is a 16-hour continuous coding event; teams must adhere strictly to the given timeline.',
         'All coding must be done only during the official hackathon duration.',
-        'Time tracking will be monitored throughout the event.'
+        'Time tracking will be monitored throughout the event.',
       ],
-      color: 'sky-300'
     },
     {
       category: 'No Pre-Built Code',
       icon: notebook,
-      gradient: 'black',
       items: [
         'Use of pre-built code, templates, or previously developed projects is prohibited.',
         'Teams may use open-source libraries, APIs, and frameworks, provided they are properly acknowledged.',
-        'All code must be written during the hackathon hours.'
+        'All code must be written during the hackathon hours.',
       ],
-      color: 'sky-300'
     },
     {
       category: 'Team Composition',
       icon: group,
-      gradient: 'black',
       items: [
         'Teams must consist of the registered members only.',
         'Maximum team size: 4 members',
         'Minimum team size: 2 members',
-        'Cross-college teams are allowed.'
+        'Cross-college teams are allowed.',
       ],
-      color: 'sky-300'
     },
     {
       category: 'Evaluation Checkpoints',
       icon: tick,
-      gradient: 'black',
       items: [
         'Regular evaluation checkpoints will be conducted.',
         'Progress updates required every 4 hours.',
-        'Final evaluation based on innovation and implementation.'
+        'Final evaluation based on innovation and implementation.',
       ],
-      color: 'sky-300'
     },
     {
       category: 'Submission Deadline',
       icon: submission,
-      gradient: 'black',
       items: [
         'Teams must submit their final project before the deadline.',
         'Late submissions will not be accepted.',
-        'Submit code, documentation, and presentation.'
+        'Submit code, documentation, and presentation.',
       ],
-      color: 'sky-300'
     },
     {
       category: 'Mentor Guidance',
       icon: handshake,
-      gradient: 'black',
       items: [
         'Mentors are available for guidance.',
         'Direct implementation by mentors is not allowed.',
-        'Mentors will be available throughout the event.'
+        'Mentors will be available throughout the event.',
       ],
-      color: 'sky-300'
     },
     {
       category: 'Misconduct Policy',
       icon: scale,
-      gradient: 'black',
       items: [
         'Any misconduct will result in disqualification.',
         'Respect all participants and organizers.',
-        'Maintain a collaborative environment.'
+        'Maintain a collaborative environment.',
       ],
-      color: 'sky-300'
     },
     {
       category: 'Ethical Coding',
       icon: programming,
-      gradient: 'black',
       items: [
         'Follow ethical coding practices.',
         'Give credit to external resources.',
-        'Original work only.'
+        'Original work only.',
       ],
-      color: 'sky-300'
     },
     {
       category: 'Final Decision',
       icon: tick,
-      gradient: 'black',
       items: [
         'Judges decision is final.',
         'No appeals after results.',
-        'Organizers may modify rules if necessary.'
+        'Organizers may modify rules if necessary.',
       ],
-      color: 'sky-300'
-    }
+    },
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 30, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 12
-      }
-    }
-  };
-
   return (
-    <section id="rules" className="relative py-16 md:py-20 lg:py-28 overflow-hidden bg-gradient-to-b from-[#020617] via-[#030b1a] to-[#000000]">
-      {/* Deep Space Background - Optimized for mobile */}
-      <div className="absolute inset-0">
-        {/* Star Field - Reduced for mobile */}
-        <div className="absolute inset-0">
-          {[...Array(80)].map((_, i) => ( // Reduced stars for mobile
-            <motion.div
-              key={`star-${i}`}
-              className="absolute rounded-full bg-white"
-              style={{
-                width: Math.random() * 2 + 1,
-                height: Math.random() * 2 + 1,
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                opacity: Math.random() * 0.5 + 0.2,
-              }}
-              animate={{
-                opacity: [0.2, 0.6, 0.2],
-              }}
-              transition={{
-                duration: Math.random() * 4 + 3,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            />
-          ))}
-        </div>
+    <section
+      id="rules"
+      className="relative py-16 md:py-20 lg:py-28 overflow-hidden bg-gradient-to-b from-[#020617] via-[#030b1a] to-[#000000]"
+    >
+      {/* ── Background ── */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* CSS-animated star field – tiny, low opacity */}
+        {STARS.map((s, i) => (
+          <div
+            key={i}
+            className="absolute rounded-full bg-white animate-star-twinkle"
+            style={{
+              width: s.w,
+              height: s.w,
+              left: `${s.l}%`,
+              top: `${s.t}%`,
+              opacity: 0.18,
+              '--dur': `${s.dur}s`,
+              animationDelay: `${s.delay}s`,
+            }}
+          />
+        ))}
 
-        {/* Nebula Effects - Updated to skyblue */}
-        <motion.div
-          className="absolute inset-0"
+        {/* Nebula glow – CSS only, no JS animation */}
+        <div
+          className="absolute inset-0 animate-glow-pulse"
           style={{
-            background: 'radial-gradient(circle at 20% 30%, rgba(56, 189, 248, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(14, 165, 233, 0.15) 0%, transparent 50%)',
-            filter: 'blur(80px)'
+            background:
+              'radial-gradient(circle at 20% 30%, rgba(56,189,248,0.11) 0%, transparent 52%), radial-gradient(circle at 80% 70%, rgba(14,165,233,0.11) 0%, transparent 52%)',
           }}
-          animate={{
-            opacity: [0.2, 0.4, 0.2],
-            scale: [1, 1.1, 1]
-          }}
-          transition={{ duration: 15, repeat: Infinity }}
         />
 
-        {/* Floating Particles - Updated to skyblue, reduced for mobile */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          {[...Array(20)].map((_, i) => ( // Reduced particles for mobile
-            <motion.div
-              key={`dust-${i}`}
-              className="absolute rounded-full"
-              style={{
-                width: Math.random() * 4 + 1,
-                height: Math.random() * 4 + 1,
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                background: i % 2 === 0 ? '#38BDF8' : '#0EA5E9',
-                filter: 'blur(1px)',
-                opacity: 0.2
-              }}
-              animate={{
-                y: [0, (Math.random() - 0.5) * 150],
-                x: [0, (Math.random() - 0.5) * 150],
-                opacity: [0.1, 0.4, 0.1]
-              }}
-              transition={{
-                duration: 20 + Math.random() * 30,
-                repeat: Infinity,
-                ease: "linear"
-              }}
-            />
-          ))}
-        </div>
-
-        {/* Shooting Stars - Updated to skyblue, reduced for mobile */}
-        <div className="absolute inset-0 pointer-events-none">
-          {[...Array(3)].map((_, i) => ( // Reduced shooting stars for mobile
-            <motion.div
-              key={`shooting-${i}`}
-              className="absolute h-0.5 w-24 sm:w-32 bg-gradient-to-r from-transparent via-sky-300 to-transparent"
-              style={{
-                top: `${Math.random() * 60}%`,
-                left: `${Math.random() * 100}%`,
-                transform: `rotate(${Math.random() * 30 - 15}deg)`,
-                filter: 'blur(2px)'
-              }}
-              animate={{
-                x: [0, 500],
-                y: [0, 300],
-                opacity: [0, 1, 0]
-              }}
-              transition={{
-                duration: 4 + Math.random() * 3,
-                delay: i * 5,
-                repeat: Infinity,
-                ease: "linear"
-              }}
-            />
-          ))}
-        </div>
+        {/* Grid */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              'radial-gradient(circle at 1px 1px, rgba(56,189,248,0.015) 1px, transparent 0)',
+            backgroundSize: '50px 50px',
+          }}
+        />
       </div>
 
-      {/* Grid Pattern Overlay - Cosmic Style - Updated to skyblue */}
-      <div className="absolute inset-0" style={{
-        backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(56, 189, 248, 0.02) 1px, transparent 0)',
-        backgroundSize: '50px 50px'
-      }} />
-
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+        {/* ── Section header ── */}
         <motion.div
           ref={ref}
           initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          variants={containerVariants}
+          animate={inView ? 'visible' : 'hidden'}
+          variants={sectionVariants}
           className="text-center mb-10 sm:mb-12 md:mb-16"
         >
-          {/* Section Label with Cosmic Glow - Updated to skyblue */}
-          <motion.div variants={itemVariants} className="relative inline-block mb-3 sm:mb-4">
-            <div className="absolute inset-0 bg-gradient-to-r from-sky-300/20 via-sky-400/20 to-blue-400/20 rounded-full blur-xl"></div>
-            <span className="relative px-4 sm:px-6 py-1.5 sm:py-2 bg-black/40 backdrop-blur-xl border border-sky-300/30 rounded-full inline-block">
+          <motion.div variants={fadeUpItem} className="relative inline-block mb-3 sm:mb-4">
+            <span className="relative px-4 sm:px-6 py-1.5 sm:py-2 bg-black/40 backdrop-blur-xl border border-sky-300/25 rounded-full inline-block">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-blue-400 text-xs sm:text-sm font-medium tracking-wider">
                 📋 COSMIC CODE OF CONDUCT
               </span>
             </span>
           </motion.div>
 
-          {/* Main Title - Skyblue gradient - Responsive text sizes */}
-          <motion.h2 variants={itemVariants} className="font-orbitron text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-2 sm:mb-3 md:mb-4">
+          <motion.h2
+            variants={fadeUpItem}
+            className="font-orbitron text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-2 sm:mb-3 md:mb-4"
+          >
             <span className="bg-gradient-to-r from-sky-200 via-sky-400 to-blue-400 bg-clip-text text-transparent">
               Rules & Guidelines
             </span>
           </motion.h2>
 
-          {/* Description - White - Responsive text */}
-          <motion.p variants={itemVariants} className="text-white/80 text-sm sm:text-base md:text-lg max-w-3xl mx-auto font-space leading-relaxed px-4">
+          <motion.p
+            variants={fadeUpItem}
+            className="text-white/75 text-sm sm:text-base md:text-lg max-w-3xl mx-auto font-space leading-relaxed px-4"
+          >
             Navigate your cosmic journey through these essential guidelines.
             Fair play ensures everyone reaches the stars!
           </motion.p>
         </motion.div>
 
+        {/* ── Rule cards ── */}
         <motion.div
-          variants={containerVariants}
+          variants={sectionVariants}
           initial="hidden"
-          animate={inView ? "visible" : "hidden"}
+          animate={inView ? 'visible' : 'hidden'}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 lg:gap-8"
         >
           {rules.map((rule, index) => (
             <motion.div
               key={index}
-              variants={itemVariants}
+              variants={cardVariant}
               whileHover={{
-                scale: 1.02,
                 y: -8,
-                transition: { type: "spring", stiffness: 200, damping: 17 }
+                boxShadow: '0 12px 36px -10px rgba(56,189,248,0.3)',
               }}
-              className="group relative"
+              className="group relative cursor-default"
             >
-              {/* Orbital Glow Effect - Skyblue */}
-              <motion.div
-                className={`absolute -inset-0.5 bg-gradient-to-r ${rule.gradient} rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-10 blur-xl transition-all duration-500`}
-                animate={{
-                  scale: [1, 1, 1],
-                }}
-                transition={{ duration: 2, repeat: Infinity }}
-              />
+              {/* Card */}
+              <div className="relative bg-black/35 backdrop-blur-xl border border-sky-300/30 rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 hover:border-sky-300/60 transition-all duration-300 h-full flex flex-col overflow-hidden">
+                {/* Corner glow */}
+                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-sky-300/6 to-blue-400/6 rounded-full blur-3xl" />
 
-              {/* Card Content */}
-              <div className="relative bg-black/10 backdrop-blur-xl border border-sky-300/50 rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 hover:border-sky-300 transition-all duration-300 h-full flex flex-col overflow-hidden">
-
-                {/* Cosmic Background Effect - Skyblue */}
-                <div className="absolute top-0 right-0 w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 bg-gradient-to-br from-sky-300/5 to-blue-400/5 rounded-full blur-3xl" />
-
-                {/* Header with Icon and Category */}
-                <div className="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4 relative z-10">
+                {/* Header */}
+                <div className="flex items-center gap-3 sm:gap-4 mb-4 relative z-10">
                   <motion.div
-                    className={`p-2 sm:p-3 md:p-4 rounded-lg sm:rounded-xl bg-gradient-to-r ${rule.gradient} bg-opacity-10 relative overflow-hidden flex-shrink-0`}
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ type: "spring", stiffness: 400 }}
+                    className="p-2 sm:p-3 rounded-lg bg-sky-300/8 border border-sky-300/20 flex-shrink-0"
+                    whileHover={{ scale: 1.1, rotate: 4 }}
+                    transition={{ type: 'spring', stiffness: 300, damping: 18 }}
                   >
                     <img
                       src={rule.icon}
                       alt={rule.category}
-                      className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 object-contain drop-shadow-[0_0_10px_rgba(56,189,248,0.7)]"
+                      className="w-8 h-8 sm:w-10 sm:h-10 object-contain drop-shadow-[0_0_8px_rgba(56,189,248,0.5)]"
                     />
                   </motion.div>
-                  
-                  {/* Category - Skyblue gradient - Responsive text */}
-                  <h3 className={`font-orbitron text-white text-sm sm:text-base md:text-lg font-bold bg-gradient-to-r ${rule.gradient} bg-clip-text text-transparent flex-1`}>
+                  <h3 className="font-orbitron text-white/90 text-sm sm:text-base font-bold flex-1">
                     {rule.category}
                   </h3>
                 </div>
 
-                {/* Rules List - White text - Responsive sizing */}
-                <ul className="space-y-2 sm:space-y-2.5 md:space-y-3 flex-1 relative z-10">
+                {/* Rules list */}
+                <ul className="space-y-2 sm:space-y-2.5 flex-1 relative z-10">
                   {rule.items.map((item, i) => (
                     <motion.li
                       key={i}
-                      className="text-white/90 text-xs sm:text-sm md:text-base font-space flex items-start gap-2 sm:gap-3 group/item"
-                      initial={{ opacity: 0.8 }}
-                      whileHover={{ opacity: 1, x: 3 }}
+                      className="text-white/75 text-xs sm:text-sm font-space flex items-start gap-2 sm:gap-3"
+                      whileHover={{ x: 3 }}
+                      transition={{ type: 'spring', stiffness: 350, damping: 25 }}
                     >
-                      <span className={`mt-1.5 sm:mt-1 w-1.5 h-1.5 rounded-full bg-gradient-to-r ${rule.gradient} flex-shrink-0 shadow-[0_0_8px_currentColor]`} />
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-sky-400/70 flex-shrink-0 shadow-[0_0_6px_rgba(56,189,248,0.6)]" />
                       <span className="leading-relaxed">{item}</span>
                     </motion.li>
                   ))}
@@ -401,15 +271,14 @@ const RulesGuidelines = () => {
           ))}
         </motion.div>
 
-        {/* Cosmic Divider - Skyblue */}
+        {/* Divider */}
         <motion.div
           className="w-full h-px mt-12 sm:mt-16 md:mt-20 relative"
           initial={{ opacity: 0, scaleX: 0 }}
           animate={inView ? { opacity: 1, scaleX: 1 } : {}}
-          transition={{ duration: 1, delay: 1 }}
+          transition={{ duration: 1.1, delay: 1 }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-sky-300 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-400 to-transparent blur-sm" />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-sky-300/60 to-transparent" />
         </motion.div>
       </div>
     </section>
