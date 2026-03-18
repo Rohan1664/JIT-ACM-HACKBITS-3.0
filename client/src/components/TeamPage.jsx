@@ -16,24 +16,25 @@ import executive6 from '../assets/executivemembers/sairamchavla.jpeg';
 import executive7 from '../assets/executivemembers/yashtanwani.jpeg';
 import executive8 from '../assets/executivemembers/ronitratnani.jpeg';
 import executive9 from '../assets/executivemembers/lavychawla.jpeg';
-import executive10 from '../assets/executivemembers/ayushdhole.jpeg';
+import executive10 from '../assets/executivemembers/ashutoshlonkar.jpeg';
 
 
-import acmMember1 from '../assets/members/meher2.jpg';
-import acmMember2 from '../assets/members/waley.jpg';
+import acmMember1 from '../assets/members/meherbawnani.jpg';
+import acmMember2 from '../assets/members/walayshelke.jpg';
 import acmMember3 from '../assets/members/sujalhadge.JPG';
-import acmMember4 from '../assets/members/omdhage.JPG';
-import acmMember5 from '../assets/members/ayushmishra.JPG';
-import acmMember6 from '../assets/members/samirshaikh.JPG';
-import acmMember7 from '../assets/members/harshita.JPG';
-import acmMember8 from '../assets/members/sujalhadge.JPG';
-import acmMember9 from '../assets/members/sujalhadge.JPG';
-import acmMember10 from '../assets/members/sujalhadge.JPG';
-import acmMember11 from '../assets/members/sujalhadge.JPG';
-import acmMember12 from '../assets/members/sujalhadge.JPG';
-import acmMember13 from '../assets/members/sujalhadge.JPG';
-import acmMember14 from '../assets/members/sujalhadge.JPG';
-import acmMember15 from '../assets/members/sujalhadge.JPG';
+import acmMember4 from '../assets/members/sujalhadge.JPG';
+import acmMember5 from '../assets/members/omdhage.JPG';
+import acmMember6 from '../assets/members/ayushmishra.JPG';
+import acmMember7 from '../assets/members/samirsheikh.JPG';
+import acmMember8 from '../assets/members/harshitabighane.JPG';
+import acmMember9 from '../assets/members/antaratabhane.JPG';
+import acmMember10 from '../assets/members/kasturimahale.JPG';
+import acmMember11 from '../assets/members/mayankaylani.JPG';
+import acmMember12 from '../assets/members/roshanirahangdale.JPG';
+import acmMember13 from '../assets/members/shreyaneware.JPG';
+import acmMember14 from '../assets/members/tejaswanipaunikar.JPG';
+import acmMember15 from '../assets/members/tinawankhede.JPG';
+import acmMember16 from '../assets/members/johnrao.jpeg';
 
 // Import social media icons from image folder
 import instagramIcon from '../assets/images/instagram.png';
@@ -58,25 +59,27 @@ const EXECUTIVE_MEMBERS = [
   { id:7, name:'Yash Tanwani', image:executive7 },
   { id:8, name:'Ronit Ratnani', image:executive8 },
   { id:9, name:'Lavy Chawla', image:executive9 },
-  { id:10, name:'Divya Nair', image:executive10 },
+  { id:10, name:'Ashutosh Lonker', image:executive10 },
 ];
 
 const ACM_MEMBERS = [
-  { id:1, name:'Meher', post:'Technical Head', image:acmMember1 },
-  { id:2, name:'Waley', post:'Event Management Head', image:acmMember2 },
-  { id:3, name:'Sujal Hadge', post:'PR & Outreach Head', image:acmMember3 },
-  { id:4, name:'Om Dhage', post:'Design Head', image:acmMember4 },
-  { id:5, name:'Ayush Mishra', post:'Content Lead', image:acmMember5 },
-  { id:6, name:'Samir Shaikh', post:'Treasurer', image:acmMember6 },
-  { id:7, name:'Harshita', post:'Web Master', image:acmMember7 },
-  { id:8, name:'Member 8', post:'Research Lead', image:acmMember8 },
-  { id:9, name:'Member 9', post:'Competitive Programming Head', image:acmMember9 },
-  { id:10, name:'Member 10', post:'Women in Tech Lead', image:acmMember10 },
-  { id:11, name:'Member 11', post:'Cloud Computing Lead', image:acmMember11 },
-  { id:12, name:'Member 12', post:'Cybersecurity Lead', image:acmMember12 },
-  { id:13, name:'Member 13', post:'Blockchain Lead', image:acmMember13 },
-  { id:14, name:'Member 14', post:'Open Source Lead', image:acmMember14 },
-  { id:15, name:'Member 15', post:'ML Lead', image:acmMember15 },
+  { id:1, name:'Meher Bawnani', post:'Technical Head', image:acmMember1 },
+  { id:2, name:'Waley Shelke', post:'Chairman', image:acmMember2 },
+  { id:3, name:'Pranay Lohakare', post:'Vice Chairman', image:acmMember3 },
+  { id:4, name:'Sujal Hadge', post:'Secretary', image:acmMember4 },
+  { id:5, name:'Om Dhage', post:'Social Media Head', image:acmMember5 },
+  { id:6, name:'Ayush Mishra', post:'Technical Head', image:acmMember6 },
+  { id:7, name:'Samir Sheikh', post:'Photography Head', image:acmMember7 },
+  { id:8, name:'Harshita Bighane', post:'Lead Designer', image:acmMember8 },
+  { id:9, name:'Antara Tabhane', post:'Asst.Design', image:acmMember9 },
+  { id:10, name:'Kasturi Mahale', post:'Asst.Webmaster', image:acmMember10},
+  { id:11, name:'Mayank Aylani', post:'Technical Head', image:acmMember11 },
+  { id:12, name:'Roshani Rahangdale', post:'Documentation Incharge', image:acmMember12 },
+  { id:13, name:'Shreya Neware', post:'Operational Assistant', image:acmMember13 },
+  { id:14, name:'Tejaswani Paunikar', post:'Membership Chair', image:acmMember14 },
+  { id:15, name:'Tina Wankhede', post:'content Strategist', image:acmMember15 },
+  { id:16, name:'John Rao', post:'Outreach Coordinator', image:acmMember16 },
+  // { id:16, name:'Member 16', post:'ML Lead', image:acmMember15 },
 ];
 
 /* ── Static background stars ── */
