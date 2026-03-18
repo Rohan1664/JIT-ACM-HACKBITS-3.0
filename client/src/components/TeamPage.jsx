@@ -42,12 +42,12 @@ import linkedinIcon from '../assets/images/linkedin.png';
 import githubIcon from '../assets/images/github.png';
 
 /* ── Static data ── */
-const SPONSORS = Array.from({ length: 8 }, (_, i) => ({
-  id: i + 1,
-  name: `Tech Company ${i + 1}`,
-  logo: [sponsor1, sponsor2, sponsor3][i % 3],
-  tier: ['Platinum', 'Gold', 'Silver', 'Gold', 'Silver', 'Platinum', 'Bronze', 'Bronze'][i] + ' Sponsor',
-}));
+// const SPONSORS = Array.from({ length: 8 }, (_, i) => ({
+//   id: i + 1,
+//   name: `Tech Company ${i + 1}`,
+//   logo: [sponsor1, sponsor2, sponsor3][i % 3],
+//   // tier: ['Platinum', 'Gold', 'Silver', 'Gold', 'Silver', 'Platinum', 'Bronze', 'Bronze'][i] + ' Sponsor',
+// }));
 
 const EXECUTIVE_MEMBERS = [
   { id:1, name:'Ayush Dhole', image:executive1 },
@@ -400,7 +400,7 @@ const TeamPage = () => {
           </motion.div>
 
           {/* ── Sponsors (infinite scroll) ── */}
-          <motion.div ref={ref} initial="hidden" animate={inView ? 'visible' : 'hidden'} variants={CONTAINER_VARIANTS} className="mb-12 sm:mb-16 md:mb-20 overflow-hidden">
+          {/* <motion.div ref={ref} initial="hidden" animate={inView ? 'visible' : 'hidden'} variants={CONTAINER_VARIANTS} className="mb-12 sm:mb-16 md:mb-20 overflow-hidden">
             <SectionHeader title="Our Sponsors" />
             <div className="relative w-full overflow-hidden">
               <motion.div
@@ -426,7 +426,7 @@ const TeamPage = () => {
                 ))}
               </motion.div>
             </div>
-          </motion.div>
+          </motion.div> */}
 
           {/* ── Executive Members with Auto-scroll & Pagination ── */}
           <motion.div

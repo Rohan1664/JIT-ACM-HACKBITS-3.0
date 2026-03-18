@@ -101,7 +101,7 @@ const Hero = () => {
   );
 
   const handleRegisterClick = () => {
-    window.open("https://forms.google.com/your-registration-form", "_blank");
+    window.open("https://unstop.com/p/hackblitz-jit-acm-student-chapter-jhulelal-institute-of-technology-jit-nagpur-1657442", "_blank");
   };
 
   return (
