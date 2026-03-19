@@ -50,35 +50,35 @@ import githubIcon from '../assets/images/github.png';
 // }));
 
 const EXECUTIVE_MEMBERS = [
-  { id:1, name:'Ayush Dhole', image:executive1 },
-  { id:2, name:'Rohan Fasate', image:executive2 },
-  { id:3, name:'Isha', image:executive3 },
-  { id:4, name:'Riya Sharma', image:executive4 },
-  { id:5, name:'Nayan', image:executive5 },
-  { id:6, name:'Sairam Chavla', image:executive6 },
-  { id:7, name:'Yash Tanwani', image:executive7 },
-  { id:8, name:'Ronit Ratnani', image:executive8 },
-  { id:9, name:'Lavy Chawla', image:executive9 },
-  { id:10, name:'Ashutosh Lonker', image:executive10 },
+  { id: 1, name: 'Ayush Dhole', image: executive1 },
+  { id: 2, name: 'Rohan Fasate', image: executive2 },
+  { id: 3, name: 'Isha', image: executive3 },
+  { id: 4, name: 'Riya Sharma', image: executive4 },
+  { id: 5, name: 'Nayan', image: executive5 },
+  { id: 6, name: 'Sairam Chavla', image: executive6 },
+  { id: 7, name: 'Yash Tanwani', image: executive7 },
+  { id: 8, name: 'Ronit Ratnani', image: executive8 },
+  { id: 9, name: 'Lavy Chawla', image: executive9 },
+  { id: 10, name: 'Ashutosh Lonker', image: executive10 },
 ];
 
 const ACM_MEMBERS = [
-  { id:1, name:'Meher Bawnani', post:'Technical Head', image:acmMember1 },
-  { id:2, name:'Waley Shelke', post:'Chairman', image:acmMember2 },
-  { id:3, name:'Pranay Lohakare', post:'Vice Chairman', image:acmMember3 },
-  { id:4, name:'Sujal Hadge', post:'Secretary', image:acmMember4 },
-  { id:5, name:'Om Dhage', post:'Social Media Head', image:acmMember5 },
-  { id:6, name:'Ayush Mishra', post:'Technical Head', image:acmMember6 },
-  { id:7, name:'Samir Sheikh', post:'Photography Head', image:acmMember7 },
-  { id:8, name:'Harshita Bighane', post:'Lead Designer', image:acmMember8 },
-  { id:9, name:'Antara Tabhane', post:'Asst.Design', image:acmMember9 },
-  { id:10, name:'Kasturi Mahale', post:'Asst.Webmaster', image:acmMember10},
-  { id:11, name:'Mayank Aylani', post:'Technical Head', image:acmMember11 },
-  { id:12, name:'Roshani Rahangdale', post:'Documentation Incharge', image:acmMember12 },
-  { id:13, name:'Shreya Neware', post:'Operational Assistant', image:acmMember13 },
-  { id:14, name:'Tejaswani Paunikar', post:'Membership Chair', image:acmMember14 },
-  { id:15, name:'Tina Wankhede', post:'content Strategist', image:acmMember15 },
-  { id:16, name:'John Rao', post:'Outreach Coordinator', image:acmMember16 },
+  { id: 1, name: 'Meher Bawnani', post: 'Technical Head', image: acmMember1 },
+  { id: 2, name: 'Waley Shelke', post: 'Chairman', image: acmMember2 },
+  { id: 3, name: 'Pranay Lohakare', post: 'Vice Chairman', image: acmMember3 },
+  { id: 4, name: 'Sujal Hadge', post: 'Secretary', image: acmMember4 },
+  { id: 5, name: 'Om Dhage', post: 'Social Media Head', image: acmMember5 },
+  { id: 6, name: 'Ayush Mishra', post: 'Technical Head', image: acmMember6 },
+  { id: 7, name: 'Samir Sheikh', post: 'Photography Head', image: acmMember7 },
+  { id: 8, name: 'Harshita Bighane', post: 'Lead Designer', image: acmMember8 },
+  { id: 9, name: 'Antara Tabhane', post: 'Asst.Design', image: acmMember9 },
+  { id: 10, name: 'Kasturi Mahale', post: 'Asst.Webmaster', image: acmMember10 },
+  { id: 11, name: 'Mayank Aylani', post: 'Technical Head', image: acmMember11 },
+  { id: 12, name: 'Roshani Rahangdale', post: 'Documentation Incharge', image: acmMember12 },
+  { id: 13, name: 'Shreya Neware', post: 'Operational Assistant', image: acmMember13 },
+  { id: 14, name: 'Tejaswani Paunikar', post: 'Membership Chair', image: acmMember14 },
+  { id: 15, name: 'Tina Wankhede', post: 'content Strategist', image: acmMember15 },
+  { id: 16, name: 'John Rao', post: 'Outreach Coordinator', image: acmMember16 },
   // { id:16, name:'Member 16', post:'ML Lead', image:acmMember15 },
 ];
 
@@ -252,16 +252,16 @@ const PaginationDots = ({ total, current, onChange }) => (
 
 const TeamPage = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.08 });
-  
+
   // Pagination states
   const [executivePage, setExecutivePage] = useState(1);
   const [acmPage, setAcmPage] = useState(1);
   const [direction, setDirection] = useState(0);
-  
+
   // Auto-scroll states
   const [isExecutiveHovered, setIsExecutiveHovered] = useState(false);
   const [isAcmHovered, setIsAcmHovered] = useState(false);
-  
+
   // Items per page based on screen size
   const [executivePerPage, setExecutivePerPage] = useState(4);
   const [acmPerPage, setAcmPerPage] = useState(5);
@@ -284,13 +284,13 @@ const TeamPage = () => {
   const acmTotalPages = useMemo(() => Math.ceil(ACM_MEMBERS.length / acmPerPage), [acmPerPage]);
 
   // Get current page members
-  const currentExecutiveMembers = useMemo(() => 
-    EXECUTIVE_MEMBERS.slice((executivePage - 1) * executivePerPage, executivePage * executivePerPage), 
+  const currentExecutiveMembers = useMemo(() =>
+    EXECUTIVE_MEMBERS.slice((executivePage - 1) * executivePerPage, executivePage * executivePerPage),
     [executivePage, executivePerPage]
   );
-  
-  const currentAcmMembers = useMemo(() => 
-    ACM_MEMBERS.slice((acmPage - 1) * acmPerPage, acmPage * acmPerPage), 
+
+  const currentAcmMembers = useMemo(() =>
+    ACM_MEMBERS.slice((acmPage - 1) * acmPerPage, acmPage * acmPerPage),
     [acmPage, acmPerPage]
   );
 
@@ -437,13 +437,17 @@ const TeamPage = () => {
             onMouseEnter={() => setIsExecutiveHovered(true)}
             onMouseLeave={() => setIsExecutiveHovered(false)}
           >
-            <SectionHeader title="Executive Members" />
+            <h1 className="text-center text-4xl sm:text-5xl md:text-6xl font-bold font-orbitron mb-10">
+              <span className="bg-gradient-to-r from-sky-300 to-blue-400 bg-clip-text text-transparent">
+                Executive Members
+              </span>
+            </h1>
             <div className="relative">
-              <NavigationButtons 
-                onPrev={prevExecutivePage} 
-                onNext={nextExecutivePage} 
-                isPrevDisabled={executivePage === 1} 
-                isNextDisabled={executivePage === executiveTotalPages} 
+              <NavigationButtons
+                onPrev={prevExecutivePage}
+                onNext={nextExecutivePage}
+                isPrevDisabled={executivePage === 1}
+                isNextDisabled={executivePage === executiveTotalPages}
               />
               <div className="overflow-hidden px-0 sm:px-8">
                 <AnimatePresence mode="wait" custom={direction}>
@@ -463,20 +467,20 @@ const TeamPage = () => {
                   </motion.div>
                 </AnimatePresence>
               </div>
-              <MobileNav 
-                onPrev={prevExecutivePage} 
-                onNext={nextExecutivePage} 
-                isPrevDisabled={executivePage === 1} 
-                isNextDisabled={executivePage === executiveTotalPages} 
-                page={executivePage} 
-                totalPages={executiveTotalPages} 
+              <MobileNav
+                onPrev={prevExecutivePage}
+                onNext={nextExecutivePage}
+                isPrevDisabled={executivePage === 1}
+                isNextDisabled={executivePage === executiveTotalPages}
+                page={executivePage}
+                totalPages={executiveTotalPages}
               />
             </div>
             {executiveTotalPages > 1 && (
-              <PaginationDots 
-                total={executiveTotalPages} 
-                current={executivePage} 
-                onChange={handleExecutivePageChange} 
+              <PaginationDots
+                total={executiveTotalPages}
+                current={executivePage}
+                onChange={handleExecutivePageChange}
               />
             )}
           </motion.div>
@@ -490,13 +494,17 @@ const TeamPage = () => {
             onMouseEnter={() => setIsAcmHovered(true)}
             onMouseLeave={() => setIsAcmHovered(false)}
           >
-            <SectionHeader title="ACM Members" />
+            <h1 className="text-center text-4xl sm:text-5xl md:text-6xl font-bold font-orbitron mb-10">
+              <span className="bg-gradient-to-r from-sky-300 to-blue-400 bg-clip-text text-transparent">
+                ACM Members
+              </span>
+            </h1>
             <div className="relative">
-              <NavigationButtons 
-                onPrev={prevAcmPage} 
-                onNext={nextAcmPage} 
-                isPrevDisabled={acmPage === 1} 
-                isNextDisabled={acmPage === acmTotalPages} 
+              <NavigationButtons
+                onPrev={prevAcmPage}
+                onNext={nextAcmPage}
+                isPrevDisabled={acmPage === 1}
+                isNextDisabled={acmPage === acmTotalPages}
               />
               <div className="overflow-hidden px-0 sm:px-8">
                 <AnimatePresence mode="wait" custom={direction}>
@@ -516,20 +524,20 @@ const TeamPage = () => {
                   </motion.div>
                 </AnimatePresence>
               </div>
-              <MobileNav 
-                onPrev={prevAcmPage} 
-                onNext={nextAcmPage} 
-                isPrevDisabled={acmPage === 1} 
-                isNextDisabled={acmPage === acmTotalPages} 
-                page={acmPage} 
-                totalPages={acmTotalPages} 
+              <MobileNav
+                onPrev={prevAcmPage}
+                onNext={nextAcmPage}
+                isPrevDisabled={acmPage === 1}
+                isNextDisabled={acmPage === acmTotalPages}
+                page={acmPage}
+                totalPages={acmTotalPages}
               />
             </div>
             {acmTotalPages > 1 && (
-              <PaginationDots 
-                total={acmTotalPages} 
-                current={acmPage} 
-                onChange={handleAcmPageChange} 
+              <PaginationDots
+                total={acmTotalPages}
+                current={acmPage}
+                onChange={handleAcmPageChange}
               />
             )}
           </motion.div>
