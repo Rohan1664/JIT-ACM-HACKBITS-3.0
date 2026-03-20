@@ -77,14 +77,14 @@ const WhyHackBits = () => {
       icon: cup,
       title: "Exciting Prizes",
       description: "Win amazing prizes, swag, and recognition for your solutions",
-      stats: "₹50K+ Prizes",
+      stats: "Prizes up to ₹15K",
     },
   ];
 
   const highlights = [
     { number: "16", label: "Hours", description: "continuous coding" },
     { number: "4", label: "Members", description: "per team maximum" },
-    { number: "50K+", label: "Prizes", description: "worth of rewards" },
+    { number: "15K+", label: "Prizes", description: "worth of rewards" },
   ];
 
   const benefitSections = [

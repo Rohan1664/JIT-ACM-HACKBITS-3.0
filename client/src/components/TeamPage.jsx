@@ -7,34 +7,34 @@ import sponsor2 from '../assets/images/jitacm.avif';
 import sponsor3 from '../assets/images/jitacm.avif';
 
 
-import executive1 from '../assets/executivemembers/ayushdhole.jpeg';
-import executive2 from '../assets/executivemembers/rohanfasate.jpeg';
-import executive3 from '../assets/executivemembers/isha.jpeg';
-import executive4 from '../assets/executivemembers/riyasharma.jpeg';
-import executive5 from '../assets/executivemembers/nayan.jpeg';
-import executive6 from '../assets/executivemembers/sairamchavla.jpeg';
-import executive7 from '../assets/executivemembers/yashtanwani.jpeg';
-import executive8 from '../assets/executivemembers/ronitratnani.jpeg';
-import executive9 from '../assets/executivemembers/lavychawla.jpeg';
-import executive10 from '../assets/executivemembers/ashutoshlonkar.jpeg';
+import executive1 from '../assets/executivemembers/ayushdhole.avif';
+import executive2 from '../assets/executivemembers/rohanfasate.avif';
+import executive3 from '../assets/executivemembers/isha.avif';
+import executive4 from '../assets/executivemembers/riyasharma.avif';
+import executive5 from '../assets/executivemembers/nayan.avif';
+import executive6 from '../assets/executivemembers/sairamchavla.avif';
+import executive7 from '../assets/executivemembers/yashtanwani.avif';
+import executive8 from '../assets/executivemembers/ronitratnani.avif';
+import executive9 from '../assets/executivemembers/lavychawla.avif';
+import executive10 from '../assets/executivemembers/ashutoshlonkar.avif';
 
 
-import acmMember1 from '../assets/members/meherbawnani.jpg';
-import acmMember2 from '../assets/members/walayshelke.jpg';
-import acmMember3 from '../assets/members/sujalhadge.JPG';
-import acmMember4 from '../assets/members/sujalhadge.JPG';
-import acmMember5 from '../assets/members/omdhage.JPG';
-import acmMember6 from '../assets/members/ayushmishra.JPG';
-import acmMember7 from '../assets/members/samirsheikh.JPG';
-import acmMember8 from '../assets/members/harshitabighane.JPG';
-import acmMember9 from '../assets/members/antaratabhane.JPG';
-import acmMember10 from '../assets/members/kasturimahale.JPG';
-import acmMember11 from '../assets/members/mayankaylani.JPG';
-import acmMember12 from '../assets/members/roshanirahangdale.JPG';
-import acmMember13 from '../assets/members/shreyaneware.JPG';
-import acmMember14 from '../assets/members/tejaswanipaunikar.JPG';
-import acmMember15 from '../assets/members/tinawankhede.JPG';
-import acmMember16 from '../assets/members/johnrao.jpeg';
+import acmMember1 from '../assets/members/meherbawnani.avif';
+import acmMember2 from '../assets/members/walayshelke.avif';
+import acmMember3 from '../assets/members/sujalhadge.avif';
+import acmMember4 from '../assets/members/sujalhadge.avif';
+import acmMember5 from '../assets/members/omdhage.avif';
+import acmMember6 from '../assets/members/ayushmishra.avif';
+import acmMember7 from '../assets/members/samirsheikh.avif';
+import acmMember8 from '../assets/members/harshitabighane.avif';
+import acmMember9 from '../assets/members/antaratabhane.avif';
+import acmMember10 from '../assets/members/kasturimahale.avif';
+import acmMember11 from '../assets/members/mayankaylani.avif';
+import acmMember12 from '../assets/members/roshanirahangdale.avif';
+import acmMember13 from '../assets/members/shreyaneware.avif';
+import acmMember14 from '../assets/members/tejaswanipaunikar.avif';
+import acmMember15 from '../assets/members/tinawankhede.avif';
+import acmMember16 from '../assets/members/johnrao.avif';
 
 // Import social media icons from image folder
 import instagramIcon from '../assets/images/instagram.png';
